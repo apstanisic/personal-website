@@ -5,7 +5,8 @@
 			<div class="logo"><h1>Al-Stn</h1></div>
 			<button class="nav-dugme" href="#">≡</button>
 		</div>
-		<ul>
+		<ul class="nav-linkovi">
+			<li class="nav-strela"><a href="#">➔</a></li>
 			<li><a href="#">Pocetna</a></li>
 			<li><a href="#">O meni</a></li>
 			<li><a href="#">Vestine</a></li>
