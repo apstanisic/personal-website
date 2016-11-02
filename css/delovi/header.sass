@@ -1,7 +1,6 @@
-.cover
+.navigacija
+	@include position(absolute, 0 0 auto 0)
 	width: 100vw
-	background: url(../slike/cover.jpg)
-	background-size: cover
 	height: auto
 
 	.otvarac
@@ -30,27 +29,49 @@
 
 
 		.nav-dugme
-			@include position(absolute, 10px 10px auto auto)
+
+			display: block
+			justify-content: center
+			align-items: center
+			flex-direction: column
+			flex-wrap: none
+			//@include position(absolute, 10px 10px auto auto)
 			@include size(60px)
 			border-radius: 5px
 			background: $poluprovidnoCrno
-			border: none
-			font-size: 2.6rem
-			line-height: 60px
-			color: $prljavoBela
+			padding: 5px
+			box-sizing: border-box
 			cursor: pointer
 			margin-right: 0px
-			z-index: 2
-			transition: margin-right 400ms, background 400ms
+			transition: all 400ms
 
 			&.pomeri-nav-dugme
 				margin-right: 260px
 				background: #000
 
+			.crta, .crta:before, .crta:after
+				position: relative
+				content: ""
+				height: 3px
+				background: #fff
+				width: 100px				
+
+			.crta:before, .crta:after
+				position: absolute
+
+			.crta:before
+				top: 10px
+
+			.crta:after
+				bottom: 10px
+				
+
+			
 
 
-	//.nav-linkovi
-		//text-transform: uppercase
+
+
+
 
 
 	@media screen and (max-width: 899px)
@@ -85,20 +106,12 @@
 				a
 					padding: 10px 15px
 
-	.cover-sadrzaj
-		min-height: 300px
-		display: flex
-		justify-content: center
-		align-items: center
-		text-transform: uppercase
-		color: white
-		font-size: 4rem
 
 
 
 @media screen and (min-width: 900px)
-	.cover
-		.navigacija
+	.navigacija
+		nav
 			display: flex
 			justify-content: space-between
 			text-shadow: 0 0 3px #000, 0 0 3px #000
