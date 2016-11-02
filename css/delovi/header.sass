@@ -2,8 +2,7 @@
 	width: 100vw
 	background: url(../slike/cover.jpg)
 	background-size: cover
-	min-height: 400px
-	z-index: 0
+	height: auto
 
 	.otvarac
 		display: flex
@@ -12,64 +11,82 @@
 		height: 80px
 		padding: 10px
 		text-shadow: 0 0 3px #000
-		filter: blur(0px)
 
 		.logo
 			box-sizing: border-box
 			height: 60px
 			border: 2px solid $prljavoBela
-			border-radius: 3px
+			border-radius: 5px
 			width: auto
 			padding: 5px 15px
 			line-height: 46px
 			color: $prljavoBela
 			letter-spacing: 0.15em
+			z-index: 0
 
 			h1
 				margin: 0
-				font-size: 2.5rem
+				font-size: 2.6rem
 
 
 		.nav-dugme
-			position: fixed
-			right: 10px
+			@include position(absolute, 10px 10px auto auto)
 			@include size(60px)
 			border-radius: 5px
 			background: $poluprovidnoCrno
 			border: none
-			font-size: 50px
+			font-size: 2.6rem
 			line-height: 60px
 			color: $prljavoBela
 			cursor: pointer
+			margin-right: 0px
+			z-index: 2
+			transition: margin-right 400ms, background 400ms
 
-	.nav-linkovi
+			&.pomeri-nav-dugme
+				margin-right: 260px
+				background: #000
+
+
+
+	//.nav-linkovi
 		//text-transform: uppercase
 
 
-	@media screen and (max-width: 1099px)
+	@media screen and (max-width: 899px)
 		.nav-linkovi
 			@include position(fixed, 0 0 0 auto)
 			background: $skoroCrno
 			width: 0px
-			z-index: 0
 			transition: width 400ms
 			text-transform: uppercase
+			display: flex
+			flex-direction: column
+			z-index: 1
+			padding-top: 10px
+			
 
 
-			&.prikazi
+			&.prikazi-nav
 				width: 260px
 
 			li
-				height: 50px
-				text-align: left
-				padding: 10px 0 0 30px
+				display: flex
+				height: 60px
+				padding-left: 30px
 				font-size: 20px
+				align-items: center
 
-				&:first-child
-					height: 80px
-					font-size: 60px
+				// &:first-child
+				// 	height: 80px
+				// 	font-size: 2.6rem
+				// 	visibility: none
+
+				a
+					padding: 10px 15px
 
 	.cover-sadrzaj
+		min-height: 300px
 		display: flex
 		justify-content: center
 		align-items: center
@@ -79,7 +96,7 @@
 
 
 
-@media screen and (min-width: 1100px)
+@media screen and (min-width: 900px)
 	.cover
 		.navigacija
 			display: flex

@@ -6,8 +6,8 @@
 			<button class="nav-dugme" href="#">≡</button>
 		</div>
 		<ul class="nav-linkovi">
-			<li class="nav-strela"><a href="#">➔</a></li>
-			<li><a href="#cover">Pocetna</a></li>
+			<!-- <li class="nav-strela"><a href="#">➔</a></li> -->
+			<li><a href="#cover">Pocetak</a></li>
 			<li><a href="#">O meni</a></li>
 			<li><a href="#">Vestine</a></li>
 			<li><a href="#">Radovi</a></li>
@@ -17,7 +17,7 @@
 
 	</nav>
 	<section class="cover-sadrzaj">
-		Dobrodosli
+		D
 	</section>
 
 
