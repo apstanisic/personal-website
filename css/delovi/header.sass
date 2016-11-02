@@ -1,0 +1,63 @@
+.cover:before
+	content: ""
+	position: fixed
+
+.cover
+	width: 100vw
+	background: url(../slike/cover.jpg)
+	background-size: cover
+	min-height: 400px
+	
+
+
+
+	.otvarac
+		display: flex
+		justify-content: space-between
+		box-sizing: border-box
+		height: 80px
+		padding: 10px
+		text-shadow: 0 0 3px #000
+		filter: blur(0px)
+
+		.logo
+			box-sizing: border-box
+			height: 60px
+			border: 2px solid $prljavoBela
+			border-radius: 3px
+			width: auto
+			padding: 5px 15px
+			line-height: 46px
+			color: $prljavoBela
+			font-family: $fontLogo
+			letter-spacing: 0.15em
+
+			h1
+				margin: 0
+				font-size: 2.5rem
+
+
+		.nav-dugme
+			@include size(60px)
+			border-radius: 5px
+			background: $poluprovidnoCrno
+			border: none
+			font-size: 50px
+			line-height: 60px
+			color: $prljavoBela
+
+@media screen and (max-width: 699px)
+	.cover
+
+		ul
+			padding: 10px 0
+			li
+				width: 100%
+				height: 45px
+				text-align: center
+
+
+@media screen and (min-width: 700px)
+	.nav-dugme
+		display: none
+	
