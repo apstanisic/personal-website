@@ -7,7 +7,7 @@
 		</div>
 		<ul class="nav-linkovi">
 			<li class="nav-strela"><a href="#">➔</a></li>
-			<li><a href="#">Pocetna</a></li>
+			<li><a href="#cover">Pocetna</a></li>
 			<li><a href="#">O meni</a></li>
 			<li><a href="#">Vestine</a></li>
 			<li><a href="#">Radovi</a></li>
