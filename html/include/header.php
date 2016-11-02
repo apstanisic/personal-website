@@ -16,6 +16,9 @@
 		</ul>
 
 	</nav>
+	<section class="cover-sadrzaj">
+		Dobrodosli
+	</section>
 
 
 </header>

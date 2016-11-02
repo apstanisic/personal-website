@@ -3,7 +3,7 @@
 	background: url(../slike/cover.jpg)
 	background-size: cover
 	min-height: 400px
-	z-index: 0	
+	z-index: 0
 
 	.otvarac
 		display: flex
@@ -41,31 +41,77 @@
 			font-size: 50px
 			line-height: 60px
 			color: $prljavoBela
-			z-index: 111
 			cursor: pointer
 
-	ul
-		@include position(fixed, 0 0 0 auto)
-		background: $skoroCrno
-		width: 0px
-		z-index: 0
-		transition: width 400ms
 
-		&.prikazi
-			width: 260px
+	@media screen and (max-width: 1099px)
+		.nav-linkovi
+			@include position(fixed, 0 0 0 auto)
+			background: $skoroCrno
+			width: 0px
+			z-index: 0
+			transition: width 400ms
 
-		li
-			height: 50px
-			text-align: left
-			padding-left: 30px
+			&.prikazi
+				width: 260px
 
-			&:first-child
-				height: 80px
-				font-size: 60px
+			li
+				height: 50px
+				text-align: left
+				padding: 10px 0 0 30px
+				font-size: 25px
+
+				&:first-child
+					height: 80px
+					font-size: 60px
+
+	.cover-sadrzaj
+		display: flex
+		justify-content: center
+		align-items: center
+		text-transform: uppercase
+		color: white
+		font-size: 4rem
 
 
 
-@media screen and (min-width: 700px)
-	.nav-dugme
+@media screen and (min-width: 1100px)
+	.cover
+		.navigacija
+			display: flex
+			justify-content: space-between
+			text-shadow: 0 0 3px #000, 0 0 3px #000, 0 0 3px #000
+			.otvarac
+				display: inline-block
+
+			.nav-linkovi
+				background: transparent
+				display: flex
+				justify-content: center
+				align-items: center
+
+				li
+					min-width: 100px
+					font-size: 35px
+					padding: 20px 15px
+					line-height: 46px
+
+					a:after
+						content: ""
+						display: flex
+						border-bottom: 0.2em solid $prljavoBela
+						transform: scaleX(0)
+						transition: transform 400ms
+
+					a:hover:after
+						border-bottom: 0.2em solid $prljavoBela
+						border-width: auto
+						transform: scaleX(1)
+
+
+
+
+	.nav-dugme, .nav-strela
 		display: none
+
 	
