@@ -23,7 +23,6 @@
 			padding: 5px 15px
 			line-height: 46px
 			color: $prljavoBela
-			font-family: $fontLogo
 			letter-spacing: 0.15em
 
 			h1
@@ -43,6 +42,9 @@
 			color: $prljavoBela
 			cursor: pointer
 
+	.nav-linkovi
+		//text-transform: uppercase
+
 
 	@media screen and (max-width: 1099px)
 		.nav-linkovi
@@ -51,6 +53,8 @@
 			width: 0px
 			z-index: 0
 			transition: width 400ms
+			text-transform: uppercase
+
 
 			&.prikazi
 				width: 260px
@@ -59,7 +63,7 @@
 				height: 50px
 				text-align: left
 				padding: 10px 0 0 30px
-				font-size: 25px
+				font-size: 20px
 
 				&:first-child
 					height: 80px
@@ -80,7 +84,7 @@
 		.navigacija
 			display: flex
 			justify-content: space-between
-			text-shadow: 0 0 3px #000, 0 0 3px #000, 0 0 3px #000
+			text-shadow: 0 0 3px #000, 0 0 3px #000
 			.otvarac
 				display: inline-block
 
@@ -92,7 +96,7 @@
 
 				li
 					min-width: 100px
-					font-size: 35px
+					font-size: 25px
 					padding: 20px 15px
 					line-height: 46px
 
