@@ -1,6 +1,6 @@
 .navigacija
 	@include position(absolute, 0 0 auto 0)
-	width: 100vw
+	width: 100%
 	height: auto
 
 	.otvarac
@@ -30,40 +30,39 @@
 
 		.nav-dugme
 
-			display: block
+			display: flex
 			justify-content: center
 			align-items: center
-			flex-direction: column
-			flex-wrap: none
-			//@include position(absolute, 10px 10px auto auto)
+			//flex-direction: column
+			//flex-wrap: none
+			@include position(absolute, 10px 10px auto auto)
 			@include size(60px)
 			border-radius: 5px
 			background: $poluprovidnoCrno
 			padding: 5px
 			box-sizing: border-box
-			cursor: pointer
+			cursor: pointer	
 			margin-right: 0px
 			transition: all 400ms
+			//z-index: 2
 
 			&.pomeri-nav-dugme
-				margin-right: 260px
+				margin-right: 200px
 				background: #000
 
 			.crta, .crta:before, .crta:after
+				display: block
 				position: relative
 				content: ""
 				height: 3px
 				background: #fff
-				width: 100px				
-
-			.crta:before, .crta:after
-				position: absolute
+				width: 40px				
 
 			.crta:before
-				top: 10px
+				bottom: 13px
 
 			.crta:after
-				bottom: 10px
+				top: 10px
 				
 
 			
@@ -89,12 +88,12 @@
 
 
 			&.prikazi-nav
-				width: 260px
+				width: 200px
 
 			li
 				display: flex
 				height: 60px
-				padding-left: 30px
+				padding-left: 10px
 				font-size: 20px
 				align-items: center
 
@@ -117,6 +116,9 @@
 			text-shadow: 0 0 3px #000, 0 0 3px #000
 			.otvarac
 				display: inline-block
+
+				.nav-dugme
+					display: none
 
 			.nav-linkovi
 				background: transparent
@@ -142,10 +144,3 @@
 						border-width: auto
 						transform: scaleX(1)
 
-
-
-
-	.nav-dugme, .nav-strela
-		display: none
-
-	
