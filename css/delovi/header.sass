@@ -56,25 +56,35 @@
 				content: ""
 				height: 3px
 				background: #fff
-				width: 100%				
+				width: 100%	
+				transition: all 800ms	ease-in-out		
 
-			.crta:before
-				top: -13px
+			// .crta:before
+			// 	top: -13px
 
 			.crta:after
-				top: 10px
+				top: -3px
 
+
+			.rotiraj-dugme.crta
+				background: transparent
+			.rotiraj-dugme.crta:after
+				
+				transform: rotate(45deg)
+
+			.rotiraj-dugme.crta:before
+				transform: rotate(-45deg)			
 			// &:hover .crta
 			// 	background: transparent
 
-			&:hover .crta:before,
-			&:hover .crta:after
-				transform-origin: center 
-				top: 0px
-				transform: rotate(-45deg)
+			// &:hover .crta:before,
+			// &:hover .crta:after
+			// 	transform-origin: center 
+			// 	top: 0px
+			// 	transform: rotate(-45deg)
 
-			&:hover .crta:before
-				transform: rotate(45deg)
+			// &:hover .crta:before
+			// 	transform: rotate(45deg)
 				
 
 			
