@@ -5,7 +5,9 @@
 		<div class="otvarac">
 			<div class="logo"><h1>Al-Stn</h1></div>
 			<div class="nav-dugme">
-				<span class="crta"></span>
+				<span class="crta crta-gore"></span>
+				<span class="crta-sredina"></span>
+				<span class="crta crta-dole"></span>
 			<!-- ≡ -->
 			</div>
 		</div>

@@ -31,13 +31,13 @@
 		.nav-dugme
 
 			display: flex
-			justify-content: center
+			justify-content: space-around
 			align-items: center
-			//flex-direction: column
+			flex-direction: column
 			//flex-wrap: none
-			@include position(absolute, 10px 10px auto auto)
+			@include position(absolute, 10px 0px auto auto)
 			@include size(60px)
-			border-radius: 5px
+			border-radius:  5px 0 0  5px
 			background: $poluprovidnoCrno
 			padding: 10px
 			box-sizing: border-box
@@ -48,48 +48,53 @@
 
 			&.pomeri-nav-dugme
 				margin-right: 200px
-				background: #000
+				background: $skoroCrno
 
-			.crta, .crta:before, .crta:after
+			// Animacija nav dugmeta
+
+			.crta
+				width: 100%
+				height: 3px
+				background: #fff
+				position:relative
+				transition: all 800ms
+
+			.crta-gore
+				bottom: 0
+			.crta-dole
+				top: 0
+				
+			&.pomeri-nav-dugme .crta.crta-gore
+				bottom: 12px
+
+			&.pomeri-nav-dugme .crta.crta-dole
+				top: 12px
+
+
+			.crta-sredina, .crta-sredina:before, .crta-sredina:after
 				display: block
 				position: relative
 				content: ""
 				height: 3px
-				background: #fff
+				background: $prljavoBela
 				width: 100%	
 				transition: all 800ms	ease-in-out		
 
-			// .crta:before
-			// 	top: -13px
+			.crta-sredina
+				background: transparent
 
-			.crta:after
+
+			.crta-sredina:after
 				top: -3px
 
 
-			.rotiraj-dugme.crta
-				background: transparent
-			.rotiraj-dugme.crta:after
-				
+			
+			&.pomeri-nav-dugme .crta-sredina:after
 				transform: rotate(45deg)
 
-			.rotiraj-dugme.crta:before
+			&.pomeri-nav-dugme .crta-sredina:before
 				transform: rotate(-45deg)			
-			// &:hover .crta
-			// 	background: transparent
-
-			// &:hover .crta:before,
-			// &:hover .crta:after
-			// 	transform-origin: center 
-			// 	top: 0px
-			// 	transform: rotate(-45deg)
-
-			// &:hover .crta:before
-			// 	transform: rotate(45deg)
 				
-
-			
-
-
 
 
 
