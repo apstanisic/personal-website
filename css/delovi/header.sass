@@ -39,7 +39,7 @@
 			@include size(60px)
 			border-radius: 5px
 			background: $poluprovidnoCrno
-			padding: 5px
+			padding: 10px
 			box-sizing: border-box
 			cursor: pointer	
 			margin-right: 0px
@@ -56,13 +56,25 @@
 				content: ""
 				height: 3px
 				background: #fff
-				width: 40px				
+				width: 100%				
 
 			.crta:before
-				bottom: 13px
+				top: -13px
 
 			.crta:after
 				top: 10px
+
+			// &:hover .crta
+			// 	background: transparent
+
+			&:hover .crta:before,
+			&:hover .crta:after
+				transform-origin: center 
+				top: 0px
+				transform: rotate(-45deg)
+
+			&:hover .crta:before
+				transform: rotate(45deg)
 				
 
 			
