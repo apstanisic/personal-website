@@ -48,7 +48,10 @@
 			justify-content: space-around
 			align-items: center
 			flex-direction: column
-			@include position(absolute, 10px 0px auto auto)
+			//stavio sam nav dugme fixed da bi uvek mogao da klikcem
+			//nav ostane otvoren kada kliknem i moras da skrolujes skroz do gore da ga zatvoris
+			//moras preko js da klikom na link skines klasu prikazi sa navigacije
+			@include position(fixed, 10px 0px auto auto)
 			@include size(60px)
 			border-radius:  5px 0 0  5px
 			background: $poluprovidnoCrno

@@ -15,7 +15,7 @@
 			<li><a href="#">O meni</a></li>
 			<li><a href="#">Vestine</a></li>
 			<li><a href="#">Radovi</a></li>
-			<li><a href="#">Kontakt</a></li>
+			<li><a href="#contact">Kontakt</a></li>
 
 		</ul>
 	</nav>
