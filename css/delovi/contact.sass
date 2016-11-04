@@ -1,9 +1,10 @@
+$kontaktBoja: #333334
 
 .contact
 	display: flex
 	min-height: 300px
-	background: #595	
-	border: 5px solid #559
+	background: $kontaktBoja	
+	//border: 5px solid #559
 	width: 100%
 	box-sizing: border-box
 	justify-content: center
@@ -14,6 +15,7 @@
 		flex-direction: column
 		padding: 30px 15px
 		max-width: 500px
+		margin: 50px 0
 
 		h3
 			color: #fff
@@ -32,12 +34,18 @@
 				border-radius: 3px
 				border: none
 				padding: 5px 10px
+				background: #fff
 
 				&:focus
 					box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.5)
 
+				&::placeholder
+					//color: darken(#ADD8E6, 15%)
+					color: darken($prljavoBela, 20%)
+
 			input[type=text], input[type=email]
 				height: 2em
+				color: $kontaktBoja
 
 			button[type=submit], button[type=button]
 				height: 2em
@@ -50,7 +58,7 @@
 				cursor: pointer
 				font-size: 20px
 				padding: 5px 
-				color: #595
+				color: $kontaktBoja
 				transition: all 200ms 
 				transform: scale(1)
 
