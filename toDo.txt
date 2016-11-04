@@ -1,0 +1,1 @@
+Staviti da se navigacija uvuce kada se predje na veci ekran, da ne bi bila vec otvorena ako korisnik smanji ekran
