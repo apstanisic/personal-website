@@ -7,6 +7,7 @@
 	height: auto
 	display: flex
 	//flex: 1
+
 	nav
 		flex-grow: 1
 
@@ -136,48 +137,44 @@
 
 @media screen and (min-width: 701px)
 	.navigacija
-		nav
+		display: flex
+		justify-content: space-between
+		.otvarac
+			.nav-dugme
+				display: none
+
+		.nav-linkovi
+			padding-right: 15px
+			background: transparent
 			display: flex
-			justify-content: space-between
-			.otvarac
-				//display: inline-block
+			flex: 1
+			justify-content: flex-end
+			align-items: center
+			text-shadow: 1 1 3px #000
 
-				.nav-dugme
-					display: none
+			li
+				//min-width: 80px
+				font-size: 20px
+				padding: 10px 15px
+				//line-height: 1.5
 
-			.nav-linkovi
-				padding-right: 15px
-				background: transparent
-				display: flex
-				flex: 1
-				justify-content: flex-end
-				align-items: center
-				text-shadow: 1 1 3px #000
+				a:after
+					content: ""
+					display: flex
+					//padding-bottom: 3px
+					border-bottom: 0.2em solid $prljavoBela
+					transform: scaleX(0)
+					transition: transform 400ms
 
-				li
-					//min-width: 80px
-					font-size: 20px
-					padding: 10px 15px
-					//line-height: 1.5
-
-					a:after
-						content: ""
-						display: flex
-						//padding-bottom: 3px
-						border-bottom: 0.2em solid $prljavoBela
-						transform: scaleX(0)
-						transition: transform 400ms
-
-					a:hover:after
-						border-bottom: 0.2em solid $prljavoBela
-						border-width: auto
-						transform: scaleX(1)
+				a:hover:after
+					border-bottom: 0.2em solid $prljavoBela
+					border-width: auto
+					transform: scaleX(1)
 
 
 @media screen and (min-width: 951px)
 	.navigacija
 		padding: 10px 30px 0 30px
-		nav
 			.nav-linkovi
 				li
 					font-size: 30px
