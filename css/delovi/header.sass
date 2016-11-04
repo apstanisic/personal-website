@@ -8,9 +8,6 @@
 	display: flex
 	//flex: 1
 
-	// nav
-	// 	flex-grow: 1
-	// 	align-items: center
 	nav
 		display: flex
 		align-items: center
@@ -51,7 +48,6 @@
 			justify-content: space-around
 			align-items: center
 			flex-direction: column
-			//flex-wrap: none
 			@include position(absolute, 10px 0px auto auto)
 			@include size(60px)
 			border-radius:  5px 0 0  5px
@@ -134,11 +130,6 @@
 				align-items: center
 				white-space: nowrap
 
-				// &:first-child
-				// 	height: 80px
-				// 	font-size: 2.6rem
-				// 	visibility: none
-
 				a
 					padding: 10px 15px
 
@@ -149,6 +140,9 @@
 	.navigacija
 		display: flex
 		justify-content: space-between
+		//Ako se stavi da je navigacija fiksna na mobilnom, ovde mora da se stavi da je apsolutna da ne bi obicna
+		//navigacija pratila stranicu, nav moze i absolute, a dugme fixed, onda samo dugme prati stranicu
+		//@include position(absolute, 0 0 auto 0)
 		.otvarac
 			.nav-dugme
 				display: none
@@ -166,7 +160,6 @@
 				//min-width: 80px
 				font-size: 20px
 				padding: 10px 15px
-				//line-height: 1.5
 
 				a:after
 					content: ""
