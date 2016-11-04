@@ -3,7 +3,7 @@
 	<nav>
 
 		<div class="otvarac">
-			<div class="logo"><h1>Al-Stn</h1></div>
+			<div class="logo"><h1>Aleksandar Stanisic</h1></div>
 			<div class="nav-dugme">
 				<span class="crta crta-gore"></span>
 				<span class="crta-sredina"></span>

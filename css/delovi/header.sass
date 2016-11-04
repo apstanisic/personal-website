@@ -17,18 +17,18 @@
 		.logo
 			box-sizing: border-box
 			height: 60px
-			border: 2px solid $prljavoBela
-			border-radius: 5px
-			width: auto
-			padding: 5px 15px
-			line-height: 46px
-			color: $prljavoBela
-			letter-spacing: 0.15em
+			display: inline-block
+			width: 60px
 			z-index: 0
+			background:
+				image: url(../slike/logo.svg)
+				size: contain
+				position: center
+				repeat: no-repeat
 
 			h1
-				margin: 0
-				font-size: 2.6rem
+				@include hide-text
+				
 
 
 		.nav-dugme
@@ -50,7 +50,7 @@
 			//z-index: 2
 
 			&.pomeri-nav-dugme
-				margin-right: 200px
+				margin-right: 160px
 				background: $skoroCrno
 
 			// Animacija nav dugmeta
@@ -95,7 +95,7 @@
 
 
 
-	@media screen and (max-width: 899px)
+	@media screen and (max-width: 759px)
 		.nav-linkovi
 			@include position(fixed, 0 0 0 auto)
 			background: $skoroCrno
@@ -105,18 +105,18 @@
 			display: flex
 			flex-direction: column
 			z-index: 1
-			padding-top: 10px
+			padding-top: 20px
 			
 
 
 			&.prikazi-nav
-				width: 200px
+				width: 160px
 
 			li
 				display: flex
-				height: 60px
+				height: 40px
 				padding-left: 10px
-				font-size: 20px
+				font-size: 16px
 				align-items: center
 
 				// &:first-child
@@ -130,7 +130,7 @@
 
 
 
-@media screen and (min-width: 900px)
+@media screen and (min-width: 760px)
 	.navigacija
 		nav
 			display: flex
@@ -143,15 +143,17 @@
 					display: none
 
 			.nav-linkovi
+				padding-right: 15px
 				background: transparent
 				display: flex
-				justify-content: center
+				flex: 1
+				justify-content: flex-end
 				align-items: center
 
 				li
-					min-width: 100px
-					font-size: 25px
-					padding: 20px 15px
+					//min-width: 80px
+					font-size: 20px
+					padding: 20px 12px
 					line-height: 46px
 
 					a:after
