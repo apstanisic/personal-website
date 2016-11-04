@@ -3,8 +3,12 @@
 	//Ostavi narednu liniju i dodaj narednom divu padding-top ako hoces da uzmes pozadinu od diva ispod a da ti sadrzaj ne prelazi preko nava
 	//Nije isprobano
 	@include position(absolute, 0 0 auto 0)
-	width: 100%
+	//width: 100%
 	height: auto
+	display: flex
+	//flex: 1
+	nav
+		flex-grow: 1
 
 	.otvarac
 		display: flex
@@ -95,7 +99,7 @@
 
 
 
-	@media screen and (max-width: 759px)
+	@media screen and (max-width: 700px)
 		.nav-linkovi
 			@include position(fixed, 0 0 0 auto)
 			background: $skoroCrno
@@ -130,14 +134,13 @@
 
 
 
-@media screen and (min-width: 760px)
+@media screen and (min-width: 701px)
 	.navigacija
 		nav
 			display: flex
 			justify-content: space-between
-			text-shadow: 0 0 3px #000, 0 0 3px #000
 			.otvarac
-				display: inline-block
+				//display: inline-block
 
 				.nav-dugme
 					display: none
@@ -149,16 +152,18 @@
 				flex: 1
 				justify-content: flex-end
 				align-items: center
+				text-shadow: 1 1 3px #000
 
 				li
 					//min-width: 80px
 					font-size: 20px
-					padding: 20px 12px
-					line-height: 46px
+					padding: 10px 15px
+					//line-height: 1.5
 
 					a:after
 						content: ""
 						display: flex
+						//padding-bottom: 3px
 						border-bottom: 0.2em solid $prljavoBela
 						transform: scaleX(0)
 						transition: transform 400ms
@@ -167,4 +172,14 @@
 						border-bottom: 0.2em solid $prljavoBela
 						border-width: auto
 						transform: scaleX(1)
+
+
+@media screen and (min-width: 951px)
+	.navigacija
+		padding: 10px 30px 0 30px
+		nav
+			.nav-linkovi
+				li
+					font-size: 30px
+					padding: 20 15px
 
