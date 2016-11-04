@@ -1,6 +1,6 @@
 <header class="navigacija">
 	<div class="otvarac">
-		<div class="logo"><h1>Aleksandar Stanisic</h1></div>
+		<div class="logo"><a href="#cover"><h1>Aleksandar Stanisic</h1></a></div>
 		<div class="nav-dugme">
 			<span class="crta crta-gore"></span>
 			<span class="crta-sredina"></span>

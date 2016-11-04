@@ -13,7 +13,7 @@
 	// 	align-items: center
 	nav
 		display: flex
-		align-items:center
+		align-items: center
 
 	.otvarac
 		display: flex
@@ -35,9 +35,14 @@
 				position: center
 				repeat: no-repeat
 
-			h1
-				@include hide-text
-				
+			a
+				display: block
+				@include size(100%)
+
+				h1
+					margin: 0
+					@include hide-text
+					
 
 
 		.nav-dugme
@@ -110,7 +115,7 @@
 			background: $skoroCrno
 			width: 0px
 			transition: width 400ms
-			text-transform: uppercase
+			//text-transform: uppercase
 			display: flex
 			flex-direction: column
 			z-index: 1
@@ -127,6 +132,7 @@
 				padding-left: 10px
 				font-size: 16px
 				align-items: center
+				white-space: nowrap
 
 				// &:first-child
 				// 	height: 80px
@@ -178,7 +184,7 @@
 
 @media screen and (min-width: 951px)
 	.navigacija
-		padding: 10px 30px 0 30px
+		padding: 10px 15px 0 30px
 		
 		.nav-linkovi
 
