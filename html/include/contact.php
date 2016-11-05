@@ -21,8 +21,8 @@
 
 	</form>
 	<div class="scl">
-		<a href="http://www.facebook.com/apstanisic"><img class="scl-logo" src="slike/scl/faceb-logo.png"></a>
-		<a href="http://www.instagram.com/al_stanisic"><img class="scl-logo" src="slike/scl/instg-logo.png"></a>
-		<a href="http://github.com/apstanisic"><img class="scl-logo" src="slike/scl/github-logo.png"></a>
+		<a href="http://github.com/apstanisic" target="_blank"><img class="scl-logo" alt="GitHub logo" src="slike/scl/github-logo.png"></a>
+		<a href="http://www.facebook.com/apstanisic" target="_blank"><img class="scl-logo" alt="FaceBook logo" src="slike/scl/faceb-logo.png"></a>
+		<a href="http://www.instagram.com/al_stanisic" target="_blank"><img class="scl-logo" alt="instagram logo" src="slike/scl/instg-logo.png"></a>
 	</div>
 </section>
