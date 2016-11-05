@@ -1,13 +1,13 @@
 $kontaktBoja: #333334
 
 .contact
-	display: flex
+	display: block
 	min-height: 300px
 	background: $kontaktBoja	
 	//border: 5px solid #559
 	width: 100%
 	box-sizing: border-box
-	justify-content: center
+	padding: 50px 0
 
 	.contact-form
 		display: flex
@@ -15,7 +15,7 @@ $kontaktBoja: #333334
 		flex-direction: column
 		padding: 30px 15px
 		max-width: 500px
-		margin: 50px 0
+		margin: 0px auto
 
 		h3
 			color: #fff
@@ -79,6 +79,14 @@ $kontaktBoja: #333334
 				color: #fff
 				font-size: 20px
 
+	.scl
+		margin: 0 auto
+		display: flex
+		justify-content: space-around
+		max-width: 450px
+		.scl-logo
+			height: 75px
+			width: 75px
 
 
 @media screen and (max-width: 400px)
@@ -89,6 +97,7 @@ $kontaktBoja: #333334
 @media screen and (min-width: 700px)
 	.contact
 		.contact-form
+			max-width: 700px
 			div
 				flex-direction: row
 
