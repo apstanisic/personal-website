@@ -54,6 +54,7 @@ $kontaktBoja: #333334
 				margin: 0 auto
 				background: #fff
 				border: none
+				border-radius: 3px
 				outline: none
 				cursor: pointer
 				font-size: 20px
@@ -61,9 +62,11 @@ $kontaktBoja: #333334
 				color: $kontaktBoja
 				transition: all 200ms 
 				transform: scale(1)
+				animation: dugme-an 1500ms infinite
 
 				&:active
 					transform: scale(0.95)
+					animation: none
 
 
 			textarea
@@ -116,3 +119,11 @@ $kontaktBoja: #333334
 
 				input, textarea
 					flex: 1
+
+
+
+@keyframes dugme-an 
+	0%, 100%
+		box-shadow: 0px 0px 5px 1px rgba(255, 255, 255, 0.2)
+	50%
+		box-shadow: 0px 0px 15px 2px rgba(255, 255, 255, 0.5)
