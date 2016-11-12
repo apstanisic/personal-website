@@ -16,7 +16,7 @@
 			<textarea id="contact-sadrzaj" placeholder="Sadrzaj poruke..." name="sadrzaj" required></textarea>
 		</div>
 		<div>
-			<button type="submit" id="dugme-submit" name="contact-submit" >Posalji</button>
+			<button type="submit" id="dugme-submit" name="contact-submit">Posalji</button>
 		</div>
 
 	</form>

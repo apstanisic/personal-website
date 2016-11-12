@@ -50,7 +50,7 @@ function proveriFormu(event){
 		}
 
 		if(j===0){
-			dugmeForma.style.animation= 'dugme-an 3000ms infinite';
+			dugmeForma.style.animation= 'dugme-an 2000ms infinite';
 		}else{
 			dugmeForma.style.animation= 'none';
 		}try{
@@ -67,11 +67,9 @@ function proveriFormu(event){
 dugme.addEventListener('click', prikaziNavigaciju);
 
 for(var i = 0; i < contactForm.length; i++){
-	//contactForm[i].addEventListener('keyup', proveriFormu);
 	contactForm[i].addEventListener('input', proveriFormu);
 	contactForm[i].addEventListener('focus', proveriFormu);
 	contactForm[i].addEventListener('blur', proveriFormu);
-	//contactForm[i].addEventListener('blur', proveriSve);
 
 
 }
