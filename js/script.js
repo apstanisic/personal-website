@@ -6,7 +6,6 @@ var contactForm = document.querySelectorAll('#contact-form input, #contact-form 
 var dugmeForma = document.querySelector('#dugme-submit');
 
 
-
 //RegEx
 var emailRegex = /^[-a-z0-9~!$%^&*_=+}{\'?]+(\.[-a-z0-9~!$%^&*_=+}{\'?]+)*@([a-z0-9_][-a-z0-9_]*(\.[-a-z0-9_]+[a-z][a-z])|([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}))(:[0-9]{1,5})?$/i;
 var nameRegex = /^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$/u;
@@ -19,8 +18,8 @@ function prikaziNavigaciju(event){
 
 }
 
-function proveriFormu(event){
-	
+function kontaktFormaProvera(event){
+	try{
 		let provera = this.getAttribute("name");
 		let punoIme = eval(provera +"Regex");
 		let j = 0;
@@ -51,9 +50,13 @@ function proveriFormu(event){
 
 		if(j===0){
 			dugmeForma.style.animation= 'dugme-an 2000ms infinite';
+			dugmeForma.style.background= 'rgba(124, 187, 0, 1)';
+			dugmeForma.style.color= '#fff';
 		}else{
 			dugmeForma.style.animation= 'none';
-		}try{
+			dugmeForma.style.background= '#fff';
+			dugmeForma.style.color= '#333334';
+		}
 	}
 	catch(e){
 		// Bacice gresku ako nisu data dobra imena u html-u ili js-u
@@ -67,27 +70,7 @@ function proveriFormu(event){
 dugme.addEventListener('click', prikaziNavigaciju);
 
 for(var i = 0; i < contactForm.length; i++){
-	contactForm[i].addEventListener('input', proveriFormu);
-	contactForm[i].addEventListener('focus', proveriFormu);
-	contactForm[i].addEventListener('blur', proveriFormu);
-
-
+	contactForm[i].addEventListener('input', kontaktFormaProvera);
+	contactForm[i].addEventListener('focus', kontaktFormaProvera);
+	contactForm[i].addEventListener('blur', kontaktFormaProvera);
 }
-
-
-
-
-
-
-
-
-
-	//window[provera+"Regex"]
-
-
-// 	function animirajPosalji(){
-// 	if(true){
-// 		dugme.style.animation= 'dugme-an 3000ms infinite';
-// 	}
-
-// }
