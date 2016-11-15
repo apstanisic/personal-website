@@ -59,12 +59,12 @@
 			padding: 10px
 			box-sizing: border-box
 			cursor: pointer	
-			transform: translate(0px, 0)
-			transition: all 400ms ease-in-out
+			margin-right: 0px
+			transition: all 400ms
 			//z-index: 2
 
 			&.pomeri-nav-dugme
-				transform: translate(-160px, 0)
+				margin-right: 160px
 				background: $skoroCrno
 
 			// Animacija nav dugmeta
@@ -87,7 +87,7 @@
 				height: 3px
 				background: $prljavoBela
 				width: 100%	
-				transition: all 800ms ease-in-out		
+				transition: all 800ms	ease-in-out		
 
 			.crta-sredina
 				background: transparent
@@ -113,9 +113,8 @@
 		.nav-linkovi
 			@include position(fixed, 0 0 0 auto)
 			background: $skoroCrno
-			width: 160px
-			transform: translate(160px, 0)
-			transition: all 400ms ease-in-out
+			width: 0px
+			transition: width 400ms
 			//text-transform: uppercase
 			display: flex
 			flex-direction: column
@@ -125,8 +124,7 @@
 
 
 			&.prikazi-nav
-				transform: translate(0px, 0)
-
+				width: 160px
 
 			li
 				display: flex
