@@ -12,12 +12,13 @@ $kontaktBoja: #333334
 	.contact-form
 		display: flex
 		flex: 1
-		flex-direction: column
+		flex-wrap: wrap
 		padding: 30px 15px 50px
 		max-width: 500px
 		margin: 0px auto
 
 		h3
+			width: 100%
 			color: #fff
 			text-align: center
 			font-size: 30px
@@ -27,7 +28,7 @@ $kontaktBoja: #333334
 		div
 			display: flex
 			flex-direction: column
-
+			width: 100%
 			input, textarea
 				margin-bottom: 20px
 				outline: none
@@ -70,7 +71,7 @@ $kontaktBoja: #333334
 
 
 			textarea
-				min-height: 100px
+				min-height: 200px
 				resize: none
 
 
@@ -99,10 +100,14 @@ $kontaktBoja: #333334
 				transform: scale(0.95)
 
 
-
 @media screen and (max-width: 400px)
 	input, textarea
 		font-size: 14px
+
+@media screen and (max-width: 350px)
+	input, textarea
+		font-size: 13px
+
 
 
 @media screen and (min-width: 700px)
@@ -119,6 +124,27 @@ $kontaktBoja: #333334
 
 				input, textarea
 					flex: 1
+
+
+
+@media screen and (min-width: 950px)
+	.contact
+		.contact-form
+			max-width: 800px
+			div
+				flex-direction: column
+				margin-left: 10px
+				margin-right: 10px
+				width: calc(100% - 20px)
+
+				&.skupi
+					width: calc(50% - 20px)
+
+				label 
+					text-align: left 
+
+				
+
 
 
 
