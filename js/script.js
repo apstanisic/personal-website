@@ -30,13 +30,13 @@ var kontaktForma = (function(){
     }
     /// FUNKCIJA init NE RADI!!!!!!!!!!!!!!!!!!!!!!!!!! JOS UVEK FIXME TODO FIXME
     function init(event){
-        obojiPolje(event); // TODO TODO
+        proveriPolje(event); // TODO TODO
         proveriFormu(event); //TODO TODO
         ///Napraviti da ovo radi, nece da prosledjuje this koji mi treba, valjda prosledjuje event?????
     }
     // Proverava samo polje na kom je doslo do eventa.
     // Kod bi bio lepsi kada bih mogao da pozovem ovu funkciju gore, ali ne znam lepo kad se sta prosledjuje TODO
-    function obojiPolje(event) {
+    function proveriPolje(event) {
         try {
             let senka = {
                 zelena : '0px 0px 10px 2px rgba(124, 187, 0, 0.8)',
@@ -89,9 +89,9 @@ var kontaktForma = (function(){
 //.bind(this) ovako nekako da prosledim this????? TODO
 // Kako dodati odjednom listener na vise mesta
     for (var i = 0; i < forma.length; i++) {
-        forma[i].addEventListener('input', obojiPolje);
-        forma[i].addEventListener('focus', obojiPolje);
-        forma[i].addEventListener('blur', obojiPolje);
+        forma[i].addEventListener('input', proveriPolje);
+        forma[i].addEventListener('focus', proveriPolje);
+        forma[i].addEventListener('blur', proveriPolje);
         forma[i].addEventListener('input', proveriFormu);
         forma[i].addEventListener('focus', proveriFormu);
         forma[i].addEventListener('blur', proveriFormu);
