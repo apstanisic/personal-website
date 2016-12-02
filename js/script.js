@@ -1,8 +1,8 @@
 // Prikazuje i skriva navigaciju
 var navigacija = (function(){
 
-    var nav = document.querySelector('.nav-linkovi');
-    var dugme = document.querySelector('.nav-dugme');
+    let nav = document.querySelector('.nav-linkovi');
+    let dugme = document.querySelector('.nav-dugme');
 
     function prikaziNavigaciju(event) {
         nav.classList.toggle('prikazi-nav');
@@ -13,20 +13,20 @@ var navigacija = (function(){
 })();
 // Vrsi validacuju kontakt forme, i daje saopstava korisniku
 var kontaktForma = (function(){
-    var regex = {
+    let regex = {
         email : new RegExp(/^[-a-z0-9~!$%^&*_=+}{\'?]+(\.[-a-z0-9~!$%^&*_=+}{\'?]+)*@([a-z0-9_][-a-z0-9_]*(\.[-a-z0-9_]+[a-z][a-z])|([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}))(:[0-9]{1,5})?$/, "i"),
         name : new RegExp(/^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$/, "u"),
         sadrzaj: new RegExp(/^.{5,}$/)
     };
-    var forma = document.querySelectorAll('#contact-form input, #contact-form textarea');
-    var dugme = document.querySelector('#dugme-submit');
+    let forma = document.querySelectorAll('#contact-form input, #contact-form textarea');
+    let dugme = document.querySelector('#dugme-submit');
 
     // Proverava polje iz forme, sa regexom istog imena iz var rerex-a, vraca true, ako ispunjava uslov
     function proveriIzraz(polje){
         try{
-        var naziv = polje.getAttribute("name");
-        var uslov = regex[naziv];
-        var valja = uslov.test(polje.value);
+        let naziv = polje.getAttribute("name");
+        let uslov = regex[naziv];
+        let valja = uslov.test(polje.value);
         } catch (e) {
             valja = false;
             // treba da dodje za koje polje TODO //Bacice gresku ako nema regex sa istim imenom kao name polja, ili ga uopste nema
@@ -66,7 +66,7 @@ var kontaktForma = (function(){
 
     // Proverava svako tekstualno polje u formi, dodaje animaciju dugmetu ako radi
     function proveriFormu(){
-        for (var i = 0; i < forma.length; i++) {
+        for (let i = 0; i < forma.length; i++) {
             let valja = proveriIzraz(forma[i]);
             if (!valja){
                 dugme.style.animation = 'none';
@@ -88,7 +88,7 @@ var kontaktForma = (function(){
 
 //.bind(this) ovako nekako da prosledim this????? TODO
 // Kako dodati odjednom listener na vise mesta
-    for (var i = 0; i < forma.length; i++) {
+    for (let i = 0; i < forma.length; i++) {
         forma[i].addEventListener('input', proveriPolje);
         forma[i].addEventListener('focus', proveriPolje);
         forma[i].addEventListener('blur', proveriPolje);
