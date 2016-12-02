@@ -87,6 +87,7 @@ var kontaktForma = (function(){
 ///////////////////////////////////////////////////////////////////////////////////////
 
 //.bind(this) ovako nekako da prosledim this????? TODO
+// Kako dodati odjednom listener na vise mesta
     for (var i = 0; i < forma.length; i++) {
         forma[i].addEventListener('input', obojiPolje);
         forma[i].addEventListener('focus', obojiPolje);
