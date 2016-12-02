@@ -20,24 +20,28 @@ var kontaktForma = (function(){
     };
     var forma = document.querySelectorAll('#contact-form input, #contact-form textarea');
     var dugme = document.querySelector('#dugme-submit');
-    //Funkcije
+
     // Proverava polje iz forme, sa regexom istog imena iz var rerex-a, vraca true, ako ispunjava uslov
     function proveriIzraz(polje){
-        let naziv = polje.getAttribute("name");
-        let uslov = regex[naziv];
-        let valja = uslov.test(polje.value);
+        try{
+        var naziv = polje.getAttribute("name");
+        var uslov = regex[naziv];
+        var valja = uslov.test(polje.value);
+        } catch (e) {
+            valja = false;
+            // treba da dodje za koje polje TODO //Bacice gresku ako nema regex sa istim imenom kao name polja, ili ga uopste nema
+        }
         return valja;
     }
-    /// FUNKCIJA init NE RADI!!!!!!!!!!!!!!!!!!!!!!!!!! JOS UVEK FIXME TODO FIXME
+
     function init(event){
         proveriPolje(event); // TODO TODO
         proveriFormu(event); //TODO TODO
+        /// FUNKCIJA init NE RADI!!!!!!!!!!!!!!!!!!!!!!!!!! JOS UVEK FIXME TODO FIXME
         ///Napraviti da ovo radi, nece da prosledjuje this koji mi treba, valjda prosledjuje event?????
     }
     // Proverava samo polje na kom je doslo do eventa.
-    // Kod bi bio lepsi kada bih mogao da pozovem ovu funkciju gore, ali ne znam lepo kad se sta prosledjuje TODO
     function proveriPolje(event) {
-        try {
             let senka = {
                 zelena : '0px 0px 10px 2px rgba(124, 187, 0, 0.8)',
                 bela : '0px 0px 10px 2px rgba(255, 255, 255, 0.5)',
@@ -46,6 +50,7 @@ var kontaktForma = (function(){
             let valja = proveriIzraz(this);
             //Zasto ne moze var senka = this.style.boxShadow; ????????????? BUG
             // pozadina textboxa pozeleni kada se iskoristi autocomple ??? BUG ??? FIXME???
+            //Ako je blur dace mu crveno ako ne valja, a dok je fokusirano dace mu samo belo i zeleno, belo ako nije ispunjen uslov ali je focus
             if (event.type !== "blur") {
                 if (valja) {
                     this.style.boxShadow = senka.zelena;
@@ -57,11 +62,6 @@ var kontaktForma = (function(){
                     this.style.boxShadow = senka.crvena;
                 }
             }
-        } catch (e) {
-           console.log("Ubaci regex");
-            // treba da dodje za koje polje TODO
-             //Bacice gresku ako nema regex sa istim imenom kao name polja, ili ga uopste nema
-        }
     }
 
     // Proverava svako tekstualno polje u formi, dodaje animaciju dugmetu ako radi
@@ -73,7 +73,7 @@ var kontaktForma = (function(){
                 dugme.style.background = '#fff';
                 dugme.style.color = '#333334';
                 return false;
-                //Prekida funkciju cim regex ne valja
+                //Prekida funkciju cim regex ne valja, skida animaciju i boju, ako je uslov bio ispunjen, a vise nije
             }
         }
         // boji dugme u zeleno i dodaje animaciju
