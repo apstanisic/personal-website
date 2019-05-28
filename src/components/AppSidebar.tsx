@@ -1,5 +1,5 @@
 import { h, Fragment } from 'preact';
-import { AppState } from '../state';
+import { UiState } from '../state';
 import useMedia from '../hooks/useMedia';
 
 interface NavLink {
@@ -16,23 +16,23 @@ const links: NavLink[] = [
 ];
 
 export default function AppSidebar() {
-  const { showSidebar, setShowSidebar } = AppState.useContainer();
+  const { showSidebar, setShowSidebar } = UiState.useContainer();
   const isWide = useMedia({ minWidth: 768 });
 
   return (
     <Fragment>
       <div
         className={
-          `h-full text-xl py-4 px-8  bg-black text-white z-10 app-sidebar
+          `min-h-full text-xl py-4 px-8 bg-gray-800 text-white z-10 app-sidebar
           fixed inset-y-0 left-0
-          md:relative  w-32
+          md:fixed w-56
           ` + (isWide || showSidebar ? '' : 'hide')
         }
       >
         <ul>
           {links.map((link, i) => (
             <li key={i} className="my-2">
-              {link.name}
+              <a href={link.url}>{link.name}</a>
             </li>
           ))}
         </ul>

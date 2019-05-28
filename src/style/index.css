@@ -1,23 +1,12 @@
-html,
-body {
-  height: 100%;
-  width: 100%;
-  padding: 0;
-  margin: 0;
-  background: #fafafa;
-  font-family: 'Helvetica Neue', arial, sans-serif;
-  font-weight: 400;
-  color: #444;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-* {
+/* * {
   box-sizing: border-box;
+} */
+html {
+  font-family: 'Helvetica Neue', arial, sans-serif;
 }
 
-#app {
-  height: 100%;
+*:focus {
+  outline: none;
 }
 
 .center {
@@ -27,9 +16,15 @@ body {
   align-items: center;
 }
 
+@media (min-width: 768px) {
+  .app-container {
+    width: calc(100% - 14rem) !important;
+  }
+}
+
 .app-sidebar {
-  min-width: 220px;
-  transition: transform 300ms ease-in-out;
+  /* min-width: 220px; */
+  transition: transform 200ms ease-in-out;
   transform: none;
 }
 

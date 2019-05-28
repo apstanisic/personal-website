@@ -1,19 +1,32 @@
 import { h } from 'preact';
+import HeroImage from '../assets/hero.png';
 
 export default function Hero() {
   return (
-    <div className="w-full">
+    <div
+      className="w-full overflow-hidden relative "
+      style={{ filter: 'blur(100%)' }}
+    >
       <img
-        src="http://placehold.it/400x400"
+        src={HeroImage}
         style={{
           maxHeight: '60vh',
+          minHeight: '50vh',
           objectFit: 'cover',
-          verticalAlign: 'middle'
+          verticalAlign: 'middle',
+          filter: 'blur(2px)',
+          transform: 'scale(1.1)'
         }}
         className="w-full"
         alt=""
         srcset=""
       />
+      <h1
+        className="absolute text-white inset-0 center text-5xl md:text-6xl italic p-12"
+        style={{ zIndex: 3 }}
+      >
+        Aleksandar Stanisic
+      </h1>
     </div>
   );
 }

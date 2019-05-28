@@ -1,46 +1,36 @@
-// import createStore from 'unistore';
-// import { createContext } from 'preact';
-// import { Provider, connect } from "unistore/preact";
 import { createContainer } from 'unstated-next';
+import { h } from 'preact';
 import { useState } from 'preact/hooks';
 
 type Theme = 'dark' | 'light';
 type Language = 'sr' | 'en';
-interface State {
-  showSidebar: boolean;
-  theme: Theme;
-  language: Language;
-  [key: string]: any;
-}
 
-function useAppState() {
+function useUiState() {
   const [showSidebar, setShowSidebar] = useState(false);
-  const [theme, setTheme] = useState<Theme>('dark');
-  const [language, setLanguage] = useState<Language>('en');
-
-  return {
-    showSidebar,
-    setShowSidebar,
-    theme,
-    setTheme,
-    language,
-    setLanguage
-  };
+  return { showSidebar, setShowSidebar };
 }
 
-export const AppState = createContainer(useAppState);
+function useThemeState() {
+  const [theme, setTheme] = useState<Theme>('light');
+  return { theme, setTheme };
+}
 
-// const store = createStore<State>(defaultState);
+function useLangState() {
+  const [language, setLanguage] = useState<Language>('en');
+  return { language, setLanguage };
+}
 
-// type AppStore = typeof store;
+export const UiState = createContainer(useUiState);
+export const ThemeState = createContainer(useThemeState);
+export const LangState = createContainer(useLangState);
 
-// const actions = (store: AppStore) => ({
-//   toggleSidebar(state: State): State {
-//     return { ...state, showSidebar: !state.showSidebar };
-//   },
-//   changeTheme(state: State): State {
-//     return { ...state, showSidebar: !state.showSidebar };
-//   }
-// });
-
-// export { store, actions };
+// All Providers for state
+export function Providers({ children }: any) {
+  return (
+    <UiState.Provider>
+      <LangState.Provider>
+        <ThemeState.Provider>{children}</ThemeState.Provider>
+      </LangState.Provider>
+    </UiState.Provider>
+  );
+}
