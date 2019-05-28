@@ -1,8 +1,6 @@
-import { h } from 'preact';
-import { Fragment, createContext } from 'preact';
-import { useContext } from 'preact/hooks';
-// import { AppContext } from '../state';
-import { AppContext } from '../state';
+import { h, Fragment } from 'preact';
+import { AppState } from '../state';
+import useMedia from '../hooks/useMedia';
 
 interface NavLink {
   url: string;
@@ -18,31 +16,33 @@ const links: NavLink[] = [
 ];
 
 export default function AppSidebar() {
-  const { showSidebar, toggleSidebar } = useContext(AppContext);
-  console.log(showSidebar);
+  const { showSidebar, setShowSidebar } = AppState.useContainer();
+  const isWide = useMedia({ minWidth: 768 });
 
   return (
     <Fragment>
       <div
         className={
-          'h-full w-64 fixed inset-y-0 left-0 bg-blue-400 z-10 app-sidebar ' +
-          (showSidebar ? 'show' : '')
+          `h-full text-xl py-4 px-8  bg-black text-white z-10 app-sidebar
+          fixed inset-y-0 left-0
+          md:relative  w-32
+          ` + (isWide || showSidebar ? '' : 'hide')
         }
       >
         <ul>
           {links.map((link, i) => (
-            <li key={i}>{link.name}</li>
+            <li key={i} className="my-2">
+              {link.name}
+            </li>
           ))}
         </ul>
       </div>
-      <div className="" style={{ zIndex: 5, backgroundColor: '' }} />
-      {!showSidebar && (
+      {showSidebar && (
         <div
-          className="fixed inset-0"
-          style={{ zIndex: 15, backgroundColor: 'rgba(0, 0, 0, 0.7)' }}
+          className="fixed inset-0 md:hidden"
+          style={{ zIndex: 5, backgroundColor: 'rgba(0, 0, 0, 0.7)' }}
           onClick={() => {
-            console.log('ehlo');
-            toggleSidebar();
+            setShowSidebar(false);
           }}
         />
       )}

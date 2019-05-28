@@ -1,6 +1,8 @@
 // import createStore from 'unistore';
-import { createContext } from 'preact';
+// import { createContext } from 'preact';
 // import { Provider, connect } from "unistore/preact";
+import { createContainer } from 'unstated-next';
+import { useState } from 'preact/hooks';
 
 type Theme = 'dark' | 'light';
 type Language = 'sr' | 'en';
@@ -11,16 +13,23 @@ interface State {
   [key: string]: any;
 }
 
-const defaultState: State = {
-  showSidebar: false,
-  theme: 'light',
-  language: 'sr',
-  toggleSidebar() {
-    defaultState.showSidebar = !defaultState.showSidebar;
-  }
-};
+function useAppState() {
+  const [showSidebar, setShowSidebar] = useState(false);
+  const [theme, setTheme] = useState<Theme>('dark');
+  const [language, setLanguage] = useState<Language>('en');
 
-export const AppContext = createContext(defaultState);
+  return {
+    showSidebar,
+    setShowSidebar,
+    theme,
+    setTheme,
+    language,
+    setLanguage
+  };
+}
+
+export const AppState = createContainer(useAppState);
+
 // const store = createStore<State>(defaultState);
 
 // type AppStore = typeof store;

@@ -20,12 +20,19 @@ body {
   height: 100%;
 }
 
-.app-sidebar {
-  min-width: 220px;
-  transform: translateX(-100%);
-  transition: transform 300ms ease-in-out;
+.center {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
 }
 
-.show {
+.app-sidebar {
+  min-width: 220px;
+  transition: transform 300ms ease-in-out;
   transform: none;
+}
+
+.hide {
+  transform: translateX(-100%);
 }
