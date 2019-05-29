@@ -25,14 +25,17 @@ export default function AppSidebar() {
         className={
           `min-h-full text-xl py-4 px-8 bg-gray-800 text-white z-10 app-sidebar
           fixed inset-y-0 left-0
+          items-center flex
           md:fixed w-56
           ` + (isWide || showSidebar ? '' : 'hide')
         }
       >
         <ul>
           {links.map((link, i) => (
-            <li key={i} className="my-2">
-              <a href={link.url}>{link.name}</a>
+            <li key={i} className="my-2 text-shadow">
+              <a className=" nav-link inline-block" href={link.url}>
+                {link.name}
+              </a>
             </li>
           ))}
         </ul>

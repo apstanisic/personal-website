@@ -25,7 +25,15 @@ export default function Hero() {
         className="absolute text-white inset-0 center text-5xl md:text-6xl p-12"
         style={{ zIndex: 3 }}
       >
-        Aleksandar Stanišić
+        <span
+          className="border-4 p-4 lg:p-8"
+          style={{
+            borderRadius: '0.75rem',
+            backgroundColor: 'rgba(0,0,0,0.6)'
+          }}
+        >
+          Aleksandar Stanišić
+        </span>
       </h1>
     </div>
   );

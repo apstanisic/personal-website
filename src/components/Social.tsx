@@ -6,7 +6,7 @@ import Gh from '../assets/social/github.svg';
 
 export default function Social() {
   return (
-    <div className="center py-8 ">
+    <div className="center py-8 bg-blue-100">
       <a
         className="mx-6"
         href="https://github.com/aleksandarstanisic"

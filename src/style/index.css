@@ -12,6 +12,10 @@ body {
   outline: none;
 }
 
+.text-shadow {
+  text-shadow: 0 0 2px #000, 0 0 2px #000;
+}
+
 .center {
   display: flex;
   justify-content: center;
@@ -19,12 +23,15 @@ body {
   align-items: center;
 }
 
+/* Calculate content width, remove sidebar size */
 @media (min-width: 768px) {
   .app-container {
     width: calc(100% - 14rem) !important;
   }
 }
+/* End calculation */
 
+/* Sidebar hide and show animation */
 .app-sidebar {
   /* min-width: 220px; */
   transition: transform 200ms ease-in-out;
@@ -34,3 +41,19 @@ body {
 .hide {
   transform: translateX(-100%);
 }
+/* End sidebar hide show */
+
+/* Underline animation in nav links */
+.nav-link:after {
+  margin: 3px 0;
+  content: '';
+  display: flex;
+  border-bottom: 0.25rem solid white;
+  transform: scaleX(0);
+  transition: transform 300ms;
+}
+
+.nav-link:hover:after {
+  transform: scaleX(1);
+}
+/* End underline animation */

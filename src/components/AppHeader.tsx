@@ -5,7 +5,7 @@ import Menu from '../assets/menu.svg';
 export default function AppFooter() {
   const { setShowSidebar } = UiState.useContainer();
   return (
-    <div className="w-full h-16 bg-black flex justify-between">
+    <div className="w-full h-16 flex justify-between bg-black">
       <button
         className="pl-4 md:invisible"
         onClick={() => {
