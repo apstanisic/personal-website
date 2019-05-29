@@ -6,7 +6,7 @@ const classes = `shadow-md border-gray-400 appearance-none border rounded w-full
 export default function Contact() {
   return (
     <div className="container mx-auto lg:w-3/4">
-      <div className="text-4xl text-center pt-5">Kontaktiraj me </div>
+      <div className="text-4xl text-center border-t pt-5">Kontaktiraj me </div>
       <form className="flex flex-col p-3">
         <label className="py-2 md:flex ">
           <div class="text-xl p-1 pr-5 md:w-1/3 md:text-right">Ime</div>

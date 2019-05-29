@@ -1,12 +1,13 @@
 import { h } from 'preact';
-import AppHeader from './AppHeader';
-import AppFooter from './AppFooter';
-import Hero from './Hero';
-import AppSidebar from './AppSidebar';
 import { Providers } from '../state';
-import Contact from './Contact';
-import Projects from './Projects';
 import About from './About';
+import AppHeader from './AppHeader';
+import AppSidebar from './AppSidebar';
+import Contact from './Contact';
+import Hero from './Hero';
+import Projects from './Projects';
+import Skills from './Skills';
+import Social from './Social';
 
 if ((module as any).hot) {
   // tslint:disable-next-line:no-var-requires
@@ -22,8 +23,9 @@ export default function App() {
           <Hero />
           <About />
           <Projects />
+          <Skills />
           <Contact />
-          <AppFooter />
+          <Social />
         </div>
       </div>
     </Providers>

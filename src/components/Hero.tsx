@@ -22,10 +22,10 @@ export default function Hero() {
         srcset=""
       />
       <h1
-        className="absolute text-white inset-0 center text-5xl md:text-6xl italic p-12"
+        className="absolute text-white inset-0 center text-5xl md:text-6xl p-12"
         style={{ zIndex: 3 }}
       >
-        Aleksandar Stanisic
+        Aleksandar Stanišić
       </h1>
     </div>
   );

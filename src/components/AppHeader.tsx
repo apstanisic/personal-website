@@ -14,8 +14,8 @@ export default function AppFooter() {
       >
         <img src={Menu} className="h-12 w-12 text-white" alt="" srcset="" />
       </button>
-      <div className="center text-gray-100 w-16 text-4xl">
-        <span className="h-full">as</span>
+      <div className="center text-gray-100 w-24 text-4xl">
+        <span className="h-full px-2">ast</span>
       </div>
     </div>
   );
