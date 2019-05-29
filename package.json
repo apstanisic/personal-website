@@ -10,7 +10,7 @@
     "build": "preact build",
     "serve": "preact build && preact serve",
     "dev": "preact watch",
-    "lint": "tslint --project src",
+    "lint": "eslint --project src",
     "test": "jest ./tests",
     "precommit": "lint-staged"
   },
@@ -20,7 +20,7 @@
       "git add"
     ],
     "*.{ts,tsx}": [
-      "tslint --fix",
+      "eslint --fix",
       "git add"
     ]
   },
@@ -33,8 +33,17 @@
   "devDependencies": {
     "@fullhuman/postcss-purgecss": "^1.2.0",
     "@types/jest": "^23.3.10",
+    "@types/preact-i18n": "^1.2.0",
     "@types/webpack-env": "^1.13.9",
+    "@typescript-eslint/eslint-plugin": "^1.9.0",
+    "@typescript-eslint/parser": "^1.9.0",
     "css-loader": "^1.0.1",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.17.3",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-react": "^7.13.0",
+    "eslint-plugin-react-hooks": "^1.6.0",
     "husky": "^1.2.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^23.6.0",
@@ -47,24 +56,20 @@
     "tailwindcss": "^1.0.2",
     "ts-jest": "^23.10.5",
     "ts-loader": "^3.5.0",
-    "tslint": "^5.11.0",
-    "tslint-config-prettier": "^1.17.0",
-    "tslint-consistent-codestyle": "^1.14.1",
-    "tslint-eslint-rules": "^5.4.0",
-    "tslint-react": "^3.6.0",
     "typescript": "^3.2.1",
     "typings-for-css-modules-loader": "^1.7.0"
   },
   "dependencies": {
+    "i18n-react": "^0.7.0",
     "idb-keyval": "^3.2.0",
     "preact": "^10.0.0-beta.1",
-    "preact-compat": "^3.18.4",
+    "preact-compat": "^3.18.5",
     "preact-router": "^2.6.1",
+    "react-switch": "^5.0.0",
     "unstated-next": "^1.1.0"
   },
   "peerDependencies": {
-    "prettier": ">1.0.0",
-    "tslint": ">5.0.0"
+    "prettier": ">1.0.0"
   },
   "jest": {
     "transform": {

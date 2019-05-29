@@ -1,5 +1,6 @@
 import { h } from 'preact';
-import { Providers } from '../state';
+import { useState } from 'preact/hooks';
+import { Providers, ThemeState } from '../core/state';
 import About from './About';
 import AppHeader from './AppHeader';
 import AppSidebar from './AppSidebar';
@@ -8,28 +9,34 @@ import Hero from './Hero';
 import Projects from './Projects';
 import Skills from './Skills';
 import Social from './Social';
+import OldWebsite from './OldWebsite';
 
 if ((module as any).hot) {
-  // tslint:disable-next-line:no-var-requires
+  // eslint-disable-next-line
   require('preact/debug');
 }
 export default function App() {
+  const { theme } = ThemeState.useContainer();
   return (
-    <Providers>
-      <div id="app" className="">
-        <AppSidebar />
-        <div className="app-container relative w-full md:ml-56">
-          <AppHeader />
-          <Hero />
-          <About />
-          <Projects />
-          <Skills />
-          <Contact />
-          <Social />
-        </div>
+    <div
+      id="app"
+      className={
+        theme === 'light'
+          ? 'text-gray-900 bg-white'
+          : 'text-gray-100 bg-gray-900'
+      }
+    >
+      <AppSidebar />
+      <div className="app-container relative w-full md:ml-56">
+        {/* <AppHeader /> */}
+        <Hero />
+        <About />
+        <Projects />
+        <Skills />
+        <OldWebsite />
+        <Contact />
+        <Social />
       </div>
-    </Providers>
+    </div>
   );
 }
-
-// export default

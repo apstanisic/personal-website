@@ -1,0 +1,21 @@
+{
+  "header": {},
+  "sidebar": {
+    "home": "Home",
+    "work": "Work",
+    "about": "About",
+    "contact": "Contact",
+    "social": "Social",
+    "lang": "English"
+  },
+  "about": {
+    "text": "Hello Wolrd"
+  },
+  "contact": {
+    "title": "Send message",
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "send": "Send message"
+  }
+}

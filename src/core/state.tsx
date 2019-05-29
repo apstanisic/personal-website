@@ -1,23 +1,12 @@
 import { createContainer } from 'unstated-next';
 import { h } from 'preact';
 import { useState } from 'preact/hooks';
-
-type Theme = 'dark' | 'light';
-type Language = 'sr' | 'en';
+import { useLangState } from './i18n';
+import { useThemeState } from './theme';
 
 function useUiState() {
   const [showSidebar, setShowSidebar] = useState(false);
   return { showSidebar, setShowSidebar };
-}
-
-function useThemeState() {
-  const [theme, setTheme] = useState<Theme>('light');
-  return { theme, setTheme };
-}
-
-function useLangState() {
-  const [language, setLanguage] = useState<Language>('en');
-  return { language, setLanguage };
 }
 
 export const UiState = createContainer(useUiState);

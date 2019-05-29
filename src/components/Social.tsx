@@ -3,10 +3,13 @@ import Fb from '../assets/social/facebook.svg';
 import Ig from '../assets/social/instagram.svg';
 import In from '../assets/social/linkedin.svg';
 import Gh from '../assets/social/github.svg';
+import { ThemeState } from '../core/state';
 
 export default function Social() {
+  const { theme } = ThemeState.useContainer();
   return (
-    <div className="center py-8 bg-blue-100">
+    // <div className={'w-full ' + (theme === 'dark' ? 'bg-blue-100' : '')}></div>
+    <div className={'center py-8 ' + (theme === 'light' ? 'bg-gray-200' : '')}>
       <a
         className="mx-6"
         href="https://github.com/aleksandarstanisic"

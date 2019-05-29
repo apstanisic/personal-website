@@ -7,6 +7,9 @@ body {
   /* font-family: 'Fira Sans', 'Helvetica Neue', arial, sans-serif; */
   font-family: 'Fira Sans', sans-serif;
 }
+div {
+  transition: background-color 350ms;
+}
 
 *:focus {
   outline: none;
@@ -34,8 +37,8 @@ body {
 /* Sidebar hide and show animation */
 .app-sidebar {
   /* min-width: 220px; */
+  /* transform: none; */
   transition: transform 200ms ease-in-out;
-  transform: none;
 }
 
 .hide {

@@ -1,0 +1,30 @@
+{
+  "header": {},
+  "sidebar": {
+    "home": "Home",
+    "work": "Work",
+    "about": "About",
+    "contact": "Contact",
+    "social": "Social",
+    "lang": "Srpski",
+    "theme": {
+      "dark": "Dark",
+      "light": "Light"
+    }
+  },
+  "about": {
+    "text": "Hi, I'm Aleksandar, web developer from Belgrade, and I like to create interesting things. Don't hasitate to contact me if you have some project or cool idea, or if you want to hang out."
+  },
+  "oldWebsite": {
+    "text": " I am very proud with my old website. I had to update him, but I still want to show him of to people. Check it out and tell me what you think",
+    "button": "Visit old website"
+  },
+  "contact": {
+    "title": "Send message",
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "placeholder": "Your message...",
+    "send": "Send message"
+  }
+}
