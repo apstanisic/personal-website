@@ -10,10 +10,9 @@ export default function Button({ children, color }: Props) {
   return (
     <button
       className={`
-      ${
-        color ? 'bg-' + color : 'bg-green-700'
-      } hover:bg-green-800 text-gray-100 my-2 w-64 mx-auto
+      ${color ? 'bg-' + color : 'bg-green-700'}  text-gray-100 my-4 w-64 mx-auto
            font-semibold py-2 px-4 rounded shadow
+           hover-scale-05
         `}
     >
       {children}

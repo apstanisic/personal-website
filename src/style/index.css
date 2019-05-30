@@ -59,4 +59,10 @@ div {
 .nav-link:hover:after {
   transform: scaleX(1);
 }
+
 /* End underline animation */
+
+.hover-scale-05:hover {
+  transition: transform 100ms;
+  transform: scale(1.05);
+}

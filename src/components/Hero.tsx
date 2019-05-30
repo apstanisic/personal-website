@@ -7,6 +7,7 @@ export default function Hero() {
   const { theme } = ThemeState.useContainer();
   return (
     <div
+      id="home"
       className="w-full overflow-hidden relative "
       style={{ filter: 'blur(100%)' }}
     >

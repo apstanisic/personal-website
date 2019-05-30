@@ -2,12 +2,13 @@ import { h } from 'preact';
 import image from '../assets/aleksandar.jpg';
 import { T } from '../core/i18n';
 import { ThemeState } from '../core/state';
+import Section from './ui/Section';
 
 export default function About() {
   const { theme } = ThemeState.useContainer();
   return (
-    <div className={'  py-4 ' + (theme === 'light' ? 'bg-blue-700' : '')}>
-      <div className="lg:flex container mx-auto">
+    <Section bg={theme === 'light' ? 'bg-blue-700' : ''} id="about">
+      <div className="lg:flex ">
         <div className="text-xl md:text-2xl p-4 pb-8 sm:p-6 text-center text-white lg:w-2/3 center text-shadow">
           <T.span text="about.text" />
         </div>
@@ -19,6 +20,6 @@ export default function About() {
           />
         </div>
       </div>
-    </div>
+    </Section>
   );
 }

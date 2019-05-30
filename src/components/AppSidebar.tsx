@@ -5,6 +5,7 @@ import useMedia from '../core/hooks/useMedia';
 import { T } from '../core/i18n';
 import moon from '../assets/moon.svg';
 import sun from '../assets/sun.svg';
+import logo from '../assets/logo.svg';
 // import { useMedia } from 'react-use';
 
 interface NavLink {
@@ -14,19 +15,31 @@ interface NavLink {
 
 const links: NavLink[] = [
   { name: 'home', url: 'home' },
-  { name: 'work', url: 'work' },
-  { name: 'about', url: 'home' },
-  { name: 'contact', url: 'home' },
-  { name: 'social', url: 'home' }
+  { name: 'about', url: 'about' },
+  { name: 'projects', url: 'projects' },
+  { name: 'skills', url: 'skills' },
+  { name: 'old website', url: 'oldWebsite' },
+  { name: 'contact', url: 'contact' },
+  { name: 'social', url: 'social' }
 ];
 
 function SidebarLink(link: NavLink) {
   return (
     <li className="my-2 text-shadow">
-      <a className=" nav-link" href={link.url}>
-        {(T.translate(`sidebar.${link.name}`) as string).toLowerCase()}
+      <button
+        className="nav-link"
+        // href={'#' + link.url}
+        onClick={() => {
+          window.history.pushState({}, link.name, link.url);
+          // console.log('he');
+          let section = document.getElementById(link.url);
+          section ? section.scrollIntoView({ behavior: 'smooth' }) : '';
+          // window.scrollTo('#' + link.url);
+        }}
+      >
+        {(T.translate(`sidebar.${link.url}`) as string).toLowerCase()}
         {/* <T.span text={`sidebar.${link.name}`} /> */}
-      </a>
+      </button>
     </li>
   );
 }
@@ -45,12 +58,18 @@ export default function AppSidebar() {
           `min-h-full text-xl py-4 px-8  text-white z-10 app-sidebar
           fixed inset-y-0 left-0
           items-center flex
+
           md:fixed w-56
           ` +
           (isWide || showSidebar ? '' : 'hide ') +
           (theme === 'dark' ? 'bg-black' : 'bg-gray-800')
         }
       >
+        <img
+          src={logo}
+          alt=""
+          className="fixed top-0 w-32 mt-4 left-0 ml-8 mx-auto hidden md:block"
+        />
         <ul>
           {links.map((link, i) => (
             <SidebarLink {...link} />
@@ -60,7 +79,7 @@ export default function AppSidebar() {
               {T.translate('sidebar.lang').toLowerCase()}
             </button>
           </li>
-          <li className="my-2 text-shadow">
+          <li className="my-3 text-shadow">
             {/*
              // @ts-ignore */}
             <Switch

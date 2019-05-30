@@ -1,6 +1,7 @@
 import { h } from 'preact';
 import { UiState } from '../core/state';
 import Menu from '../assets/menu.svg';
+import logo from '../assets/logo.svg';
 
 export default function AppFooter() {
   const { setShowSidebar } = UiState.useContainer();
@@ -17,8 +18,11 @@ export default function AppFooter() {
       >
         <img src={Menu} className="h-12 w-12 text-white" alt="" srcset="" />
       </button>
-      <div className="center text-gray-100 w-24 text-4xl">
-        <span className="px-2">ast</span>
+      <div className="center text-gray-100 w-64 text-right text-4xl">
+        <a href="/#home" className="pr-4 ml-auto">
+          {/* &lt;ASt /&gt; */}
+          <img src={logo} className="h-12 w-36 md:hidden" />
+        </a>
       </div>
     </div>
   );

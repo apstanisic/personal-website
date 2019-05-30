@@ -2,10 +2,12 @@
   "header": {},
   "sidebar": {
     "home": "Home",
-    "work": "Work",
+    "projects": "Projects",
     "about": "About",
     "contact": "Contact",
     "social": "Social",
+    "skills": "Skills",
+    "oldWebsite": "Old Website",
     "lang": "Srpski",
     "theme": {
       "dark": "Dark",
@@ -20,7 +22,7 @@
     "button": "Visit old website"
   },
   "contact": {
-    "title": "Send message",
+    "title": "Contact me",
     "name": "Name",
     "email": "Email",
     "message": "Message",
