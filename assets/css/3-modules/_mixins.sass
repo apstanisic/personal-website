@@ -1,0 +1,27 @@
+@mixin hidden
+    display: none
+
+@mixin center
+    display: flex
+    justify-content: center
+    align-items: center
+
+@mixin row
+    width: 100%
+    margin: 0 auto
+    max-width: 1200px
+    flex-direction: row
+    @include center
+
+
+@mixin size($size)
+	height: $size
+	width: $size
+
+
+@mixin position($type, $top, $right, $bottom, $left)
+	position: $type
+	top: $top
+	right: $right
+	bottom: $bottom
+	left: $left

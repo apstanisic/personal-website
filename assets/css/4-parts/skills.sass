@@ -1,0 +1,86 @@
+.skills
+    background: #1c1d22
+    min-height: 400px
+    min-width: 100%
+    justify-content: flex-start
+    flex-wrap: wrap
+
+    .skill-items
+        flex-wrap: wrap
+        justify-content: flex-start
+        position: relative
+
+        .skill
+            align-self: flex-start
+            width: calc(100% - #{$skill-margin})
+            flex-direction: column
+            margin: $skill-margin
+            max-height: 60px
+            color: $accent-color
+            transition: all 400ms
+            overflow: hidden
+
+            &.expandable
+                .skill-header
+                    cursor: pointer
+                    &::before
+                        @include position(absolute, 0, 5px, 5px, auto)
+                        content: "▼"
+                        min-height: 30px
+                        min-width: 30px
+                        font-size: 25px
+                        transition: all 250ms
+                        transform: rotateX(0deg)
+                        color: lighten($secondary-accent-color, 25%)
+
+
+                &.show
+                    max-height: 400px
+
+                    .skill-header
+                        &::before
+                            transform: rotateX(180deg)
+                    .skill-content
+
+                        .subskill
+                            height: 50px
+                            margin: 10px
+
+            .skill-header
+                border-radius: 5px
+                min-height: 60px
+                background: $secondary-accent-color
+                min-width: 180px
+                font-size: 30px
+                padding: 0 35px 0 20px
+                position: relative
+                line-height: 60px
+
+
+            .skill-content
+                flex-direction: column
+                .subskill
+                    @include center
+                    font-size: 18px
+                    background: $gray-color
+                    color: $snow-color
+                    margin: 0px
+                    height: 0px
+                    border-radius: 5px
+                    transition: all 400ms
+                    overflow: hidden
+
+@media screen and (min-width: 550px)
+    .skills .skill-items
+        .skill
+            width: calc(50% - #{$skill-margin} - 10px)
+
+@media screen and (min-width: 800px)
+    .skills .skill-items
+        .skill
+            width: calc(33% - #{$skill-margin} - 10px)
+
+@media screen and (min-width: 1100px)
+    .skills .skill-items
+        .skill
+            width: calc(25% - #{$skill-margin} - 10px)

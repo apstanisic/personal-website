@@ -1,0 +1,61 @@
+.header
+	background:
+		image: linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) ), url(../images/cover.jpg)
+		size: cover
+		position: bottom left
+	min-height: 400px
+	height: 70vh
+	color: $accent-color
+	@include center
+
+	.title
+		display: inline-flex
+		text-align: center
+		flex-direction: column
+		border: 6px solid darken($accent-color, 25%)
+		padding: 10px
+		margin: 0 30px
+		align-items: center
+
+		h1, h2
+			display: inline
+			padding: 5px
+			margin: 0
+
+			// justify-content: center
+
+		h1
+			display: flex
+			font-size: 40px
+			letter-spacing: 1px
+
+		h2
+			font-size: 22px
+			color: darken($accent-color, 25%)
+
+	#headerFirstnameFull
+		display: none
+
+
+@media screen and (min-width: 450px)
+	.header .title
+		h1
+			font-size: 60px
+		h2
+			font-size: 40px
+
+
+@media screen and (min-width: 600px)
+	.header
+		.title
+			h1
+				flex-direction: column
+
+		#headerFirstnameFull
+			display: inline
+
+@media screen and (min-width: 800px)
+	.header
+		.title
+			h1
+				flex-direction: row

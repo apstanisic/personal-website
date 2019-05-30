@@ -1,0 +1,11 @@
+{
+    "PHP": ["Laravel", "CodeIgniter", "WordPress"],
+    "JavaScript": ["ES 6", "ReactJS", "jQuery"],
+    "NodeJS": ["Express", "Webpack", "Gulp"],
+    "HTML/CSS": ["HTML5", "CSS3", "Bootstrap 4", "Sass"],
+    "SQL": ["MySQL", "SQL Server", "MariaDB"],
+    "Git": [],
+    "Linux": ["Bash", "Ubuntu"],
+    ".NET": ["C#", "ASP"],
+    "NoSQL": ["MongoDB"]
+}

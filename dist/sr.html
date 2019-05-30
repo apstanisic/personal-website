@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="sr">
+	<head>
+		<title>Aleksandar Stanisic - Srpski</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Web prezentacija Aleksandara Stanisica, web developera iz Srbije">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+<link rel="shortcut icon" type="image/ico" href="favicon.ico">
+
+<!-- CSS -->
+<link rel="stylesheet" type="text/css" href="stylesheets/style.css">	</head>
+	<body>
+	    <noscript>
+	<!-- redirect if user doesn't have JavaScript enabled -->
+	<!-- <meta http-equiv="refresh" content="7; url=basic.html" /> -->
+	<div class="browser-problem danger">
+		<p>
+			Vaš JavaScript ne radi, molimo vas omogućite JavaScript da bi sajt radio normalno.		</p>
+	</div>
+</noscript>
+
+<!--[if lt IE 10]>
+<div class="danger browser-problem">
+	<p>
+		Koristite stari i nesigurni web brauzer, molimo vas preuzmite moderan brauzer.	</p>
+</div>
+<![endif]-->	    <div class="spinner hidden" id="spinner">
+	<?xml version="1.0" encoding="utf-8"?><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" class="uil-gears"><title>Spinner</title><rect x="0" y="0" width="100" height="100" fill="none" class="bk"></rect><g transform="translate(-20,-20)"><path d="M79.9,52.6C80,51.8,80,50.9,80,50s0-1.8-0.1-2.6l-5.1-0.4c-0.3-2.4-0.9-4.6-1.8-6.7l4.2-2.9c-0.7-1.6-1.6-3.1-2.6-4.5 L70,35c-1.4-1.9-3.1-3.5-4.9-4.9l2.2-4.6c-1.4-1-2.9-1.9-4.5-2.6L59.8,27c-2.1-0.9-4.4-1.5-6.7-1.8l-0.4-5.1C51.8,20,50.9,20,50,20 s-1.8,0-2.6,0.1l-0.4,5.1c-2.4,0.3-4.6,0.9-6.7,1.8l-2.9-4.1c-1.6,0.7-3.1,1.6-4.5,2.6l2.1,4.6c-1.9,1.4-3.5,3.1-5,4.9l-4.5-2.1 c-1,1.4-1.9,2.9-2.6,4.5l4.1,2.9c-0.9,2.1-1.5,4.4-1.8,6.8l-5,0.4C20,48.2,20,49.1,20,50s0,1.8,0.1,2.6l5,0.4 c0.3,2.4,0.9,4.7,1.8,6.8l-4.1,2.9c0.7,1.6,1.6,3.1,2.6,4.5l4.5-2.1c1.4,1.9,3.1,3.5,5,4.9l-2.1,4.6c1.4,1,2.9,1.9,4.5,2.6l2.9-4.1 c2.1,0.9,4.4,1.5,6.7,1.8l0.4,5.1C48.2,80,49.1,80,50,80s1.8,0,2.6-0.1l0.4-5.1c2.3-0.3,4.6-0.9,6.7-1.8l2.9,4.2 c1.6-0.7,3.1-1.6,4.5-2.6L65,69.9c1.9-1.4,3.5-3,4.9-4.9l4.6,2.2c1-1.4,1.9-2.9,2.6-4.5L73,59.8c0.9-2.1,1.5-4.4,1.8-6.7L79.9,52.6 z M50,65c-8.3,0-15-6.7-15-15c0-8.3,6.7-15,15-15s15,6.7,15,15C65,58.3,58.3,65,50,65z" fill="#8f7f59"><animateTransform attributeName="transform" type="rotate" from="90 50 50" to="0 50 50" dur="1s" repeatCount="indefinite"></animateTransform></path></g><g transform="translate(20,20) rotate(15 50 50)"><path d="M79.9,52.6C80,51.8,80,50.9,80,50s0-1.8-0.1-2.6l-5.1-0.4c-0.3-2.4-0.9-4.6-1.8-6.7l4.2-2.9c-0.7-1.6-1.6-3.1-2.6-4.5 L70,35c-1.4-1.9-3.1-3.5-4.9-4.9l2.2-4.6c-1.4-1-2.9-1.9-4.5-2.6L59.8,27c-2.1-0.9-4.4-1.5-6.7-1.8l-0.4-5.1C51.8,20,50.9,20,50,20 s-1.8,0-2.6,0.1l-0.4,5.1c-2.4,0.3-4.6,0.9-6.7,1.8l-2.9-4.1c-1.6,0.7-3.1,1.6-4.5,2.6l2.1,4.6c-1.9,1.4-3.5,3.1-5,4.9l-4.5-2.1 c-1,1.4-1.9,2.9-2.6,4.5l4.1,2.9c-0.9,2.1-1.5,4.4-1.8,6.8l-5,0.4C20,48.2,20,49.1,20,50s0,1.8,0.1,2.6l5,0.4 c0.3,2.4,0.9,4.7,1.8,6.8l-4.1,2.9c0.7,1.6,1.6,3.1,2.6,4.5l4.5-2.1c1.4,1.9,3.1,3.5,5,4.9l-2.1,4.6c1.4,1,2.9,1.9,4.5,2.6l2.9-4.1 c2.1,0.9,4.4,1.5,6.7,1.8l0.4,5.1C48.2,80,49.1,80,50,80s1.8,0,2.6-0.1l0.4-5.1c2.3-0.3,4.6-0.9,6.7-1.8l2.9,4.2 c1.6-0.7,3.1-1.6,4.5-2.6L65,69.9c1.9-1.4,3.5-3,4.9-4.9l4.6,2.2c1-1.4,1.9-2.9,2.6-4.5L73,59.8c0.9-2.1,1.5-4.4,1.8-6.7L79.9,52.6 z M50,65c-8.3,0-15-6.7-15-15c0-8.3,6.7-15,15-15s15,6.7,15,15C65,58.3,58.3,65,50,65z" fill="#9f9fab"><animateTransform attributeName="transform" type="rotate" from="0 50 50" to="90 50 50" dur="1s" repeatCount="indefinite"></animateTransform></path></g></svg>
+</div>		<div id="app" class="app d-block">
+		    <nav class="nav" id="nav">
+
+
+	<a href="#app" class="logo">
+		<svg version="1.1" class="logo-svg" xmlns="http://www.w3.org/2000/svg"
+			 width="1951.000000pt" height="1913.000000pt" viewBox="0 0 1951.000000 1913.000000"
+			 preserveAspectRatio="xMidYMid meet">
+			 <title>Logo</title>
+			<g transform="translate(0.000000,1913.000000) scale(0.100000,-0.100000)" stroke="none">
+			<path d="M9585 18773 c-192 -3 -496 -20 -700 -39 -1450 -135 -2825 -597 -4049
+			-1362 -1460 -912 -2668 -2271 -3394 -3817 -759 -1617 -1038 -3380 -816 -5165
+			210 -1695 881 -3287 1939 -4605 235 -293 365 -436 669 -741 371 -371 598 -568
+			981 -856 1356 -1018 2990 -1641 4700 -1792 579 -52 1289 -46 1850 14 2649 285
+			5004 1665 6530 3825 901 1276 1466 2795 1624 4365 37 360 45 550 45 965 0 415
+			-9 606 -45 965 -141 1393 -595 2738 -1322 3910 -902 1457 -2176 2616 -3707
+			3374 -1336 662 -2767 981 -4305 959z m-1711 -4546 c760 -1760 2159 -4900 2699
+			-6057 382 -820 502 -1054 664 -1297 292 -440 515 -636 813 -714 168 -43 438
+			-37 646 16 196 50 326 119 452 239 142 137 233 295 290 505 23 88 26 114 26
+			296 1 178 -2 210 -22 290 -83 319 -306 554 -731 769 -80 41 -335 153 -566 249
+			-584 243 -793 350 -1050 541 -148 109 -365 326 -458 456 -79 112 -195 341
+			-231 457 -54 174 -68 266 -73 488 -4 165 -2 234 11 323 56 380 212 698 480
+			979 429 450 1002 683 1679 683 194 0 312 -11 485 -46 524 -105 986 -424 1339
+			-924 69 -98 183 -283 183 -296 0 -5 -156 -101 -346 -214 -191 -113 -409 -242
+			-485 -287 l-137 -81 -62 101 c-222 369 -393 518 -678 590 -76 19 -113 21 -292
+			21 -189 0 -212 -2 -302 -26 -107 -29 -240 -88 -315 -139 -78 -53 -192 -169
+			-243 -245 -67 -103 -101 -213 -107 -349 -10 -222 67 -389 250 -547 164 -141
+			267 -193 867 -437 744 -303 1048 -471 1368 -752 283 -249 493 -596 582 -961
+			49 -200 63 -329 63 -563 0 -564 -146 -1017 -460 -1428 -282 -368 -709 -662
+			-1148 -791 -255 -74 -392 -91 -750 -91 -370 0 -523 21 -785 106 -348 114 -705
+			355 -939 635 -166 199 -438 638 -620 1002 -256 511 -521 1114 -1503 3411 -395
+			926 -722 1690 -726 1697 -5 9 -453 -979 -1153 -2539 l-1146 -2552 -647 -3
+			c-614 -2 -646 -1 -638 15 5 10 816 1752 1802 3871 987 2118 1796 3852 1799
+			3852 3 0 55 -114 115 -253z"/>
+			</g>
+			</svg>
+		<h1 class="hidden">Aleksandar Stanisic</h1>
+	</a>
+
+
+	<div class="nav-button">
+		<span class="line line-up"></span>
+		<span class="line-middle"></span>
+		<span class="line line-down"></span>
+	</div>
+
+
+	<ul class="nav-links">
+					<li class="nav-item"><a class="nav-link" href="#about">O meni</a></li>
+					<li class="nav-item"><a class="nav-link" href="#skills">Veštine</a></li>
+					<li class="nav-item"><a class="nav-link" href="#work">Projekti</a></li>
+					<li class="nav-item"><a class="nav-link" href="#contact">Kontakt</a></li>
+		
+					<li class="nav-item"><a class="nav-link" href=".">English</a></li>
+			</ul>
+
+
+</nav>
+<header class="header container" id="header">
+    <div class="title animated delay bounceIn">
+        <h1>
+        	<span id="headerFirstname">
+        		&nbsp;A<span id="headerFirstnameFull">leksandar&nbsp;</span>
+    		</span>
+    		<span>Stanišić&nbsp;</span>
+    	</h1>
+        <h2>Web Developer</h2>
+    </div>
+</header><section class="about container" id="about">
+	<div class="row">
+    	<p class="about-text">Ćao, ja sam Aleksandar, student (još par meseci) i web developer iz Beograda, koji pokušava da uživa u mladosti dok pravi web aplikacije i vežba. Ponekad sam čak zanimljiv i smešan, ali ne previše često.</p>
+    	<img class="about-image" src="images/aleksandar.jpg" alt="Aleksandar Stanisic - author">
+	</div>
+</section>
+<section class="container skills" id="skills">
+    <h2 class="subtitle row">Veštine</h2>
+    <div class="row skill-items" id="allSkills"></div>
+</section>
+<section class="work container" id="work">
+    <h2 class="row subtitle">Projekti</h2>
+    <div class="row">
+        <div class="work-item">
+            <!-- <a href="http://prodavnice.me" target="_blank"> -->
+                <img src="images/projects/stores.png" alt="Stores Website">
+            <!-- </a> -->
+        </div>
+        <div class="work-item">
+            <img src="images/projects/resell.png" alt="Sell stuff online website">
+        </div>
+    </div>
+<!--     <div class="row hidden-height" id="rowToHide">
+        <div class="work-item">
+            <img src="http://placehold.it/500x350" alt="">
+        </div>
+        <div class="work-item">
+            <img src="http://placehold.it/500x350" alt="">
+        </div>
+    </div>
+    <div class="row">
+        <button class="button animate" data-work-button="Prikazi manje" id="workShowMore">Pogledaj još</button>
+    </div> -->
+</section>
+<section class="contact container o-hidden" id="contact">
+
+	<div class="row relative">
+		<form id="contactForm" method="post" class="contact-form animated" action="https://formspree.io/apstanisic@gmail.com">
+			<h2 class="subtitle w-100 row">Pošaljite poruku</h2>
+			<div class="shrink form-group">
+				<label for="contactName">Ime</label>
+				<input type="text" class="input" id="contactName" name="name" autocomplete="on" required>
+			</div>
+			<div class="shrink form-group">
+				<label for="contactEmail">Email</label>
+				<input type="email" class="input" id="contactEmail" autocomplete="on" name="email"  required><!-- chrome boji autocomple polje u zuto  -->
+			</div>
+			<div class="form-group">
+				<label for="contactMessage" >Poruka</label>
+				<textarea id="contactMessage" name="message" required></textarea>
+			</div>
+			<div class="form-group row"><!-- ie fix -->
+				<button type="submit" id="contactSubmit" class="contact-submit button" disabled="true">Pošalji</button>
+			</div>
+		</form>
+		<span id="contactFormSuccess" class="row hidden animated delay bounceInLeft contact-form-success">Poruka je uspešno poslata!</span>
+	</div>
+
+</section>
+<section class="container social" id="social">
+	<div class="row">
+		<a href="http://github.com/apstanisic" target="_blank">
+
+			<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="36" height="42" viewBox="0 0 36 42">
+			<title>github</title>
+			<path d="M18 3c9.938 0 18 8.062 18 18 0 7.945-5.156 14.695-12.305 17.086-0.914 0.164-1.242-0.398-1.242-0.867 0-0.586 0.023-2.531 0.023-4.945 0-1.688-0.562-2.766-1.219-3.328 4.008-0.445 8.227-1.969 8.227-8.883 0-1.969-0.703-3.562-1.852-4.828 0.187-0.469 0.797-2.297-0.187-4.781-1.5-0.469-4.945 1.852-4.945 1.852-1.43-0.398-2.977-0.609-4.5-0.609s-3.070 0.211-4.5 0.609c0 0-3.445-2.32-4.945-1.852-0.984 2.484-0.375 4.313-0.187 4.781-1.148 1.266-1.852 2.859-1.852 4.828 0 6.891 4.195 8.437 8.203 8.883-0.516 0.469-0.984 1.266-1.148 2.414-1.031 0.469-3.656 1.266-5.227-1.5-0.984-1.711-2.766-1.852-2.766-1.852-1.758-0.023-0.117 1.102-0.117 1.102 1.172 0.539 1.992 2.625 1.992 2.625 1.055 3.211 6.070 2.133 6.070 2.133 0 1.5 0.023 2.906 0.023 3.352 0 0.469-0.328 1.031-1.242 0.867-7.148-2.391-12.305-9.141-12.305-17.086 0-9.938 8.062-18 18-18zM6.82 28.852c0.047-0.094-0.023-0.211-0.164-0.281-0.141-0.047-0.258-0.023-0.305 0.047-0.047 0.094 0.023 0.211 0.164 0.281 0.117 0.070 0.258 0.047 0.305-0.047zM7.547 29.648c0.094-0.070 0.070-0.234-0.047-0.375-0.117-0.117-0.281-0.164-0.375-0.070-0.094 0.070-0.070 0.234 0.047 0.375 0.117 0.117 0.281 0.164 0.375 0.070zM8.25 30.703c0.117-0.094 0.117-0.281 0-0.445-0.094-0.164-0.281-0.234-0.398-0.141-0.117 0.070-0.117 0.258 0 0.422s0.305 0.234 0.398 0.164zM9.234 31.687c0.094-0.094 0.047-0.305-0.094-0.445-0.164-0.164-0.375-0.187-0.469-0.070-0.117 0.094-0.070 0.305 0.094 0.445 0.164 0.164 0.375 0.187 0.469 0.070zM10.57 32.273c0.047-0.141-0.094-0.305-0.305-0.375-0.187-0.047-0.398 0.023-0.445 0.164s0.094 0.305 0.305 0.352c0.187 0.070 0.398 0 0.445-0.141zM12.047 32.391c0-0.164-0.187-0.281-0.398-0.258-0.211 0-0.375 0.117-0.375 0.258 0 0.164 0.164 0.281 0.398 0.258 0.211 0 0.375-0.117 0.375-0.258zM13.406 32.156c-0.023-0.141-0.211-0.234-0.422-0.211-0.211 0.047-0.352 0.187-0.328 0.352 0.023 0.141 0.211 0.234 0.422 0.187s0.352-0.187 0.328-0.328z"></path>
+			</svg>
+
+		</a>
+
+		<a href="http://www.linkedin.com/in/astanisic" target="_blank">
+
+
+			<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="36" height="42" viewBox="0 0 36 42">
+			<title>linkedin</title>
+			<path d="M5.555 33.141h5.414v-16.266h-5.414v16.266zM11.32 11.859c-0.023-1.594-1.172-2.812-3.023-2.812s-3.070 1.219-3.070 2.812c0 1.547 1.172 2.812 3 2.812h0.023c1.898 0 3.070-1.266 3.070-2.812zM25.031 33.141h5.414v-9.328c0-4.992-2.672-7.313-6.234-7.313-2.906 0-4.195 1.617-4.898 2.742h0.047v-2.367h-5.414s0.070 1.523 0 16.266v0h5.414v-9.094c0-0.469 0.023-0.961 0.164-1.313 0.398-0.961 1.289-1.969 2.789-1.969 1.945 0 2.719 1.477 2.719 3.68v8.695zM36 9.75v22.5c0 3.727-3.023 6.75-6.75 6.75h-22.5c-3.727 0-6.75-3.023-6.75-6.75v-22.5c0-3.727 3.023-6.75 6.75-6.75h22.5c3.727 0 6.75 3.023 6.75 6.75z"></path>
+			</svg>
+
+
+		</a>
+	<!-- </div> -->
+	<!-- <div class="row"> -->
+		<a href="http://www.facebook.com/apstanisic" target="_blank">
+
+			<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="36" height="42" viewBox="0 0 36 42">
+			<title>facebook</title>
+			<path d="M29.25 3c3.727 0 6.75 3.023 6.75 6.75v22.5c0 3.727-3.023 6.75-6.75 6.75h-4.406v-13.945h4.664l0.703-5.437h-5.367v-3.469c0-1.57 0.422-2.625 2.695-2.625l2.859-0.023v-4.852c-0.492-0.070-2.203-0.211-4.172-0.211-4.148 0-7.008 2.531-7.008 7.172v4.008h-4.688v5.437h4.688v13.945h-12.469c-3.727 0-6.75-3.023-6.75-6.75v-22.5c0-3.727 3.023-6.75 6.75-6.75h22.5z"></path>
+			</svg>
+
+
+
+		</a>
+		<a href="http://www.instagram.com/al_stanisic" target="_blank">
+
+			<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="36" height="42" viewBox="0 0 36 42">
+			<title>instagram</title>
+			<path d="M24 21c0-3.305-2.695-6-6-6s-6 2.695-6 6 2.695 6 6 6 6-2.695 6-6zM27.234 21c0 5.109-4.125 9.234-9.234 9.234s-9.234-4.125-9.234-9.234 4.125-9.234 9.234-9.234 9.234 4.125 9.234 9.234zM29.766 11.391c0 1.195-0.961 2.156-2.156 2.156s-2.156-0.961-2.156-2.156 0.961-2.156 2.156-2.156 2.156 0.961 2.156 2.156zM18 6.234c-2.625 0-8.25-0.211-10.617 0.727-0.82 0.328-1.43 0.727-2.063 1.359s-1.031 1.242-1.359 2.063c-0.937 2.367-0.727 7.992-0.727 10.617s-0.211 8.25 0.727 10.617c0.328 0.82 0.727 1.43 1.359 2.063s1.242 1.031 2.063 1.359c2.367 0.937 7.992 0.727 10.617 0.727s8.25 0.211 10.617-0.727c0.82-0.328 1.43-0.727 2.063-1.359s1.031-1.242 1.359-2.063c0.937-2.367 0.727-7.992 0.727-10.617s0.211-8.25-0.727-10.617c-0.328-0.82-0.727-1.43-1.359-2.063s-1.242-1.031-2.063-1.359c-2.367-0.937-7.992-0.727-10.617-0.727zM36 21c0 2.484 0.023 4.945-0.117 7.43-0.141 2.883-0.797 5.437-2.906 7.547s-4.664 2.766-7.547 2.906c-2.484 0.141-4.945 0.117-7.43 0.117s-4.945 0.023-7.43-0.117c-2.883-0.141-5.437-0.797-7.547-2.906s-2.766-4.664-2.906-7.547c-0.141-2.484-0.117-4.945-0.117-7.43s-0.023-4.945 0.117-7.43c0.141-2.883 0.797-5.437 2.906-7.547s4.664-2.766 7.547-2.906c2.484-0.141 4.945-0.117 7.43-0.117s4.945-0.023 7.43 0.117c2.883 0.141 5.437 0.797 7.547 2.906s2.766 4.664 2.906 7.547c0.141 2.484 0.117 4.945 0.117 7.43z"></path>
+			</svg>
+
+
+		</a>
+	</div>
+</section>		</div>
+		<!-- JavaScript -->
+<script type="text/javascript" src="javascripts/script.js"></script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-101541984-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css?family=Fira+Sans:400,700&amp;subset=latin-ext" rel="stylesheet">
+
+	</body>
+</html>

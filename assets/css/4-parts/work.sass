@@ -1,0 +1,83 @@
+.work
+    // padding: 50px 0 70px 0
+    background: $secondary-color
+
+    .row
+        // padding: 5px 0
+        flex-wrap: wrap
+        transition: all 400ms
+        flex-direction: column
+
+
+
+        .work-item
+            width: auto
+            // height: 250px
+            min-width: 200px
+            max-width: 100%
+            height: auto
+            max-height: 200px
+            background: $snow-color
+            margin: 30px 0
+            transition: all 400ms
+            flex-grow: 1
+
+            img
+                height: auto
+                max-width: 100%
+
+        &.hidden-height
+            padding: 0
+            .work-item
+                max-height: 0px
+                margin: 0 30px
+                overflow: hidden // IE problem
+                //height: 0px // Because of ie
+                //margin-top: 0
+                //margin-bottom: 0
+
+    .button
+        &.animate
+            animation: workButton 3s infinite
+
+@media screen and (min-width: 400px)
+    .work .row
+        .work-item
+            max-height: 250px
+
+@media screen and (min-width: 550px)
+    .work
+        .row
+            // flex-direction: row
+            .work-item
+                max-height: 300px
+                // width: 45%
+                // margin: 30px 2%
+
+@media screen and (min-width: 700px)
+    .work
+        .row
+            flex-direction: row
+            .work-item
+                max-width: 40%
+                margin: 30px
+                max-height: 200px
+                // max-height: 300px
+                // width: 45%
+                // margin: 30px 2%
+
+@media screen and (min-width: 900px)
+    .work .row
+        .work-item
+            max-height: 250px
+
+@media screen and (min-width: 1200px)
+    .work .row
+        .work-item
+            max-height: 350px
+
+@keyframes workButton
+    20%, 80%
+        transform: scale(1)
+    50%
+        transform: scale(1.1)

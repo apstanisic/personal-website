@@ -1,0 +1,51 @@
+{
+	"page": {
+		"lang": "en",
+		"langFull": "English",
+		"title": "Aleksandar Stanisic",
+		"description": "Aleksandar Stanisic web presentation, young Web Developer from Serbia"
+	},
+	"problem": {
+		"oldIE": "You are using old and unsecured version of web browser, please download modern web browser.",
+		"noscript": "Your JavaScript is not working, please enable JavaScript to view website properly."
+	},
+	"about": {
+		"lastname": "Stanisic",
+		"content": "Hi, I'm Aleksandar, student (for another couple of months) and web developer from Belgrade, currently building web apps and working out, while still trying to enjoy in youth. I'm also sometimes funny and interesting, but not too often."
+	},
+	"contact": {
+		"header": "Send message",
+		"name": "Name",
+		"message": "Message",
+		"button": "Send",
+		"success": "Message was sent successfully!"
+	},
+	"header": {
+		"links": [
+			{
+				"href": "#about",
+				"text": "About me"
+			},
+			{
+				"href": "#skills",
+				"text": "Skills"
+			},
+			{
+				"href": "#work",
+				"text": "Projects"
+			},
+			{
+				"href": "#contact",
+				"text": "Contact"
+			}
+		]
+	},
+	"skills": {
+		"header": "Skills"
+	},
+	"work": {
+		"header": "Projects",
+		"button": "See more",
+		"buttonLess": "Show less"
+	}
+}

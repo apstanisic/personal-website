@@ -1,107 +1,20 @@
 {
-  "private": true,
-  "name": "personal",
-  "version": "0.0.0",
-  "license": "MIT",
+  "name": "portfolio-website",
+  "version": "1.2.0",
   "scripts": {
-    "start": "per-env",
-    "start:production": "npm run -s serve",
-    "start:development": "npm run -s dev",
-    "build": "preact build",
-    "serve": "preact build && preact serve",
-    "dev": "preact watch",
-    "lint": "eslint --project src",
-    "test": "jest ./tests",
-    "precommit": "lint-staged"
+    "build": "php generator.php && webpack"
   },
-  "lint-staged": {
-    "*.{js,jsx,css,md,scss}": [
-      "prettier --write",
-      "git add"
-    ],
-    "*.{ts,tsx}": [
-      "eslint --fix",
-      "git add"
-    ]
-  },
-  "eslintConfig": {
-    "extends": "eslint-config-aerian"
-  },
-  "eslintIgnore": [
-    "build/*"
-  ],
   "devDependencies": {
-    "@fullhuman/postcss-purgecss": "^1.2.0",
-    "@types/jest": "^23.3.10",
-    "@types/preact-i18n": "^1.2.0",
-    "@types/webpack-env": "^1.13.9",
-    "@typescript-eslint/eslint-plugin": "^1.9.0",
-    "@typescript-eslint/parser": "^1.9.0",
-    "css-loader": "^1.0.1",
-    "eslint": "^5.16.0",
-    "eslint-config-airbnb": "^17.1.0",
-    "eslint-plugin-import": "^2.17.3",
-    "eslint-plugin-jsx-a11y": "^6.2.1",
-    "eslint-plugin-react": "^7.13.0",
-    "eslint-plugin-react-hooks": "^1.6.0",
-    "husky": "^1.2.0",
-    "identity-obj-proxy": "^3.0.0",
-    "jest": "^23.6.0",
-    "lint-staged": "^8.1.0",
-    "per-env": "^1.0.2",
-    "postcss-import": "^12.0.1",
-    "preact-cli": "^3.0.0-next.19",
-    "preact-render-spy": "^1.3.0",
-    "prettier": "^1.15.3",
-    "tailwindcss": "^1.0.2",
-    "ts-jest": "^23.10.5",
-    "ts-loader": "^3.5.0",
-    "typescript": "^3.2.1",
-    "typings-for-css-modules-loader": "^1.7.0"
-  },
-  "dependencies": {
-    "i18n-react": "^0.7.0",
-    "idb-keyval": "^3.2.0",
-    "preact": "^10.0.0-beta.1",
-    "preact-compat": "^3.18.5",
-    "preact-router": "^2.6.1",
-    "react-switch": "^5.0.0",
-    "unstated-next": "^1.1.0"
-  },
-  "peerDependencies": {
-    "prettier": ">1.0.0"
-  },
-  "jest": {
-    "transform": {
-      "^.+\\.tsx?$": "ts-jest"
-    },
-    "verbose": true,
-    "setupFiles": [
-      "<rootDir>/src/tests/__mocks__/browserMocks.js"
-    ],
-    "testURL": "http://localhost:8080",
-    "moduleFileExtensions": [
-      "js",
-      "jsx",
-      "ts",
-      "tsx"
-    ],
-    "moduleDirectories": [
-      "node_modules"
-    ],
-    "testMatch": [
-      "**/__tests__/**/*.[jt]s?(x)",
-      "**/?(*.)(spec|test).[jt]s?(x)"
-    ],
-    "moduleNameMapper": {
-      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/src/tests/__mocks__/fileMock.js",
-      "\\.(css|less|scss)$": "identity-obj-proxy",
-      "^./style$": "identity-obj-proxy",
-      "^preact$": "<rootDir>/node_modules/preact/dist/preact.min.js",
-      "^react$": "preact-compat",
-      "^react-dom$": "preact-compat",
-      "^create-react-class$": "preact-compat/lib/create-react-class",
-      "^react-addons-css-transition-group$": "preact-css-transition-group"
-    }
+    "babel-core": "^6.24.1",
+    "babel-loader": "^7.0.0",
+    "babel-polyfill": "^6.23.0",
+    "babel-preset-env": "^1.5.1",
+    "css-loader": "^0.28.4",
+    "extract-text-webpack-plugin": "^2.1.0",
+    "node-sass": "^4.5.3",
+    "postcss-loader": "^2.0.5",
+    "sass-loader": "^6.0.5",
+    "smoothscroll-polyfill": "^0.3.5",
+    "webpack": "^2.6.1"
   }
 }

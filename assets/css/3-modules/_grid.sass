@@ -1,0 +1,37 @@
+.container
+	position: relative
+	padding: 70px 15px
+	flex-direction: column
+
+.container-fluid
+	padding: 70px 0px
+	min-width: 100%
+	flex-direction: column
+
+@media screen and (min-width: 600px)
+	.container
+		padding: 70px 30px
+
+@media screen and (min-width: 800px)
+	.container
+		padding: 70px 50px
+
+@media screen and (min-width: 1100px)
+	.container
+		padding: 80px 80px
+
+.row
+    width: 100%
+    margin: 0 auto
+    max-width: 1200px
+    flex-direction: row
+    @include center
+
+.d-inline-block
+	display: inline-block
+
+// 600
+// 650
+// 700
+// 800
+// 1100

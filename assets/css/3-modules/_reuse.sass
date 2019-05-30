@@ -1,0 +1,90 @@
+.button
+    min-height: 45px
+    max-width: 90%
+    min-width: 200px
+    margin: 20px 0 0 0
+    background: $accent-color
+    border: none
+    border-radius: 5px
+    outline: none
+    cursor: pointer
+    font-size: 20px
+    padding: 5px 30px
+    color: $secondary-color
+    transition: transform 200ms, all 400ms
+    transform: scale(1)
+
+    &:active
+        transform: scale(0.95)
+        animation: none
+
+
+
+
+.success
+    background: $success-color
+    color: darken($success-color, 30%)
+
+.danger
+    background: $danger-color
+    color: darken($danger-color, 30%)
+
+.neutral-shadow
+    box-shadow: $box-shadow-neutral !important
+
+.success-shadow
+    box-shadow: $box-shadow-success !important
+
+.danger-shadow
+    box-shadow: $box-shadow-danger !important
+
+
+.hidden
+    display: none !important
+
+.relative
+    position: relative !important
+
+.title
+    color: $accent-color
+    font-size: 35px
+    margin: 0 0 20px 0
+    text-align: center
+
+.w-100
+    min-width: 100%
+
+.center
+    display: flex
+    flex-direction: row
+    justify-content: center
+    // align-items: stretch
+    // flex-grow: 1
+
+.d-block
+    display: block
+
+.o-hidden
+    overflow: hidden
+
+.subtitle
+    text-align: center
+    color: $accent-color
+    font-size: 40px
+    padding-bottom: 20px
+
+// .row
+//     width: 100%
+//     flex-direction: row
+//     @include center
+
+.click-scale
+    transform: scale(1)
+
+    &:hover
+        transform: scale(1.1)
+
+    &:active
+        transform: scale(0.95)
+
+

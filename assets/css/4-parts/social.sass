@@ -1,0 +1,26 @@
+.social
+	// Da bi bilo blize kontakt formi
+	margin-top: -30px
+	@include center
+	background: $primary-color
+	padding-top: 0
+	padding-bottom: 40px
+
+	.row
+		justify-content: space-around
+		max-width: 800px
+		flex-wrap: wrap
+
+		a
+			@extend .click-scale
+			margin: 5px
+			display: inline-block
+
+			svg
+				fill: $accent-color
+				@include size(50px)
+
+@media screen and (min-width: 400px)
+	.social .row a
+		svg
+			@include size(70px)

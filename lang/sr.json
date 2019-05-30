@@ -1,0 +1,51 @@
+{
+	"page": {
+		"lang": "sr",
+		"langFull": "Srpski",
+		"title": "Aleksandar Stanisic - Srpski",
+		"description": "Web prezentacija Aleksandara Stanisica, web developera iz Srbije"
+	},
+	"problem": {
+		"oldIE": "Koristite stari i nesigurni web brauzer, molimo vas preuzmite moderan brauzer.",
+		"noscript": "Vaš JavaScript ne radi, molimo vas omogućite JavaScript da bi sajt radio normalno."
+	},
+	"about": {
+		"lastname": "Stanišić",
+		"content": "Ćao, ja sam Aleksandar, student (još par meseci) i web developer iz Beograda, koji pokušava da uživa u mladosti dok pravi web aplikacije i vežba. Ponekad sam čak zanimljiv i smešan, ali ne previše često."
+	},
+	"contact": {
+		"header": "Pošaljite poruku",
+		"name": "Ime",
+		"message": "Poruka",
+		"button": "Pošalji",
+		"success": "Poruka je uspešno poslata!"
+	},
+	"header": {
+		"links": [
+			{
+				"href": "#about",
+				"text": "O meni"
+			},
+			{
+				"href": "#skills",
+				"text": "Veštine"
+			},
+			{
+				"href": "#work",
+				"text": "Projekti"
+			},
+			{
+				"href": "#contact",
+				"text": "Kontakt"
+			}
+		]
+	},
+	"skills": {
+		"header": "Veštine"
+	},
+	"work": {
+		"header": "Projekti",
+		"button": "Pogledaj još",
+		"buttonLess": "Prikazi manje"
+	}
+}

@@ -1,0 +1,61 @@
+.about
+	background: $secondary-color
+	color: $accent-color
+
+	.row
+		flex-direction: column
+		align-items: center
+
+		.about-image
+			// IE10 bug
+			-ms-flex: 0 1 auto
+			max-width: 100%
+			width: 400px
+			max-height: 400px
+			border-radius: 5px
+			margin: 10px 20px
+
+		.about-text
+			// IE10 bug
+			-ms-flex: 0 1 auto
+			font-size: 18px
+			text-align: center
+			padding: 0 10px
+			margin-top: 0px
+			margin-bottom: 30px
+			line-height: 1.4
+			letter-spacing: 0.7px
+
+
+@media screen and (min-width: 600px)
+	.about .row
+		.about-text
+			font-size: 20px
+
+
+@media screen and (min-width: 700px)
+	.about .row
+		flex-direction: row
+
+		.about-image
+			max-width: 300px
+			max-height: 300px
+			margin-left: 40px
+			width: auto
+
+		.about-text
+			// font-size: 16px
+			margin-bottom: 0
+
+@media screen and (min-width: 800px)
+	.about .row
+		.about-text
+			vertical-align:
+			line-height: 1.8
+
+@media screen and (min-width: 1000px)
+	.about .row
+		.about-text
+			font-size: 20px
+			line-height: 2
+
