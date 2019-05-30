@@ -6,7 +6,10 @@ import { useThemeState } from './theme';
 
 function useUiState() {
   const [showSidebar, setShowSidebar] = useState(false);
-  return { showSidebar, setShowSidebar };
+  function toggleSidebar() {
+    setShowSidebar(!showSidebar);
+  }
+  return { showSidebar, setShowSidebar, toggleSidebar };
 }
 
 export const UiState = createContainer(useUiState);

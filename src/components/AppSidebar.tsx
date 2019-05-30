@@ -18,26 +18,29 @@ const links: NavLink[] = [
   { name: 'about', url: 'about' },
   { name: 'projects', url: 'projects' },
   { name: 'skills', url: 'skills' },
-  { name: 'old website', url: 'oldWebsite' },
+  { name: 'oldWebsite', url: 'old-website' },
   { name: 'contact', url: 'contact' },
   { name: 'social', url: 'social' }
 ];
 
-function SidebarLink(link: NavLink) {
+interface SidebarLinkProps extends NavLink {
+  onClick?: () => any;
+}
+
+function SidebarLink(props: SidebarLinkProps) {
   return (
     <li className="my-2 text-shadow">
       <button
         className="nav-link"
         // href={'#' + link.url}
         onClick={() => {
-          window.history.pushState({}, link.name, link.url);
-          // console.log('he');
-          let section = document.getElementById(link.url);
+          props.onClick ? props.onClick() : null;
+          window.history.pushState({}, props.name, props.url);
+          let section = document.getElementById(props.url);
           section ? section.scrollIntoView({ behavior: 'smooth' }) : '';
-          // window.scrollTo('#' + link.url);
         }}
       >
-        {(T.translate(`sidebar.${link.url}`) as string).toLowerCase()}
+        {(T.translate(`sidebar.${props.name}`) as string).toLowerCase()}
         {/* <T.span text={`sidebar.${link.name}`} /> */}
       </button>
     </li>
@@ -45,7 +48,7 @@ function SidebarLink(link: NavLink) {
 }
 
 export default function AppSidebar() {
-  const { showSidebar, setShowSidebar } = UiState.useContainer();
+  const { showSidebar, toggleSidebar } = UiState.useContainer();
   const isWide = useMedia({ minWidth: 768 });
   const { theme, toggleTheme } = ThemeState.useContainer();
   const { toggleLanguage } = LangState.useContainer();
@@ -72,7 +75,7 @@ export default function AppSidebar() {
         />
         <ul>
           {links.map((link, i) => (
-            <SidebarLink {...link} />
+            <SidebarLink {...link} onClick={toggleSidebar} />
           ))}
           <li className="my-2 text-shadow">
             <button className="nav-link" onClick={toggleLanguage}>
@@ -106,9 +109,7 @@ export default function AppSidebar() {
         <div
           className="fixed inset-0 md:hidden"
           style={{ zIndex: 5, backgroundColor: 'rgba(0, 0, 0, 0.7)' }}
-          onClick={() => {
-            setShowSidebar(false);
-          }}
+          onClick={toggleSidebar}
         />
       )}
     </Fragment>

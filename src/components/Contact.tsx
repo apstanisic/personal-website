@@ -13,7 +13,7 @@ export default function Contact() {
   return (
     <Section bg={theme === 'light' ? 'bg-gray-200' : ''} id="contact">
       <div className=" mx-auto">
-        <div className="text-4xl text-center pt-5">
+        <div className="text-4xl text-center ">
           <T.span text="contact.title" />
         </div>
         <form className="flex flex-col p-3">

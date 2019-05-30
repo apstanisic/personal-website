@@ -7,7 +7,7 @@ interface Props extends Partial<HTMLDivElement> {
 
 export default function Section({ children, bg, ...props }: Props) {
   return (
-    <div className={`w-full py-10 px-3 ${bg ? bg : ''}`}>
+    <div className={`w-full py-6 sm:py-10 px-3 ${bg ? bg : ''}`}>
       {/*
       // @ts-ignore */}
       <div

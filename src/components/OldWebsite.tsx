@@ -5,7 +5,7 @@ import Section from './ui/Section';
 
 export default function OldWebsite() {
   return (
-    <Section className="text-center md:px-3 flex flex-wrap" id="oldWebsite">
+    <Section className="text-center md:px-3 flex flex-wrap" id="old-website">
       <T.span text="oldWebsite.text" className="w-full py-5 text-xl" />
 
       <Button color="blue-600">{T.translate('oldWebsite.button')}</Button>
