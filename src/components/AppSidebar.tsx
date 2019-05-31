@@ -70,7 +70,7 @@ export default function AppSidebar() {
       >
         <img
           src={logo}
-          alt=""
+          alt="Logo"
           className="fixed top-0 w-32 mt-4 left-0 ml-8 mx-auto hidden md:block"
         />
         <ul>
@@ -93,12 +93,12 @@ export default function AppSidebar() {
               offColor={'#2a4365'}
               checkedIcon={
                 <div className="center w-full h-full">
-                  <img src={sun} />
+                  <img src={sun} alt="sun icon" />
                 </div>
               }
               uncheckedIcon={
                 <div className="center w-full h-full">
-                  <img src={moon} />
+                  <img src={moon} alt="moon icon" />
                 </div>
               }
             />

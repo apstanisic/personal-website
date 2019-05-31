@@ -15,7 +15,7 @@ export default function About() {
         <div className="md:py-6 pb-6 mx-5 lg:w-1/3">
           <img
             src={image}
-            alt="Aleksandar"
+            alt="Aleksandar Stanisic"
             className="mx-auto rounded-lg shadow-lg"
           />
         </div>

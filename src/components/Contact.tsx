@@ -54,7 +54,7 @@ export default function Contact() {
             />
             <div className="lg:w-1/5" />
           </label>
-          <Button>
+          <Button className="text-xl">
             <T.span text="contact.send" />
           </Button>
         </form>

@@ -21,7 +21,7 @@ export default function Hero() {
           transform: 'scale(1.1)'
         }}
         className="w-full"
-        alt=""
+        alt="source code"
         srcset=""
       />
       <AppHeader />

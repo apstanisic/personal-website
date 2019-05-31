@@ -23,6 +23,7 @@ export default function Social() {
       >
         <img src={Gh} className="w-16" alt="Github" />
       </a>
+
       <a
         className="mx-6"
         href="https://linkedin.com/in/astanisic"
@@ -31,6 +32,7 @@ export default function Social() {
       >
         <img src={In} className="w-16" alt="Linkedin" />
       </a>
+
       <a
         className="mx-6"
         href="https://instagram.com/astanisic_"
@@ -39,6 +41,7 @@ export default function Social() {
       >
         <img src={Ig} className="w-16" alt="Instagram" />
       </a>
+
       <a
         className="mx-6"
         href="https://www.facebook.com/apstanisic"

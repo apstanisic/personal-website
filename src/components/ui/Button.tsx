@@ -1,19 +1,27 @@
 import { h } from 'preact';
 
-interface Props {
+interface Props extends Partial<HTMLButtonElement> {
   children?: any;
   color?: string;
+
   // shade?: string;
 }
 
-export default function Button({ children, color }: Props) {
+export default function Button({
+  children,
+  color,
+  className,
+  ...props
+}: Props) {
   return (
+    // @ts-ignore
     <button
+      {...props}
       className={`
       ${color ? color : 'bg-green-700'}  text-gray-100 my-4 w-64 mx-auto
            font-semibold py-2 px-4 rounded shadow
            hover-scale-05
-        `}
+        ${className ? className : ''}`}
     >
       {children}
     </button>

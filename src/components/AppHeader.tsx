@@ -16,12 +16,17 @@ export default function AppFooter() {
           setShowSidebar(true);
         }}
       >
-        <img src={Menu} className="h-12 w-12 text-white" alt="" srcset="" />
+        <img
+          src={Menu}
+          className="h-12 w-12 text-white"
+          alt="menu icon"
+          srcset=""
+        />
       </button>
       <div className="center text-gray-100 w-64 text-right text-4xl">
         <a href="/#home" className="pr-4 ml-auto">
           {/* &lt;ASt /&gt; */}
-          <img src={logo} className="h-12 w-36" />
+          <img src={logo} className="h-12 w-36" alt="logo" />
         </a>
       </div>
     </div>
