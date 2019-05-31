@@ -1,11 +1,11 @@
 {
-  "name": "personal",
-  "short_name": "personal",
+  "name": "Aleksandar Stanisic",
+  "short_name": "Aleksandar Stanisic",
   "start_url": "/",
   "display": "standalone",
   "orientation": "portrait",
   "background_color": "#fff",
-  "theme_color": "#673ab8",
+  "theme_color": "#121212",
   "icons": [
     {
       "src": "/assets/icons/android-chrome-192x192.png",

@@ -108,7 +108,7 @@ export default function AppSidebar() {
       {showSidebar && (
         <div
           className="fixed inset-0 md:hidden"
-          style={{ zIndex: 5, backgroundColor: 'rgba(0, 0, 0, 0.7)' }}
+          style={{ zIndex: 6, backgroundColor: 'rgba(0, 0, 0, 0.7)' }}
           onClick={toggleSidebar}
         />
       )}

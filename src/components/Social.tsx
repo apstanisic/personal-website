@@ -1,10 +1,10 @@
 import { h } from 'preact';
+import { ThemeState } from '../core/state';
+import Section from './ui/Section';
 import Fb from '../assets/social/facebook.svg';
 import Ig from '../assets/social/instagram.svg';
 import In from '../assets/social/linkedin.svg';
 import Gh from '../assets/social/github.svg';
-import { ThemeState } from '../core/state';
-import Section from './ui/Section';
 
 export default function Social() {
   const { theme } = ThemeState.useContainer();

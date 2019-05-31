@@ -7,11 +7,11 @@ export default function AppFooter() {
   const { setShowSidebar } = UiState.useContainer();
   return (
     <div
-      className="w-full h-16 flex justify-between absolute top-0"
+      className="w-full h-16 flex justify-between absolute top-0 md:hidden"
       style={{ zIndex: 5 }}
     >
       <button
-        className="pl-4 md:invisible"
+        className="pl-4"
         onClick={() => {
           setShowSidebar(true);
         }}
@@ -21,7 +21,7 @@ export default function AppFooter() {
       <div className="center text-gray-100 w-64 text-right text-4xl">
         <a href="/#home" className="pr-4 ml-auto">
           {/* &lt;ASt /&gt; */}
-          <img src={logo} className="h-12 w-36 md:hidden" />
+          <img src={logo} className="h-12 w-36" />
         </a>
       </div>
     </div>

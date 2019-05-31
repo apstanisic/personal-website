@@ -14,7 +14,7 @@ export default function Hero() {
       <img
         src={HeroImage}
         style={{
-          height: '60vh',
+          height: '70vh',
           objectFit: 'cover',
           verticalAlign: 'middle',
           filter: 'blur(2px)',
