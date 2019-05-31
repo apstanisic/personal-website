@@ -86,6 +86,7 @@ export default function AppSidebar() {
             {/*
              // @ts-ignore */}
             <Switch
+              aria-label="change theme"
               onChange={toggleTheme}
               checked={theme === 'light'}
               width={60}

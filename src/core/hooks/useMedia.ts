@@ -44,13 +44,12 @@ const createUseMedia = (effect: Effect) => (
       if (!mounted) return;
       setState(!!mql.matches);
     };
-
-    mql.addListener(onChange);
+    mql.addEventListener('change', onChange, {passive:true});
     setState(mql.matches);
 
     return () => {
       mounted = false;
-      mql.removeListener(onChange);
+      mql.removeEventListener('change', onChange);
     };
   }, [query]);
 

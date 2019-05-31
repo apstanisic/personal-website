@@ -1,35 +1,36 @@
 import { h } from 'preact';
+import { ThemeState } from '../core/state';
+import code from '../assets/code.png';
 
-// interface Skill {
-//   name: string;
-//   subskills: string[];
-// }
-
-// const allSkils: Skill[] = [
-//   { name: 'JavaScript', subskills: ['React', 'Vue'] },
-//   { name: 'TypeScript', subskills: [] },
-//   { name: 'Node', subskills: ['Express', 'NestJS', 'Koa'] },
-//   { name: 'Flutter', subskills: ['Dart'] },
-//   { name: 'PHP', subskills: ['Laravel', 'WordPress'] },
-//   { name: '.NET Core', subskills: ['C#'] }
-// ];
+// This interface is sketch for image
+interface Skills {
+  javaScript: true;
+  react: true;
+  vue: true;
+  typeScript: true;
+  nodeJs: ['express', 'nestJs', 'koa', 'typeOrm'];
+  flutter: true;
+  php: ['laravel', 'wordPress'];
+  dotnetCore: true;
+  additional: ['linux', 'git'];
+}
 
 export default function Skills() {
+  const { theme } = ThemeState.useContainer();
+
   return (
-    <div className="px-4 container mx-auto">
-      {/* {allSkils.map((skill, i) => {
-        return (
-          <div key={i}>
-            <h2 className="text-2xl py-2">{skill.name}</h2>
-            <div>
-              {skill.subskills.map(sub => (
-                <div className="text-xl pl-5 py-2">{sub}</div>
-              ))}
-            </div>
-          </div>
-        );
-      })} */}
-      {/* I am mostly working in TypeScript,  */}
+    <div
+      className="px-4 container mx-auto"
+      style={{ ...(theme === 'light' ? { backgroundColor: '#1d2021' } : {}) }}
+    >
+      <img
+        src={code}
+        alt="skills"
+        className="w-full mx-auto"
+        style={{
+          maxWidth: 500
+        }}
+      />
     </div>
   );
 }
