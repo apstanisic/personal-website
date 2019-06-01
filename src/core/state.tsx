@@ -6,9 +6,11 @@ import { useThemeState } from './theme';
 
 function useUiState() {
   const [showSidebar, setShowSidebar] = useState(false);
+
   function toggleSidebar() {
     setShowSidebar(!showSidebar);
   }
+
   return { showSidebar, setShowSidebar, toggleSidebar };
 }
 

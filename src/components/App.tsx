@@ -17,18 +17,13 @@ if ((module as any).hot) {
 }
 export default function App() {
   const { theme } = ThemeState.useContainer();
+  const appClasses =
+    theme === 'light' ? 'text-gray-900 bg-white' : 'text-gray-100 bg-gray-900';
+
   return (
-    <div
-      id="app"
-      className={
-        theme === 'light'
-          ? 'text-gray-900 bg-white'
-          : 'text-gray-100 bg-gray-900'
-      }
-    >
+    <div id="app" className={appClasses}>
       <AppSidebar />
       <div className="app-container relative w-full md:ml-56">
-        {/* <AppHeader /> */}
         <Hero />
         <About />
         <Projects />
