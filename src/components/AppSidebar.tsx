@@ -19,8 +19,8 @@ const links: NavLink[] = [
   { name: 'projects', url: 'projects' },
   { name: 'skills', url: 'skills' },
   { name: 'oldWebsite', url: 'old-website' },
-  { name: 'contact', url: 'contact' },
-  { name: 'social', url: 'social' }
+  { name: 'contact', url: 'contact' }
+  // { name: 'social', url: 'social' }
 ];
 
 interface SidebarLinkProps extends NavLink {

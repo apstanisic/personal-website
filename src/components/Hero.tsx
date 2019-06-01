@@ -6,18 +6,14 @@ import { ThemeState } from '../core/state';
 export default function Hero() {
   const { theme } = ThemeState.useContainer();
   return (
-    <div
-      id="home"
-      className="w-full overflow-hidden relative "
-      style={{ filter: 'blur(100%)' }}
-    >
+    <div id="home" className="w-full overflow-hidden relative ">
       <img
         src={HeroImage}
         style={{
           height: '70vh',
           objectFit: 'cover',
           verticalAlign: 'middle',
-          filter: 'blur(2px)',
+          filter: 'blur(3px)',
           transform: 'scale(1.1)'
         }}
         className="w-full"

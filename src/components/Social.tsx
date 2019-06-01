@@ -16,7 +16,7 @@ export default function Social() {
       id="social"
     >
       <a
-        className="mx-6"
+        className="mx-6 hover-scale-10"
         href="https://github.com/aleksandarstanisic"
         rel="noopener noreferrer"
         target="_blank"
@@ -25,7 +25,7 @@ export default function Social() {
       </a>
 
       <a
-        className="mx-6"
+        className="mx-6 hover-scale-10"
         href="https://linkedin.com/in/astanisic"
         rel="noopener noreferrer"
         target="_blank"
@@ -34,7 +34,7 @@ export default function Social() {
       </a>
 
       <a
-        className="mx-6"
+        className="mx-6 hover-scale-10"
         href="https://instagram.com/astanisic_"
         rel="noopener noreferrer"
         target="_blank"
@@ -43,7 +43,7 @@ export default function Social() {
       </a>
 
       <a
-        className="mx-6"
+        className="mx-6 hover-scale-10"
         href="https://www.facebook.com/apstanisic"
         rel="noopener noreferrer"
         target="_blank"

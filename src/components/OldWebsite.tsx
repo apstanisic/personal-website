@@ -11,7 +11,7 @@ export default function OldWebsite() {
         className="w-full lg:w-2/3 lg:mx-auto py-5 text-xl md:text-2xl"
       />
 
-      <Button color="bg-blue-600" className="text-xl mt-1">
+      <Button color="bg-blue-600" className="text-xl">
         {T.translate('oldWebsite.button')}
       </Button>
     </Section>

@@ -66,3 +66,8 @@ div {
   transition: transform 100ms;
   transform: scale(1.05);
 }
+
+.hover-scale-10:hover {
+  transition: transform 100ms;
+  transform: scale(1.1);
+}
