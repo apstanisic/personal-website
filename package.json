@@ -6,7 +6,6 @@
   "scripts": {
     "start": "preact watch",
     "build": "NODE_ENV=production preact build",
-    "test": "jest ./tests",
     "lint": "eslint --fix src --ext .js,.ts,.jsx,.tsx"
   },
   "devDependencies": {
@@ -48,8 +47,5 @@
     "preact-router": "^2.6.1",
     "react-switch": "^5.0.0",
     "unstated-next": "^1.1.0"
-  },
-  "peerDependencies": {
-    "prettier": ">1.0.0"
   }
 }

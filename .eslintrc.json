@@ -31,7 +31,8 @@
   },
   "settings": {
     "react": {
-      "pragma": "h"
+      "pragma": "h",
+      "version": "latest"
     }
   }
 }
