@@ -28,7 +28,7 @@ export default function Skills() {
         alt="skills"
         className="w-full mx-auto"
         style={{
-          maxWidth: 500
+          maxWidth: 500,
         }}
       />
     </div>

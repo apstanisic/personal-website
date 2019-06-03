@@ -6,8 +6,10 @@ import './style/index.css';
 import './style/tailwind.css';
 import { Providers } from './core/state';
 
-export default () => (
-  <Providers>
-    <App />
-  </Providers>
-);
+export default function Main() {
+  return (
+    <Providers>
+      <App />
+    </Providers>
+  );
+}

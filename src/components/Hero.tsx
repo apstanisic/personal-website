@@ -14,11 +14,11 @@ export default function Hero() {
           objectFit: 'cover',
           verticalAlign: 'middle',
           filter: 'blur(3px)',
-          transform: 'scale(1.1)'
+          transform: 'scale(1.1)',
         }}
         className="w-full"
         alt="source code"
-        srcset=""
+        srcSet=""
       />
       <AppHeader />
       <div
@@ -26,14 +26,14 @@ export default function Hero() {
         style={{
           zIndex: 3,
           backgroundColor:
-            theme === 'dark' ? 'rgba(255,255,255,0.05)' : 'rgba(255,255,255, 0)'
+            theme === 'dark' ? 'rgba(255,255,255,0.05)' : 'rgba(255,255,255, 0)',
         }}
       >
         <h1
           className="border-4 p-4 lg:p-8"
           style={{
             borderRadius: '0.75rem',
-            backgroundColor: 'rgba(0,0,0,0.6)'
+            backgroundColor: 'rgba(0,0,0,0.6)',
           }}
         >
           Aleksandar Stanišić

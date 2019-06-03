@@ -20,7 +20,7 @@ export default function AppFooter() {
           src={Menu}
           className="h-12 w-12 text-white"
           alt="menu icon"
-          srcset=""
+          srcSet=""
         />
       </button>
       <div className="center text-gray-100 w-64 text-right text-4xl">

@@ -16,7 +16,7 @@ export default function Contact() {
   const [form, setForm] = useState({
     name: '',
     email: '',
-    message: ''
+    message: '',
   });
 
   async function handleSubmit(e: Event) {
@@ -26,8 +26,8 @@ export default function Contact() {
         method: 'POST',
         body: JSON.stringify(form),
         headers: {
-          Accept: 'application/json'
-        }
+          Accept: 'application/json',
+        },
       });
       await res.json();
       alert('Success submiting form');
@@ -55,7 +55,7 @@ export default function Contact() {
           method="POST"
         >
           <label className="py-2 md:flex justify-around">
-            <div class="text-xl p-1 pr-5 md:w-1/4 lg:w-1/5 md:text-right">
+            <div className="text-xl p-1 pr-5 md:w-1/4 lg:w-1/5 md:text-right">
               <T.span text="contact.name" />
             </div>
             <input

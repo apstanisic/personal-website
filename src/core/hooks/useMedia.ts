@@ -1,14 +1,13 @@
+/* eslint-disable */
+/* Disable eslint, not my file, move to react-use when preact x becomes stable */
 // Original author, changed for preact
 // https://github.com/streamich/use-media
 import { h } from 'preact';
-import {
-  useState,
-  useEffect,
-  useLayoutEffect,
-  EffectCallback
-} from 'preact/hooks';
+import { useState, useEffect, useLayoutEffect, EffectCallback } from 'preact/hooks';
 
-type MediaQueryObject = { [key: string]: string | number | boolean };
+interface MediaQueryObject {
+  [key: string]: string | number | boolean;
+}
 
 const camelToHyphen = (str: string) =>
   str.replace(/[A-Z]/g, m => `-${m.toLowerCase()}`).toLowerCase();
@@ -33,7 +32,7 @@ const objectToString = (query: string | MediaQueryObject) => {
 type Effect = (effect: EffectCallback, deps?: any) => void;
 const createUseMedia = (effect: Effect) => (
   rawQuery: string | MediaQueryObject,
-  defaultState: boolean = false
+  defaultState: boolean = false,
 ) => {
   const [state, setState] = useState(defaultState);
   const query = objectToString(rawQuery);
@@ -44,7 +43,7 @@ const createUseMedia = (effect: Effect) => (
       if (!mounted) return;
       setState(!!mql.matches);
     };
-    mql.addEventListener('change', onChange, {passive:true});
+    mql.addEventListener('change', onChange, { passive: true });
     setState(mql.matches);
 
     return () => {

@@ -6,9 +6,9 @@ type Theme = 'dark' | 'light';
 export function useThemeState() {
   const [theme, setTheme] = useState<Theme>('light');
 
-  get('theme').then(theme => {
-    if (theme === undefined) return;
-    setTheme(theme as Theme);
+  get<Theme>('theme').then(idbTheme => {
+    if (idbTheme === undefined) return;
+    setTheme(idbTheme as Theme);
   });
 
   async function toggleTheme() {

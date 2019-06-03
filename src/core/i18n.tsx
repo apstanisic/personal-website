@@ -11,20 +11,17 @@ export const T = new MDText(en);
 export function useLangState() {
   const [language, setLanguage] = useState<Language>('en');
 
-  get('lang').then(lang => {
-    if (lang === undefined) lang = 'en';
-    // T.setTexts(languages[lang as Language]);
-    changeLanguage(lang as Language);
-  });
-
-  async function toggleLanguage() {
-    changeLanguage(language === 'en' ? 'sr' : 'en');
-  }
-
   async function changeLanguage(lang: Language) {
     await set('lang', lang);
     T.setTexts(languages[lang]);
     setLanguage(lang);
+  }
+  get('lang').then(lang => {
+    changeLanguage(lang === undefined ? 'en' : (lang as Language));
+  });
+
+  async function toggleLanguage() {
+    changeLanguage(language === 'en' ? 'sr' : 'en');
   }
 
   return { language, toggleLanguage };

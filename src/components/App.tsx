@@ -1,8 +1,6 @@
 import { h } from 'preact';
-import { useState } from 'preact/hooks';
-import { Providers, ThemeState } from '../core/state';
+import { ThemeState } from '../core/state';
 import About from './About';
-import AppHeader from './AppHeader';
 import AppSidebar from './AppSidebar';
 import Contact from './Contact';
 import Hero from './Hero';
@@ -17,8 +15,7 @@ if ((module as any).hot) {
 }
 export default function App() {
   const { theme } = ThemeState.useContainer();
-  const appClasses =
-    theme === 'light' ? 'text-gray-900 bg-white' : 'text-gray-100 bg-gray-900';
+  const appClasses = theme === 'light' ? 'text-gray-900 bg-white' : 'text-gray-100 bg-gray-900';
 
   return (
     <div id="app" className={appClasses}>
