@@ -94,15 +94,7 @@ export default function AppSidebar() {
           className="fixed top-0 w-32 mt-4 left-0 ml-8 mx-auto hidden md:block"
         />
         <ul>
-          {links.map((link, i) => (
-            <SidebarLink {...link} key={i} onClick={toggleSidebar} />
-          ))}
-          <li className="my-2 text-shadow">
-            <button className="nav-link" onClick={toggleLanguage}>
-              {T.translate('sidebar.lang').toLowerCase()}
-            </button>
-          </li>
-          <li className="my-3 text-shadow">
+          <li className="my-5 text-shadow">
             {/*
              // @ts-ignore */}
             <Switch
@@ -123,6 +115,14 @@ export default function AppSidebar() {
                 </div>
               }
             />
+          </li>
+          {links.map((link, i) => (
+            <SidebarLink {...link} key={i} onClick={toggleSidebar} />
+          ))}
+          <li className="my-2 text-shadow">
+            <button className="nav-link" onClick={toggleLanguage}>
+              {T.translate('sidebar.lang').toLowerCase()}
+            </button>
           </li>
         </ul>
       </div>

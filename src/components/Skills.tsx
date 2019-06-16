@@ -20,8 +20,8 @@ export default function Skills() {
   return (
     <div
       id="skills"
-      className="px-4 container mx-auto"
-      style={{ ...(theme === 'light' ? { backgroundColor: '#1d2021' } : {}) }}
+      className="px-4 mx-auto center"
+      style={{ ...(theme === 'light' ? { backgroundColor: '#373740' } : {}) }}
     >
       <img
         src={code}

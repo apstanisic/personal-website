@@ -14,7 +14,7 @@ export default function Button({
   return (
     // @ts-ignore
     <button
-      onClick={onClick || (() => {})}
+      onClick={onClick}
       {...props}
       className={`
       ${color || 'bg-green-700'}  text-gray-100 my-4 w-64 mx-auto

@@ -8,7 +8,7 @@ body {
   font-family: "Fira Sans", sans-serif;
 }
 div {
-  transition: background-color 350ms;
+  transition: background-color 500ms;
 }
 
 *:focus {
