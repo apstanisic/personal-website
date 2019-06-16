@@ -1,5 +1,6 @@
 import { h, Fragment } from 'preact';
 import Switch from 'react-switch';
+import { useEffect, useState } from 'preact/hooks';
 import { UiState, ThemeState, LangState } from '../core/state';
 import { useMedia } from '../core/hooks/useMedia';
 import { T } from '../core/i18n';
@@ -53,17 +54,39 @@ export default function AppSidebar() {
   const isWide = useMedia({ minWidth: 768 });
   const { theme, toggleTheme } = ThemeState.useContainer();
   const { toggleLanguage } = LangState.useContainer();
-  // const isWide = useMedia('(minWidth: 768px)');
+  const [transition, setTransition] = useState('none');
+  const [transform, setTransform] = useState('');
+
+  /* Show always when wide, when small depend on state */
+  useEffect(() => {
+    if (isWide) return setTransform('none');
+
+    if (showSidebar) {
+      setTransform('none');
+    } else {
+      setTransform('translateX(-100%)');
+    }
+  }, [isWide, showSidebar]);
+
+  /* Disable animation when rendering first time
+    Because when it's full screen it shows how slides from side
+  */
+  useEffect(() => {
+    setTimeout(() => {
+      setTransition('transform 200ms ease-in-out');
+    }, 500);
+  }, []);
 
   return (
     <Fragment>
       <div
+        style={{ ...{ transition }, ...{ transform } }}
         className={`min-h-full text-xl py-4 px-8  text-white z-10 app-sidebar
           fixed inset-y-0 left-0
           items-center flex
 
           md:fixed w-56
-          ${isWide || showSidebar ? '' : 'hide '}${theme === 'dark' ? 'bg-black' : 'bg-gray-800'}`}
+          ${theme === 'dark' ? 'bg-black' : 'bg-gray-800'}`}
       >
         <img
           src={logo}

@@ -1,11 +1,11 @@
-@import url('https://fonts.googleapis.com/css?family=Fira+Sans&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Fira+Sans&display=swap");
 /* @import url('https://fonts.googleapis.com/css?family=Fira+Mono&display=swap'); */
 /* * {
   box-sizing: border-box;
 } */
 body {
   /* font-family: 'Fira Sans', 'Helvetica Neue', arial, sans-serif; */
-  font-family: 'Fira Sans', sans-serif;
+  font-family: "Fira Sans", sans-serif;
 }
 div {
   transition: background-color 350ms;
@@ -35,21 +35,21 @@ div {
 /* End calculation */
 
 /* Sidebar hide and show animation */
-.app-sidebar {
-  /* min-width: 220px; */
-  /* transform: none; */
-  transition: transform 200ms ease-in-out;
-}
+/* .app-sidebar { */
+/* min-width: 220px; */
+/* transform: none; */
+/* transition: transform 200ms ease-in-out; */
+/* } */
 
-.hide {
+/* .hide {
   transform: translateX(-100%);
 }
-/* End sidebar hide show */
+End sidebar hide show */
 
 /* Underline animation in nav links */
 .nav-link:after {
   margin: 3px 0;
-  content: '';
+  content: "";
   display: flex;
   border-bottom: 0.25rem solid white;
   transform: scaleX(0);
