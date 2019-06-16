@@ -95,21 +95,14 @@ code {
  * Add the correct font size in all browsers.
  */
 
+small {
+  font-size: 80%;
+}
+
 /**
  * Prevent `sub` and `sup` elements from affecting the line height in
  * all browsers.
  */
-
-sub {
-  font-size: 75%;
-  line-height: 0;
-  position: relative;
-  vertical-align: baseline;
-}
-
-sub {
-  bottom: -0.25em;
-}
 
 /* Embedded content
    ========================================================================== */
@@ -306,7 +299,7 @@ textarea {
 
 body {
   /* font-family: 'Fira Sans', 'Helvetica Neue', arial, sans-serif; */
-  font-family: 'Fira Sans', sans-serif;
+  font-family: "Fira Sans", sans-serif;
 }
 
 div {
@@ -340,26 +333,26 @@ div {
 
 /* Sidebar hide and show animation */
 
-.app-sidebar {
-  /* min-width: 220px; */
-  /* transform: none; */
-  transition: -webkit-transform 200ms ease-in-out;
-  transition: transform 200ms ease-in-out;
-  transition: transform 200ms ease-in-out, -webkit-transform 200ms ease-in-out;
-}
+/* .app-sidebar { */
 
-.hide {
-  -webkit-transform: translateX(-100%);
-          transform: translateX(-100%);
-}
+/* min-width: 220px; */
 
-/* End sidebar hide show */
+/* transform: none; */
+
+/* transition: transform 200ms ease-in-out; */
+
+/* } */
+
+/* .hide {
+  transform: translateX(-100%);
+}
+End sidebar hide show */
 
 /* Underline animation in nav links */
 
 .nav-link:after {
   margin: 3px 0;
-  content: '';
+  content: "";
   display: flex;
   border-bottom: 0.25rem solid white;
   -webkit-transform: scaleX(0);
@@ -382,6 +375,14 @@ div {
   transition: transform 100ms, -webkit-transform 100ms;
   -webkit-transform: scale(1.05);
           transform: scale(1.05);
+}
+
+.hover-scale-10:hover {
+  transition: -webkit-transform 100ms;
+  transition: transform 100ms;
+  transition: transform 100ms, -webkit-transform 100ms;
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
 }
 
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
@@ -482,21 +483,14 @@ code {
  * Add the correct font size in all browsers.
  */
 
+small {
+  font-size: 80%;
+}
+
 /**
  * Prevent `sub` and `sup` elements from affecting the line height in
  * all browsers.
  */
-
-sub {
-  font-size: 75%;
-  line-height: 0;
-  position: relative;
-  vertical-align: baseline;
-}
-
-sub {
-  bottom: -0.25em;
-}
 
 /* Embedded content
    ========================================================================== */
@@ -713,8 +707,7 @@ html {
  */
 
 
-h1,
-h2 {
+h1 {
   margin: 0;
 }
 
@@ -832,8 +825,7 @@ button,
   cursor: pointer;
 }
 
-h1,
-h2 {
+h1 {
   font-size: inherit;
   font-weight: inherit;
 }
@@ -1103,10 +1095,6 @@ img {
   padding: 0.25rem;
 }
 
-.p-3 {
-  padding: 0.75rem;
-}
-
 .p-4 {
   padding: 1rem;
 }
@@ -1155,6 +1143,14 @@ img {
   padding-right: 2rem;
 }
 
+.pt-2 {
+  padding-top: 0.5rem;
+}
+
+.pb-3 {
+  padding-bottom: 0.75rem;
+}
+
 .pr-4 {
   padding-right: 1rem;
 }
@@ -1165,10 +1161,6 @@ img {
 
 .pr-5 {
   padding-right: 1.25rem;
-}
-
-.pl-5 {
-  padding-left: 1.25rem;
 }
 
 .pb-6 {
@@ -1255,8 +1247,8 @@ img {
   font-size: 1.25rem;
 }
 
-.text-2xl {
-  font-size: 1.5rem;
+.text-3xl {
+  font-size: 1.875rem;
 }
 
 .text-4xl {
@@ -1389,4 +1381,4 @@ img {
 }
 
 
-/*# sourceMappingURL=ssr-bundle.5ff7c.css.map*/
+/*# sourceMappingURL=ssr-bundle.30ff6.css.map*/
