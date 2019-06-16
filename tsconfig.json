@@ -55,6 +55,6 @@
     "esModuleInterop": true,
     "skipLibCheck": true /* Fixes some React lib compability errors */
   },
-  "exclude": ["node_modules"],
+  "exclude": ["node_modules", "build"],
   "include": ["src/**/*.tsx", "src/**/*.ts", "src/**/*.js", "src/**/*.jsx"]
 }
