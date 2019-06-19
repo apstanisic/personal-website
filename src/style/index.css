@@ -1,8 +1,11 @@
 @import url("https://fonts.googleapis.com/css?family=Fira+Sans&display=swap");
-/* @import url('https://fonts.googleapis.com/css?family=Fira+Mono&display=swap'); */
-/* * {
-  box-sizing: border-box;
-} */
+
+@import "tailwindcss/base";
+
+@import "tailwindcss/components";
+
+@import "tailwindcss/utilities";
+
 body {
   /* font-family: 'Fira Sans', 'Helvetica Neue', arial, sans-serif; */
   font-family: "Fira Sans", sans-serif;
