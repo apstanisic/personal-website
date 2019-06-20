@@ -1,18 +1,6 @@
 import { h } from 'preact';
 import { ThemeState } from '../core/state';
-import code from '../assets/code.png';
-
-// This interface is sketch for image
-
-// class Skills {
-//   javaScript = ['react', 'vue'];
-//   typeScript = true;
-//   node = ['express', 'nestJs', 'koa'];
-//   flutter = true;
-//   php = ['laravel', 'wordPress'];
-//   dotnetCore = true;
-//   additional = ['linux', 'git'];
-// }
+import codeImage from '../assets/code.png';
 
 export default function Skills() {
   const { theme } = ThemeState.useContainer();
@@ -24,7 +12,7 @@ export default function Skills() {
       style={{ ...(theme === 'light' ? { backgroundColor: '#373740' } : {}) }}
     >
       <img
-        src={code}
+        src={codeImage}
         alt="skills"
         className="w-full mx-auto"
         style={{
@@ -34,3 +22,17 @@ export default function Skills() {
     </div>
   );
 }
+
+/*
+This interface is sketch for image
+
+class Skills {
+  javaScript = ['react', 'vue'];
+  typeScript = true;
+  node = ['express', 'nestJs', 'koa'];
+  flutter = true;
+  php = ['laravel', 'wordPress'];
+  dotnetCore = true;
+  additional = ['linux', 'git'];
+}
+*/
