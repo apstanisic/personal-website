@@ -20,8 +20,9 @@ export default function Contact() {
   async function handleSubmit(e: Event) {
     e.preventDefault();
     const form = document.getElementById("contact-form");
-    form?.getAttribute("action");
+    const formUrl = form?.getAttribute("action");
     try {
+      if (!formUrl) return;
       const res = await fetch(formUrl, {
         method: "POST",
         body: JSON.stringify(form),
