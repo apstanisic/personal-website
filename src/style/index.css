@@ -74,3 +74,8 @@ End sidebar hide show */
   transition: transform 100ms;
   transform: scale(1.1);
 }
+
+.social-dark-theme {
+  box-shadow: 0px 0px 100px 10px #fefefe inset;
+  border-radius: 10%;
+}

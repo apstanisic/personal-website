@@ -1,27 +1,25 @@
-import { h } from 'preact';
-import { ThemeState } from '../core/state';
-import Section from './ui/Section';
-import Fb from '../assets/social/facebook.svg';
-import Ig from '../assets/social/instagram.svg';
-import In from '../assets/social/linkedin.svg';
-import Gh from '../assets/social/github.svg';
+import { h } from "preact";
+import { ThemeState } from "../core/state";
+import Section from "./ui/Section";
+import Fb from "../assets/social/facebook.svg";
+import Ig from "../assets/social/instagram.svg";
+import In from "../assets/social/linkedin.svg";
+import Gh from "../assets/social/github.svg";
 
 export default function Social() {
   const { theme } = ThemeState.useContainer();
+  // Every img tag with logo have this classes
+  const logoClasses = `w-16 ${theme === "dark" ? "social-dark-theme" : ""}`;
   return (
     // <div className={'w-full ' + (theme === 'dark' ? 'bg-blue-100' : '')}></div>
-    <Section
-      bg={theme === 'light' ? 'bg-gray-200' : ''}
-      className="center -mt-8"
-      id="social"
-    >
+    <Section bg={theme === "light" ? "bg-gray-200" : ""} className="center -mt-8" id="social">
       <a
         className="mx-6 hover-scale-10"
         href="https://github.com/aleksandarstanisic"
         rel="noopener noreferrer"
         target="_blank"
       >
-        <img src={Gh} className="w-16" alt="Github" />
+        <img src={Gh} className={logoClasses} alt="Github logo" />
       </a>
 
       <a
@@ -30,7 +28,7 @@ export default function Social() {
         rel="noopener noreferrer"
         target="_blank"
       >
-        <img src={In} className="w-16" alt="Linkedin" />
+        <img src={In} className={logoClasses} alt="LinkedIn logo" />
       </a>
 
       <a
@@ -39,7 +37,7 @@ export default function Social() {
         rel="noopener noreferrer"
         target="_blank"
       >
-        <img src={Ig} className="w-16" alt="Instagram" />
+        <img src={Ig} className={logoClasses} alt="Instagram logo" />
       </a>
 
       <a
@@ -48,7 +46,7 @@ export default function Social() {
         rel="noopener noreferrer"
         target="_blank"
       >
-        <img src={Fb} className="w-16" alt="Facebook" />
+        <img src={Fb} className={logoClasses} alt="Facebook logo" />
       </a>
     </Section>
   );

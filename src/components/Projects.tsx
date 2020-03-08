@@ -1,5 +1,5 @@
-import { h } from 'preact';
-import Section from './ui/Section';
+import { h } from "preact";
+import Section from "./ui/Section";
 
 export default function Projects() {
   return (

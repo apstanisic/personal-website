@@ -1,18 +1,8 @@
-import { createContainer } from 'unstated-next';
-import { h } from 'preact';
-import { useState } from 'preact/hooks';
-import { useLangState } from './i18n';
-import { useThemeState } from './theme';
-
-function useUiState() {
-  const [showSidebar, setShowSidebar] = useState(false);
-
-  function toggleSidebar() {
-    setShowSidebar(!showSidebar);
-  }
-
-  return { showSidebar, setShowSidebar, toggleSidebar };
-}
+import { createContainer } from "unstated-next";
+import { h } from "preact";
+import { useLangState } from "./i18n";
+import { useThemeState } from "./theme";
+import { useUiState } from "./ui";
 
 export const UiState = createContainer(useUiState);
 export const ThemeState = createContainer(useThemeState);
