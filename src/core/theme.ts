@@ -1,4 +1,5 @@
-import * as idb from "idb-keyval";
+// import * as idb from "idb-keyval";
+import { storage } from "./storage";
 import { useState } from "preact/hooks";
 
 /** Available themes */
@@ -18,12 +19,12 @@ export function useThemeState(): ThemeState {
   /** Toggle theme */
   async function toggleTheme() {
     const newTheme = theme === "dark" ? "light" : "dark";
-    await idb.set("theme", newTheme);
+    await storage.set("theme", newTheme);
     setTheme(newTheme);
   }
 
   // Set theme from database or use light theme
-  idb.get<Theme>("theme").then(idbTheme => {
+  storage.get<Theme>("theme").then(idbTheme => {
     setTheme(idbTheme === undefined ? "light" : idbTheme);
   });
 

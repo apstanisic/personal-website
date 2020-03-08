@@ -1,5 +1,5 @@
 import { useState } from "preact/hooks";
-import * as idb from "idb-keyval";
+import { storage } from "./storage";
 import { MDText } from "i18n-react";
 import en from "../assets/lang/en.json";
 import sr from "../assets/lang/sr.json";
@@ -10,7 +10,7 @@ type Language = "sr" | "en";
 const languageObjects = { en, sr };
 
 // Renders text
-export const T = new MDText(en);
+export const T = new MDText(en) as any;
 
 interface UseLangStateReturn {
   // Current Language
@@ -25,7 +25,7 @@ export function useLangState(): UseLangStateReturn {
 
   /** Change app language */
   async function changeLanguage(lang: Language): Promise<void> {
-    await idb.set("lang", lang);
+    await storage.set("lang", lang);
     T.setTexts(languageObjects[lang]);
     setLanguage(lang);
   }
@@ -36,7 +36,7 @@ export function useLangState(): UseLangStateReturn {
   }
 
   // Sets language from database
-  idb.get("lang").then(lang => {
+  storage.get("lang").then(lang => {
     changeLanguage(lang === undefined ? "en" : (lang as Language));
   });
 
