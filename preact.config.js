@@ -27,14 +27,15 @@ export default {
     // Use any `index` file, not just index.js
     config.resolve.alias["preact-cli-entrypoint"] = resolve(process.cwd(), "src", "index");
 
-    // // My config for tailwind js
-    // const postCssLoaders = helpers.getLoadersByName(config, "postcss-loader");
-    // postCssLoaders.forEach(({ loader }) => {
-    //   const plugins = loader.options.plugins;
+    // My config for tailwind js taken from
+    // https://dev.to/boywithsilverwings/configuring-preact-cli-with-tailwind-css-3ckj
+    const postCssLoaders = helpers.getLoadersByName(config, "postcss-loader");
+    postCssLoaders.forEach(({ loader }) => {
+      const plugins = loader.options.plugins;
 
-    //   // Add tailwind css at the top.
-    //   // eslint-disable-next-line @typescript-eslint/no-var-requires
-    //   plugins.unshift(require("tailwindcss"));
-    // });
+      // Add tailwind css at the top.
+      // eslint-disable-next-line @typescript-eslint/no-var-requires
+      plugins.unshift(require("tailwindcss"));
+    });
   },
 };

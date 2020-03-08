@@ -1,10 +1,10 @@
 @import url("https://fonts.googleapis.com/css?family=Fira+Sans&display=swap");
-/*
+
 @import "tailwindcss/base";
 
 @import "tailwindcss/components";
 
-@import "tailwindcss/utilities"; */
+@import "tailwindcss/utilities";
 
 body {
   /* font-family: 'Fira Sans', 'Helvetica Neue', arial, sans-serif; */
@@ -73,4 +73,9 @@ End sidebar hide show */
 .hover-scale-10:hover {
   transition: transform 100ms;
   transform: scale(1.1);
+}
+
+.social-dark-theme {
+  box-shadow: 0px 0px 100px 10px #fefefe inset;
+  border-radius: 10%;
 }

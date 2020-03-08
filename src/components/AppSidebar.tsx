@@ -1,13 +1,13 @@
-import { h, Fragment } from 'preact';
-import Switch from 'react-switch';
-import { useEffect, useState } from 'preact/hooks';
-import { UiState, ThemeState, LangState } from '../core/state';
-import { useMedia } from '../core/hooks/useMedia';
-import { T } from '../core/i18n';
-import moon from '../assets/moon.svg';
-import sun from '../assets/sun.svg';
-import logo from '../assets/logo.svg';
-// import { useMedia } from 'react-use';
+import { h, Fragment } from "preact";
+import Switch from "react-switch";
+import { useEffect, useState } from "preact/hooks";
+import { UiState, ThemeState, LangState } from "../core/state";
+// import { useMedia } from "../core/hooks/useMedia";
+import { useMedia } from "react-use";
+import { T } from "../core/i18n";
+import moon from "../assets/moon.svg";
+import sun from "../assets/sun.svg";
+import logo from "../assets/logo.svg";
 
 interface NavLink {
   url: string;
@@ -15,12 +15,12 @@ interface NavLink {
 }
 
 const links: NavLink[] = [
-  { name: 'home', url: 'home' },
-  { name: 'about', url: 'about' },
-  { name: 'projects', url: 'projects' },
-  { name: 'skills', url: 'skills' },
-  { name: 'oldWebsite', url: 'old-website' },
-  { name: 'contact', url: 'contact' },
+  { name: "home", url: "home" },
+  { name: "about", url: "about" },
+  // { name: "projects", url: "projects" },
+  { name: "skills", url: "skills" },
+  { name: "oldWebsite", url: "old-website" },
+  { name: "contact", url: "contact" },
   // { name: 'social', url: 'social' }
 ];
 
@@ -39,7 +39,7 @@ function SidebarLink(props: SidebarLinkProps) {
           if (props.onClick) props.onClick();
           window.history.pushState({}, props.name, props.url);
           const section = document.getElementById(props.url);
-          if (section) section.scrollIntoView({ behavior: 'smooth' });
+          if (section) section.scrollIntoView({ behavior: "smooth" });
         }}
       >
         {(T.translate(`sidebar.${props.name}`) as string).toLowerCase()}
@@ -51,20 +51,20 @@ function SidebarLink(props: SidebarLinkProps) {
 
 export default function AppSidebar() {
   const { showSidebar, toggleSidebar } = UiState.useContainer();
-  const isWide = useMedia({ minWidth: 768 });
+  const isWide = useMedia("(min-width: 768px)");
   const { theme, toggleTheme } = ThemeState.useContainer();
   const { toggleLanguage } = LangState.useContainer();
-  const [transition, setTransition] = useState('none');
-  const [transform, setTransform] = useState('');
+  const [transition, setTransition] = useState("none");
+  const [transform, setTransform] = useState("");
 
   /* Show always when wide, when small depend on state */
   useEffect(() => {
-    if (isWide) return setTransform('none');
+    if (isWide) return setTransform("none");
 
     if (showSidebar) {
-      setTransform('none');
+      setTransform("none");
     } else {
-      setTransform('translateX(-100%)');
+      setTransform("translateX(-100%)");
     }
   }, [isWide, showSidebar]);
 
@@ -73,7 +73,7 @@ export default function AppSidebar() {
   */
   useEffect(() => {
     setTimeout(() => {
-      setTransition('transform 200ms ease-in-out');
+      setTransition("transform 200ms ease-in-out");
     }, 500);
   }, []);
 
@@ -86,7 +86,7 @@ export default function AppSidebar() {
           items-center flex
 
           md:fixed w-56
-          ${theme === 'dark' ? 'bg-black' : 'bg-gray-800'}`}
+          ${theme === "dark" ? "bg-black" : "bg-gray-800"}`}
       >
         <img
           src={logo}
@@ -100,10 +100,10 @@ export default function AppSidebar() {
             <Switch
               aria-label="change theme"
               onChange={toggleTheme}
-              checked={theme === 'light'}
+              checked={theme === "light"}
               width={60}
-              onColor={'#f6e05e'}
-              offColor={'#2a4365'}
+              onColor={"#f6e05e"}
+              offColor={"#2a4365"}
               checkedIcon={
                 <div className="center w-full h-full">
                   <img src={sun} alt="sun icon" />
@@ -121,7 +121,7 @@ export default function AppSidebar() {
           ))}
           <li className="my-2 text-shadow">
             <button className="nav-link" onClick={toggleLanguage}>
-              {T.translate('sidebar.lang').toLowerCase()}
+              {T.translate("sidebar.lang").toLowerCase()}
             </button>
           </li>
         </ul>
@@ -129,7 +129,7 @@ export default function AppSidebar() {
       {showSidebar && (
         <div
           className="fixed inset-0 md:hidden"
-          style={{ zIndex: 6, backgroundColor: 'rgba(0, 0, 0, 0.7)' }}
+          style={{ zIndex: 6, backgroundColor: "rgba(0, 0, 0, 0.7)" }}
           onClick={toggleSidebar}
         />
       )}

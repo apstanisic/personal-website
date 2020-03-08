@@ -1,38 +1,38 @@
-import { h } from 'preact';
-import { useState } from 'preact/hooks';
-import { T } from '../core/i18n';
-import Button from './ui/Button';
-import { ThemeState } from '../core/state';
-import Section from './ui/Section';
+import { h } from "preact";
+import { useState } from "preact/hooks";
+import { T } from "../core/i18n";
+import Button from "./ui/Button";
+import { ThemeState } from "../core/state";
+import Section from "./ui/Section";
 
 const classes = `shadow-xl border-gray-200 appearance-none border rounded w-full
                  py-3 px-4 bg-white text-gray-800 text-lg leading-tight `;
 
-const formUrl = 'https://formspree.io/aleksandar@tuta.io';
+const formUrl = "https://formspree.io/aleksandar@tuta.io";
 
 export default function Contact() {
   const { theme } = ThemeState.useContainer();
 
   const [form, setForm] = useState({
-    name: '',
-    email: '',
-    message: '',
+    name: "",
+    email: "",
+    message: "",
   });
 
   async function handleSubmit(e: Event) {
     e.preventDefault();
     try {
       const res = await fetch(formUrl, {
-        method: 'POST',
+        method: "POST",
         body: JSON.stringify(form),
         headers: {
-          Accept: 'application/json',
+          Accept: "application/json",
         },
       });
       await res.json();
-      alert('Success submiting form');
+      alert("Success submiting form");
     } catch (error) {
-      alert('Error submiting form');
+      alert("Error submiting form");
     }
   }
 
@@ -43,7 +43,7 @@ export default function Contact() {
   }
 
   return (
-    <Section bg={theme === 'light' ? 'bg-gray-200' : ''} id="contact">
+    <Section bg={theme === "light" ? "bg-gray-200" : ""} id="contact">
       <div className=" mx-auto">
         <div className="text-3xl text-center">
           <T.span text="contact.title" />
@@ -95,8 +95,8 @@ export default function Contact() {
               className={classes}
               onChange={handleChange}
               rows={8}
-              placeholder={T.translate('contact.placeholder')}
-              style={{ resize: 'none' }}
+              placeholder={T.translate("contact.placeholder")}
+              style={{ resize: "none" }}
             />
             <div className="lg:w-1/5" />
           </label>

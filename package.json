@@ -36,8 +36,9 @@
     "preact-render-to-string": "^5.1.4",
     "preact-router": "^3.2.1",
     "react-switch": "^5.0.1",
-    "unstated-next": "^1.1.0",
-    "tailwindcss": "^1.2.0"
+    "react-use": "^13.27.0",
+    "tailwindcss": "^1.2.0",
+    "unstated-next": "^1.1.0"
   },
   "devDependencies": {
     "@types/jest": "^25.1.2",

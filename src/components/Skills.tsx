@@ -1,6 +1,6 @@
-import { h } from 'preact';
-import { ThemeState } from '../core/state';
-import codeImage from '../assets/code.png';
+import { h } from "preact";
+import { ThemeState } from "../core/state";
+import codeImage from "../assets/code.png";
 
 export default function Skills() {
   const { theme } = ThemeState.useContainer();
@@ -9,7 +9,7 @@ export default function Skills() {
     <div
       id="skills"
       className="px-4 mx-auto center"
-      style={{ ...(theme === 'light' ? { backgroundColor: '#373740' } : {}) }}
+      style={{ ...(theme === "light" ? { backgroundColor: "#373740" } : {}) }}
     >
       <img
         src={codeImage}
