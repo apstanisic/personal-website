@@ -1,5 +1,5 @@
 import { h } from "preact";
-import "normalize.css";
+// import "normalize.css";
 import App from "./components/App";
 import "./style/index.css";
 // import "./style/tailwind.min.css";
