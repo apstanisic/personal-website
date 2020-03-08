@@ -8,8 +8,6 @@ import Section from "./ui/Section";
 const classes = `shadow-xl border-gray-200 appearance-none border rounded w-full
                  py-3 px-4 bg-white text-gray-800 text-lg leading-tight `;
 
-const formUrl = "https://formspree.io/aleksandar@tuta.io";
-
 export default function Contact() {
   const { theme } = ThemeState.useContainer();
 
@@ -21,13 +19,12 @@ export default function Contact() {
 
   async function handleSubmit(e: Event) {
     e.preventDefault();
+    const form = document.getElementById("contact-form");
+    form?.getAttribute("action");
     try {
       const res = await fetch(formUrl, {
         method: "POST",
         body: JSON.stringify(form),
-        headers: {
-          Accept: "application/json",
-        },
       });
       await res.json();
       alert("Success submiting form");
@@ -51,8 +48,11 @@ export default function Contact() {
         <form
           onSubmit={handleSubmit}
           className="flex flex-col px-3 pb-3 pt-2"
-          action={formUrl}
+          // action={formUrl}
           method="POST"
+          data-netlify="true"
+          name="contact"
+          id="contact-form"
         >
           <label className="py-2 md:flex justify-around">
             <div className="text-xl p-1 pr-5 md:w-1/4 lg:w-1/5 md:text-right">
