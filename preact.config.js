@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 import { resolve } from "path";
-import tailwind from "preact-cli-tailwind";
 
 export default {
   /**
