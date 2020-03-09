@@ -24,8 +24,11 @@ export default function Contact() {
   async function handleSubmit(e: Event) {
     e.preventDefault();
     const formElement = document.getElementById("contact-form");
+    console.log(formElement, "formElement");
+
     if (!formElement) return;
     const formUrl = formElement.getAttribute("action");
+    console.log(formUrl, "formUrl");
     if (!formUrl) return;
     try {
       const res = await fetch(formUrl, {
