@@ -17,15 +17,20 @@ export default function Contact() {
     message: "",
   });
 
+  /**
+   * @Todo Optional chaining not working with preact build. Try again in couple of
+   * months if it's fixed. Last checked on March 2020.
+   */
   async function handleSubmit(e: Event) {
     e.preventDefault();
-    const form = document.getElementById("contact-form");
-    const formUrl = form?.getAttribute("action");
+    const formElement = document.getElementById("contact-form");
+    if (!formElement) return;
+    const formUrl = formElement.getAttribute("action");
+    if (!formUrl) return;
     try {
-      if (!formUrl) return;
       const res = await fetch(formUrl, {
         method: "POST",
-        body: JSON.stringify(form),
+        body: JSON.stringify(formElement),
       });
       await res.json();
       alert("Success submiting form");
@@ -35,7 +40,6 @@ export default function Contact() {
   }
 
   function handleChange(e: Event) {
-    // @ts-check // Preact doesn't have best types
     const { name, value } = e.currentTarget as any;
     setForm({ ...form, ...{ [name]: value } });
   }
