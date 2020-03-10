@@ -1,5 +1,5 @@
 import { h } from "preact";
-import HeroImage from "../assets/hero.png";
+import HeroImage from "../assets/hero.jpg";
 import AppHeader from "./AppHeader";
 import { ThemeState } from "../core/state";
 
@@ -13,7 +13,7 @@ export default function Hero() {
           height: "70vh",
           objectFit: "cover",
           verticalAlign: "middle",
-          filter: "blur(3px)",
+          filter: "blur(9px)",
           transform: "scale(1.1)",
         }}
         className="w-full"
@@ -25,14 +25,14 @@ export default function Hero() {
         className="absolute text-white inset-0 center text-5xl md:text-6xl p-12"
         style={{
           zIndex: 3,
-          backgroundColor: theme === "dark" ? "rgba(255,255,255,0.05)" : "rgba(255,255,255, 0)",
+          backgroundColor: theme === "dark" ? "rgba(0,0,0,0.5)" : "rgba(0,0,0, 0.1)",
         }}
       >
         <h1
           className="border-4 p-4 lg:p-8"
           style={{
             borderRadius: "0.75rem",
-            backgroundColor: "rgba(0,0,0,0.6)",
+            backgroundColor: "rgba(0,0,0,0.4)",
           }}
         >
           Aleksandar Stanišić
