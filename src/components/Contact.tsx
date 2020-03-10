@@ -8,8 +8,9 @@
 import { h } from "preact";
 import { useState } from "preact/hooks";
 import { T } from "../core/i18n";
+import { ThemeState, UiState } from "../core/state";
+import Alert from "./ui/Alert";
 import Button from "./ui/Button";
-import { ThemeState } from "../core/state";
 import Section from "./ui/Section";
 
 /**
@@ -27,6 +28,8 @@ const encode = (data: Record<string, any>) =>
  */
 export default function Contact() {
   const { theme } = ThemeState.useContainer();
+  const { changeAlert } = UiState.useContainer();
+
   /** Css classes for input fields */
   const classes = `shadow-xl border-gray-200 appearance-none border rounded w-full
                        py-3 px-4 bg-white text-gray-800 text-lg leading-tight `;
@@ -38,6 +41,7 @@ export default function Contact() {
     message: "",
   });
 
+  /** @Todo When optional chaining works in preact build, improve this function */
   async function handleSubmit(e: Event) {
     e.preventDefault();
 
@@ -46,8 +50,24 @@ export default function Contact() {
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: encode({ "form-name": "contact", ...form }),
     })
-      .then(() => alert("success form submit"))
-      .catch(error => alert("error form submit"));
+      // Success alert
+      .then(() =>
+        changeAlert({
+          show: true,
+          type: "success",
+          text: T.translate("contact.sentSuccess").toString(),
+        }),
+      )
+      // Error alert
+      .catch(error => {
+        changeAlert({
+          show: true,
+          type: "error",
+          text: T.translate("contact.sentError").toString(),
+        });
+        console.error(error);
+      })
+      .finally(() => setForm({ email: "", name: "", message: "" }));
   }
 
   function handleChange(e: Event) {
@@ -116,10 +136,11 @@ export default function Contact() {
             />
             <div className="lg:w-1/5" />
           </label>
-          <Button className="text-xl" type="submit">
+          <Button className={`text-xl `} type="submit">
             <T.span text="contact.send" />
           </Button>
         </form>
+        <Alert />
       </div>
     </Section>
   );
