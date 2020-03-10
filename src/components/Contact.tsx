@@ -1,43 +1,76 @@
+/**
+ * Used for netlify forms.
+ * Taken from
+ * https://www.netlify.com/blog/2017/07/20/how-to-integrate-netlifys-form-handling-in-a-react-app/#form-handling-with-a-stateful-react-form
+ * Most of form handling in this file is from that url.
+ *
+ */
 import { h } from "preact";
 import { useState } from "preact/hooks";
 import { T } from "../core/i18n";
+import { ThemeState, UiState } from "../core/state";
+import Alert from "./ui/Alert";
 import Button from "./ui/Button";
-import { ThemeState } from "../core/state";
 import Section from "./ui/Section";
 
-const classes = `shadow-xl border-gray-200 appearance-none border rounded w-full
-                 py-3 px-4 bg-white text-gray-800 text-lg leading-tight `;
+/**
+ * Netlify does not accept json. Pass pojo to this function
+ */
+const encode = (data: Record<string, any>) =>
+  Object.keys(data)
+    .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+    .join("&");
 
-const formUrl = "https://formspree.io/aleksandar@tuta.io";
-
+/**
+ * Contact section
+ * @Todo Optional chaining not working with preact build. Try again in couple of
+ * months if it's fixed. Last checked on March 2020.
+ */
 export default function Contact() {
   const { theme } = ThemeState.useContainer();
+  const { changeAlert } = UiState.useContainer();
 
+  /** Css classes for input fields */
+  const classes = `shadow-xl border-gray-200 appearance-none border rounded w-full
+                       py-3 px-4 bg-white text-gray-800 text-lg leading-tight `;
+
+  /** Form state */
   const [form, setForm] = useState({
     name: "",
     email: "",
     message: "",
   });
 
+  /** @Todo When optional chaining works in preact build, improve this function */
   async function handleSubmit(e: Event) {
     e.preventDefault();
-    try {
-      const res = await fetch(formUrl, {
-        method: "POST",
-        body: JSON.stringify(form),
-        headers: {
-          Accept: "application/json",
-        },
-      });
-      await res.json();
-      alert("Success submiting form");
-    } catch (error) {
-      alert("Error submiting form");
-    }
+
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode({ "form-name": "contact", ...form }),
+    })
+      // Success alert
+      .then(() =>
+        changeAlert({
+          show: true,
+          type: "success",
+          text: T.translate("contact.sentSuccess").toString(),
+        }),
+      )
+      // Error alert
+      .catch(error => {
+        changeAlert({
+          show: true,
+          type: "error",
+          text: T.translate("contact.sentError").toString(),
+        });
+        console.error(error);
+      })
+      .finally(() => setForm({ email: "", name: "", message: "" }));
   }
 
   function handleChange(e: Event) {
-    // @ts-check // Preact doesn't have best types
     const { name, value } = e.currentTarget as any;
     setForm({ ...form, ...{ [name]: value } });
   }
@@ -51,9 +84,12 @@ export default function Contact() {
         <form
           onSubmit={handleSubmit}
           className="flex flex-col px-3 pb-3 pt-2"
-          action={formUrl}
           method="POST"
+          data-netlify="true"
+          name="contact"
         >
+          {/* For netlify forms */}
+          <input name="form-name" value="contact" hidden />
           <label className="py-2 md:flex justify-around">
             <div className="text-xl p-1 pr-5 md:w-1/4 lg:w-1/5 md:text-right">
               <T.span text="contact.name" />
@@ -100,10 +136,11 @@ export default function Contact() {
             />
             <div className="lg:w-1/5" />
           </label>
-          <Button className="text-xl" type="submit">
+          <Button className={`text-xl `} type="submit">
             <T.span text="contact.send" />
           </Button>
         </form>
+        <Alert />
       </div>
     </Section>
   );

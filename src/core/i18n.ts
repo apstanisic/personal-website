@@ -10,6 +10,11 @@ type Language = "sr" | "en";
 const languageObjects = { en, sr };
 
 // Renders text
+/**
+ * Renders text
+ * @Todo There is currently some Preact/Typescript error. Remove as any from T,
+ * and add declaration.d.ts file from preact template
+ */
 export const T = new MDText(en) as any;
 
 interface UseLangStateReturn {

@@ -27,6 +27,8 @@
     "email": "Email",
     "message": "Message",
     "placeholder": "Your message...",
-    "send": "Send message"
+    "send": "Send message",
+    "sentSuccess": "Message successfully sent.",
+    "sentError": "There is problem sending message. Try again later."
   }
 }
