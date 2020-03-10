@@ -25,7 +25,7 @@ export default function Hero() {
         className="absolute text-white inset-0 center text-5xl md:text-6xl p-12"
         style={{
           zIndex: 3,
-          backgroundColor: theme === "dark" ? "rgba(0,0,0,0.5)" : "rgba(255,255,255, 0)",
+          backgroundColor: theme === "dark" ? "rgba(0,0,0,0.5)" : "rgba(0,0,0, 0.1)",
         }}
       >
         <h1
