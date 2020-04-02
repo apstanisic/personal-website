@@ -1,10 +1,11 @@
 import { h } from "preact";
 import HeroImage from "../assets/hero.jpg";
 import AppHeader from "./AppHeader";
-import { ThemeState } from "../core/state";
+import { useContext } from "preact/hooks";
+import { ThemeContext } from "../core/theme";
 
 export default function Hero() {
-  const { theme } = ThemeState.useContainer();
+  const { theme } = useContext(ThemeContext);
   return (
     <div id="home" className="w-full overflow-hidden relative ">
       <img

@@ -1,14 +1,14 @@
 import { h } from "preact";
 // import "normalize.css";
 import App from "./components/App";
-import "./style/index.css";
+import "./style.css";
 // import "./style/tailwind.min.css";
-import { Providers } from "./core/state";
+import { AppContext } from "./core/app-context";
 
 export default function Main() {
   return (
-    <Providers>
+    <AppContext>
       <App />
-    </Providers>
+    </AppContext>
   );
 }

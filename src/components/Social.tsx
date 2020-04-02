@@ -1,13 +1,14 @@
 import { h } from "preact";
-import { ThemeState } from "../core/state";
 import Section from "./ui/Section";
 import Fb from "../assets/social/facebook.svg";
 import Ig from "../assets/social/instagram.svg";
 import In from "../assets/social/linkedin.svg";
 import Gh from "../assets/social/github.svg";
+import { useContext } from "preact/hooks";
+import { ThemeContext } from "../core/theme";
 
 export default function Social() {
-  const { theme } = ThemeState.useContainer();
+  const { theme } = useContext(ThemeContext);
   // Every img tag with logo have this classes
   const logoClasses = `w-16 ${theme === "dark" ? "social-dark-theme" : ""}`;
   return (

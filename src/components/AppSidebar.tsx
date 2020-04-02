@@ -1,13 +1,14 @@
-import { h, Fragment } from "preact";
+import { Fragment, h } from "preact";
+import { useContext, useEffect, useState } from "preact/hooks";
 import Switch from "react-switch";
-import { useEffect, useState } from "preact/hooks";
-import { UiState, ThemeState, LangState } from "../core/state";
 // import { useMedia } from "../core/hooks/useMedia";
 import { useMedia } from "react-use";
-import { T } from "../core/i18n";
+import logo from "../assets/logo.svg";
 import moon from "../assets/moon.svg";
 import sun from "../assets/sun.svg";
-import logo from "../assets/logo.svg";
+import { LangContext, T } from "../core/i18n";
+import { ThemeContext } from "../core/theme";
+import { UiContext } from "../core/ui";
 
 interface NavLink {
   url: string;
@@ -50,10 +51,11 @@ function SidebarLink(props: SidebarLinkProps) {
 }
 
 export default function AppSidebar() {
-  const { showSidebar, toggleSidebar } = UiState.useContainer();
+  const { showSidebar, toggleSidebar } = useContext(UiContext);
   const isWide = useMedia("(min-width: 768px)");
-  const { theme, toggleTheme } = ThemeState.useContainer();
-  const { toggleLanguage } = LangState.useContainer();
+  const { theme, toggleTheme } = useContext(ThemeContext);
+
+  const { toggleLanguage } = useContext(LangContext);
   const [transition, setTransition] = useState("none");
   const [transform, setTransform] = useState("");
 

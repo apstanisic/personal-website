@@ -1,20 +1,22 @@
 import { h } from "preact";
-import { ThemeState } from "../core/state";
+import { useContext } from "preact/hooks";
+import { ThemeContext } from "../core/theme";
 import About from "./About";
 import AppSidebar from "./AppSidebar";
 import Contact from "./Contact";
 import Hero from "./Hero";
+import OldWebsite from "./OldWebsite";
 import Projects from "./Projects";
 import Skills from "./Skills";
 import Social from "./Social";
-import OldWebsite from "./OldWebsite";
 
 if ((module as any).hot) {
   // eslint-disable-next-line
   require("preact/debug");
 }
+
 export default function App() {
-  const { theme } = ThemeState.useContainer();
+  const { theme } = useContext(ThemeContext);
   const appClasses = theme === "light" ? "text-gray-900 bg-white" : "text-gray-100 bg-gray-900";
 
   return (

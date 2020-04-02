@@ -1,3 +1,4 @@
+import { createContext, h } from "preact";
 import { useState, StateUpdater, useEffect } from "preact/hooks";
 
 interface AlertState {
@@ -16,18 +17,18 @@ interface UiState {
 
 let timeout: any = null;
 
-/** Ui state */
-export function useUiState(): UiState {
+export const UiContext = createContext<UiState>(undefined as any);
+
+export function Ui(props: { children: any }) {
   const [showSidebar, setShowSidebar] = useState(false);
   const [alert, setAlert] = useState<AlertState>({
     show: false,
-    text: "Test statefdsaf dsaf dsaf dsa fds ds",
+    text: "",
     type: "normal",
   });
-  /** Change alert */
-  function changeAlert(change: Partial<AlertState>) {
-    setAlert({ ...alert, ...change });
-  }
+
+  const toggleSidebar = () => setShowSidebar(!showSidebar);
+  const changeAlert = (change: Partial<AlertState>) => setAlert({ ...alert, ...change });
 
   useEffect(() => {
     if (alert.show) {
@@ -41,10 +42,9 @@ export function useUiState(): UiState {
     }
   }, [alert]);
 
-  /** Toggle sidebar */
-  function toggleSidebar() {
-    setShowSidebar(!showSidebar);
-  }
-
-  return { toggleSidebar, setShowSidebar, showSidebar, alert, changeAlert };
+  return (
+    <UiContext.Provider value={{ toggleSidebar, setShowSidebar, showSidebar, alert, changeAlert }}>
+      {props.children}
+    </UiContext.Provider>
+  );
 }

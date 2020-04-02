@@ -1,11 +1,12 @@
 import { h } from "preact";
 import image from "../assets/aleksandar.jpg";
 import { T } from "../core/i18n";
-import { ThemeState } from "../core/state";
 import Section from "./ui/Section";
+import { useContext } from "preact/hooks";
+import { ThemeContext } from "../core/theme";
 
 export default function About() {
-  const { theme } = ThemeState.useContainer();
+  const { theme } = useContext(ThemeContext);
   return (
     <Section bg={theme === "light" ? "bg-blue-700" : ""} id="about">
       <div className="lg:flex ">

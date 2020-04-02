@@ -1,19 +1,20 @@
-// import * as idb from "idb-keyval";
+import { h } from "preact";
 import { storage } from "./storage";
 import { useState } from "preact/hooks";
+import { createContext } from "preact";
 
 /** Available themes */
 type Theme = "dark" | "light";
 
 interface ThemeState {
-  /** Current theme */
   theme: Theme;
-  /** Toggle theme */
   toggleTheme: () => Promise<void>;
 }
 
+export const ThemeContext = createContext<ThemeState>(undefined as any);
+
 /** Theme state */
-export function useThemeState(): ThemeState {
+export function Theme(props: { children: any }) {
   const [theme, setTheme] = useState<Theme>("light");
 
   /** Toggle theme */
@@ -28,5 +29,7 @@ export function useThemeState(): ThemeState {
     setTheme(idbTheme === undefined ? "light" : idbTheme);
   });
 
-  return { theme, toggleTheme };
+  return (
+    <ThemeContext.Provider value={{ theme, toggleTheme }}>{props.children}</ThemeContext.Provider>
+  );
 }

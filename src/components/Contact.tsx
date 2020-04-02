@@ -6,9 +6,10 @@
  *
  */
 import { h } from "preact";
-import { useState } from "preact/hooks";
+import { useContext, useState } from "preact/hooks";
 import { T } from "../core/i18n";
-import { ThemeState, UiState } from "../core/state";
+import { ThemeContext } from "../core/theme";
+import { UiContext } from "../core/ui";
 import Alert from "./ui/Alert";
 import Button from "./ui/Button";
 import Section from "./ui/Section";
@@ -27,8 +28,8 @@ const encode = (data: Record<string, any>) =>
  * months if it's fixed. Last checked on March 2020.
  */
 export default function Contact() {
-  const { theme } = ThemeState.useContainer();
-  const { changeAlert } = UiState.useContainer();
+  const { theme } = useContext(ThemeContext);
+  const { changeAlert } = useContext(UiContext);
 
   /** Css classes for input fields */
   const classes = `shadow-xl border-gray-200 appearance-none border rounded w-full

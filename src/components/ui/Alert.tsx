@@ -1,8 +1,9 @@
 import { h } from "preact";
-import { UiState } from "../../core/state";
+import { useContext } from "preact/hooks";
+import { UiContext } from "../../core/ui";
 
 export default function Alert() {
-  const { alert, changeAlert } = UiState.useContainer();
+  const { alert, changeAlert } = useContext(UiContext);
 
   let alertColor = "bg-blue-500";
   if (alert.type === "success") alertColor = "bg-green-500";

@@ -1,9 +1,10 @@
 import { h } from "preact";
-import { ThemeState } from "../core/state";
 import codeImage from "../assets/code.png";
+import { useContext } from "preact/hooks";
+import { ThemeContext } from "../core/theme";
 
 export default function Skills() {
-  const { theme } = ThemeState.useContainer();
+  const { theme } = useContext(ThemeContext);
 
   return (
     <div
