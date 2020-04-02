@@ -1,8 +1,10 @@
+import { h } from "preact";
 import { useState } from "preact/hooks";
 import { storage } from "./storage";
 import { MDText } from "i18n-react";
 import en from "../assets/lang/en.json";
 import sr from "../assets/lang/sr.json";
+import { createContext } from "preact";
 
 /** Available languages */
 type Language = "sr" | "en";
@@ -17,15 +19,17 @@ const languageObjects = { en, sr };
  */
 export const T = new MDText(en) as any;
 
-interface UseLangStateReturn {
+interface LangState {
   // Current Language
   language: Language;
   // Toggle between Serbian and English
   toggleLanguage: () => Promise<void>;
 }
 
+export const LangContext = createContext<LangState>(undefined as any);
+
 /** Use language state */
-export function useLangState(): UseLangStateReturn {
+export function Lang(props: { children: any }) {
   const [language, setLanguage] = useState<Language>("en");
 
   /** Change app language */
@@ -45,5 +49,9 @@ export function useLangState(): UseLangStateReturn {
     changeLanguage(lang === undefined ? "en" : (lang as Language));
   });
 
-  return { language, toggleLanguage };
+  return (
+    <LangContext.Provider value={{ language, toggleLanguage }}>
+      {props.children}
+    </LangContext.Provider>
+  );
 }
