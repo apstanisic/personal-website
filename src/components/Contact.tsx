@@ -19,7 +19,7 @@ import Section from "./ui/Section";
  */
 const encode = (data: Record<string, any>) =>
   Object.keys(data)
-    .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+    .map((key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
     .join("&");
 
 /**
@@ -60,7 +60,7 @@ export default function Contact() {
         }),
       )
       // Error alert
-      .catch(error => {
+      .catch((error) => {
         changeAlert({
           show: true,
           type: "error",

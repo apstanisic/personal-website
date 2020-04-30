@@ -45,7 +45,7 @@ export function Lang(props: { children: any }) {
   }
 
   // Sets language from database
-  storage.get("lang").then(lang => {
+  storage.get("lang").then((lang) => {
     changeLanguage(lang === undefined ? "en" : (lang as Language));
   });
 

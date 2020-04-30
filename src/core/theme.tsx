@@ -25,7 +25,7 @@ export function Theme(props: { children: any }) {
   }
 
   // Set theme from database or use light theme
-  storage.get<Theme>("theme").then(idbTheme => {
+  storage.get<Theme>("theme").then((idbTheme) => {
     setTheme(idbTheme === undefined ? "light" : idbTheme);
   });
 
