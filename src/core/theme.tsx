@@ -16,15 +16,21 @@ export const ThemeContext = createContext<ThemeState>(undefined as any);
 
 /** Theme state */
 export function Theme(props: { children: any }) {
-  const savedTheme = localStorage.getItem("theme") as Theme | null;
-  const [theme, setTheme] = useState<Theme>(savedTheme ?? "light");
+  const [theme, setTheme] = useState<Theme>("light");
 
   /** Toggle theme */
   async function toggleTheme() {
     const newTheme = theme === "dark" ? "light" : "dark";
-    localStorage.setItem("theme", newTheme);
+    await storage.set("theme", newTheme);
     setTheme(newTheme);
   }
+
+  // Set theme from database or use light theme
+  useEffect(() => {
+    storage.get<Theme>("theme").then((idbTheme) => {
+      setTheme(idbTheme ?? "light");
+    });
+  }, []);
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>{props.children}</ThemeContext.Provider>
