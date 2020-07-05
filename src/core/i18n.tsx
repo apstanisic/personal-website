@@ -14,7 +14,10 @@ const languageObjects = { en, sr };
 /**
  * Renders text
  */
-export const T = new MDText(en);
+const T = new MDText(en);
+export function Tr(key: string): string {
+  return T.translate(key)?.toString() ?? "";
+}
 
 interface LangState {
   // Current Language
@@ -31,9 +34,11 @@ export function Lang(props: { children: any }) {
   // Sets language from database if it's different from default
   useEffect(() => {
     storage.get<Language>("lang").then((lang) => {
+      console.log(lang);
+
       if (lang !== undefined && lang !== language) {
         setLanguage(lang);
-        T.setTexts(languageObjects[language]);
+        T.setTexts(languageObjects[lang]);
       }
     });
   }, []);

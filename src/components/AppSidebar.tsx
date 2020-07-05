@@ -6,7 +6,7 @@ import { useMedia } from "react-use";
 import logo from "../assets/logo.svg";
 import moon from "../assets/moon.svg";
 import sun from "../assets/sun.svg";
-import { LangContext, T } from "../core/i18n";
+import { LangContext, Tr } from "../core/i18n";
 import { ThemeContext } from "../core/theme";
 import { UiContext } from "../core/ui";
 
@@ -37,14 +37,13 @@ function SidebarLink(props: SidebarLinkProps) {
         className="nav-link"
         // href={'#' + link.url}
         onClick={() => {
-          if (props.onClick) props.onClick();
+          props.onClick?.();
           window.history.pushState({}, props.name, props.url);
           const section = document.getElementById(props.url);
           if (section) section.scrollIntoView({ behavior: "smooth" });
         }}
       >
-        <T.span text={`sidebar.${props.name}`} />
-        {/* <T.span text={`sidebar.${link.name}`} /> */}
+        {Tr(`sidebar.${props.name}`).toLowerCase()}
       </button>
     </li>
   );
@@ -97,8 +96,6 @@ export function AppSidebar() {
         />
         <ul>
           <li className="my-5 text-shadow">
-            {/*
-             // @ts-ignore */}
             <Switch
               aria-label="change theme"
               onChange={toggleTheme}
@@ -122,7 +119,9 @@ export function AppSidebar() {
             <SidebarLink {...link} key={i} onClick={toggleSidebar} />
           ))}
           <li className="my-2 text-shadow">
-            <T.button text="sidebar.lang" className="nav-link" onClick={toggleLanguage} />
+            <button className="nav-link" onClick={toggleLanguage}>
+              {Tr("sidebar.lang").toLowerCase()}
+            </button>
           </li>
         </ul>
       </div>

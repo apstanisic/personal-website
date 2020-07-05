@@ -7,7 +7,7 @@
  */
 import { h } from "preact";
 import { useContext, useState } from "preact/hooks";
-import { T } from "../core/i18n";
+import { Tr } from "../core/i18n";
 import { ThemeContext } from "../core/theme";
 import { UiContext } from "../core/ui";
 import Alert from "./ui/Alert";
@@ -56,7 +56,7 @@ export function Contact() {
         changeAlert({
           show: true,
           type: "success",
-          text: T.translate("contact.sentSuccess")?.toString(),
+          text: Tr("contact.sentSuccess"),
         }),
       )
       // Error alert
@@ -64,7 +64,7 @@ export function Contact() {
         changeAlert({
           show: true,
           type: "error",
-          text: T.translate("contact.sentError")?.toString(),
+          text: Tr("contact.sentError"),
         });
         console.error(error);
       })
@@ -80,7 +80,7 @@ export function Contact() {
     <Section bg={theme === "light" ? "bg-gray-200" : ""} id="contact">
       <div className=" mx-auto">
         <div className="text-3xl text-center">
-          <T.span text="contact.title" />
+          <span>{Tr("contact.title")}</span>
         </div>
         <form
           onSubmit={handleSubmit}
@@ -92,7 +92,7 @@ export function Contact() {
         >
           <p class="hidden">
             <label>
-              {T.translate("contact.honeypot")}
+              {Tr("contact.honeypot")}
               <input name="bot-protection" />
             </label>
           </p>
@@ -100,7 +100,7 @@ export function Contact() {
           <input name="form-name" value="contact" hidden />
           <label className="py-2 md:flex justify-around">
             <div className="text-xl p-1 pr-5 md:w-1/4 lg:w-1/5 md:text-right">
-              <T.span text="contact.name" />
+              <span>{Tr("contact.name")}</span>
             </div>
             <input
               type="text"
@@ -115,7 +115,7 @@ export function Contact() {
           </label>
           <label className="py-2 md:flex ">
             <div className="text-xl p-1 pr-5 md:w-1/4 lg:w-1/5  md:text-right">
-              <T.span text="contact.email" />
+              <span>{Tr("contact.mail")}</span>
             </div>
             <input
               type="email"
@@ -130,7 +130,7 @@ export function Contact() {
           </label>
           <label className="py-2 md:flex ">
             <div className="text-xl p-1 pr-5 md:w-1/4 lg:w-1/5  md:text-right">
-              <T.span text="contact.message" />
+              <span>{Tr("contact.message")}</span>
             </div>
             <textarea
               name="message"
@@ -139,13 +139,13 @@ export function Contact() {
               className={classes}
               onChange={handleChange}
               rows={8}
-              placeholder={T.translate("contact.placeholder")?.toString()}
+              placeholder={Tr("contact.placeholder")}
               style={{ resize: "none" }}
             />
             <div className="lg:w-1/5" />
           </label>
           <Button className={`text-xl `} type="submit">
-            <T.span text="contact.send" />
+            <span>{Tr("contact.send")}</span>
           </Button>
         </form>
         <Alert />
