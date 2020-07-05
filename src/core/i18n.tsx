@@ -1,5 +1,5 @@
 import { h } from "preact";
-import { useState } from "preact/hooks";
+import { useState, useEffect } from "preact/hooks";
 import { storage } from "./storage";
 import { MDText } from "i18n-react";
 import en from "../assets/lang/en.json";
@@ -11,13 +11,10 @@ type Language = "sr" | "en";
 // Objects that contain all language strings
 const languageObjects = { en, sr };
 
-// Renders text
 /**
  * Renders text
- * @Todo There is currently some Preact/Typescript error. Remove as any from T,
- * and add declaration.d.ts file from preact template
  */
-export const T = new MDText(en) as any;
+export const T = new MDText(en);
 
 interface LangState {
   // Current Language
@@ -31,23 +28,23 @@ export const LangContext = createContext<LangState>(undefined as any);
 /** Use language state */
 export function Lang(props: { children: any }) {
   const [language, setLanguage] = useState<Language>("en");
-
-  /** Change app language */
-  async function changeLanguage(lang: Language): Promise<void> {
-    await storage.set("lang", lang);
-    T.setTexts(languageObjects[lang]);
-    setLanguage(lang);
-  }
+  // Sets language from database if it's different from default
+  useEffect(() => {
+    storage.get<Language>("lang").then((lang) => {
+      if (lang !== undefined && lang !== language) {
+        setLanguage(lang);
+        T.setTexts(languageObjects[language]);
+      }
+    });
+  }, []);
 
   /** Toggle app language */
   async function toggleLanguage(): Promise<void> {
-    changeLanguage(language === "en" ? "sr" : "en");
+    const newLang = language === "en" ? "sr" : "en";
+    T.setTexts(languageObjects[newLang]);
+    await storage.set("lang", newLang);
+    setLanguage(newLang);
   }
-
-  // Sets language from database
-  storage.get("lang").then((lang) => {
-    changeLanguage(lang === undefined ? "en" : (lang as Language));
-  });
 
   return (
     <LangContext.Provider value={{ language, toggleLanguage }}>

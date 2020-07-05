@@ -3,7 +3,7 @@ import Button from "./ui/Button";
 import { T } from "../core/i18n";
 import Section from "./ui/Section";
 
-export default function OldWebsite() {
+export function OldWebsite() {
   function goToOldWebsite() {
     window.location.href = "https://stanisic-old.netlify.com";
   }
@@ -16,7 +16,7 @@ export default function OldWebsite() {
       />
 
       <Button onClick={goToOldWebsite} color="bg-blue-600" className="text-xl">
-        {T.translate("oldWebsite.button")}
+        <T.span text="oldWebsite.button" />
       </Button>
     </Section>
   );

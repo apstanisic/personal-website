@@ -27,7 +27,7 @@ const encode = (data: Record<string, any>) =>
  * @Todo Optional chaining not working with preact build. Try again in couple of
  * months if it's fixed. Last checked on March 2020.
  */
-export default function Contact() {
+export function Contact() {
   const { theme } = useContext(ThemeContext);
   const { changeAlert } = useContext(UiContext);
 
@@ -56,7 +56,7 @@ export default function Contact() {
         changeAlert({
           show: true,
           type: "success",
-          text: T.translate("contact.sentSuccess").toString(),
+          text: T.translate("contact.sentSuccess")?.toString(),
         }),
       )
       // Error alert
@@ -64,7 +64,7 @@ export default function Contact() {
         changeAlert({
           show: true,
           type: "error",
-          text: T.translate("contact.sentError").toString(),
+          text: T.translate("contact.sentError")?.toString(),
         });
         console.error(error);
       })
@@ -88,7 +88,14 @@ export default function Contact() {
           method="POST"
           data-netlify="true"
           name="contact"
+          netlify-honeypot="bot-protection"
         >
+          <p class="hidden">
+            <label>
+              {T.translate("contact.honeypot")}
+              <input name="bot-protection" />
+            </label>
+          </p>
           {/* For netlify forms */}
           <input name="form-name" value="contact" hidden />
           <label className="py-2 md:flex justify-around">
@@ -132,7 +139,7 @@ export default function Contact() {
               className={classes}
               onChange={handleChange}
               rows={8}
-              placeholder={T.translate("contact.placeholder")}
+              placeholder={T.translate("contact.placeholder")?.toString()}
               style={{ resize: "none" }}
             />
             <div className="lg:w-1/5" />

@@ -43,14 +43,14 @@ function SidebarLink(props: SidebarLinkProps) {
           if (section) section.scrollIntoView({ behavior: "smooth" });
         }}
       >
-        {(T.translate(`sidebar.${props.name}`) as string).toLowerCase()}
+        <T.span text={`sidebar.${props.name}`} />
         {/* <T.span text={`sidebar.${link.name}`} /> */}
       </button>
     </li>
   );
 }
 
-export default function AppSidebar() {
+export function AppSidebar() {
   const { showSidebar, toggleSidebar } = useContext(UiContext);
   const isWide = useMedia("(min-width: 768px)");
   const { theme, toggleTheme } = useContext(ThemeContext);
@@ -122,9 +122,7 @@ export default function AppSidebar() {
             <SidebarLink {...link} key={i} onClick={toggleSidebar} />
           ))}
           <li className="my-2 text-shadow">
-            <button className="nav-link" onClick={toggleLanguage}>
-              {T.translate("sidebar.lang").toLowerCase()}
-            </button>
+            <T.button text="sidebar.lang" className="nav-link" onClick={toggleLanguage} />
           </li>
         </ul>
       </div>

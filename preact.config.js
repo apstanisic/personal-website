@@ -36,7 +36,7 @@ export default {
       content: ["./src/**/*.tsx"],
 
       // Include any special characters you're using in this regular expression
-      defaultExtractor: content => content.match(/[\w-/:%]+(?<!:)/g) || [],
+      defaultExtractor: (content) => content.match(/[\w-/:%]+(?<!:)/g) || [],
     });
 
     const postCssLoaders = helpers.getLoadersByName(config, "postcss-loader");

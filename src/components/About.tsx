@@ -5,7 +5,7 @@ import Section from "./ui/Section";
 import { useContext } from "preact/hooks";
 import { ThemeContext } from "../core/theme";
 
-export default function About() {
+export function About() {
   const { theme } = useContext(ThemeContext);
   return (
     <Section bg={theme === "light" ? "bg-blue-700" : ""} id="about">

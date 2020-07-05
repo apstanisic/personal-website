@@ -1,19 +1,20 @@
 import { h } from "preact";
-import Section from "./ui/Section";
+import { useContext } from "preact/hooks";
 import Fb from "../assets/social/facebook.svg";
+import Gh from "../assets/social/github.svg";
 import Ig from "../assets/social/instagram.svg";
 import In from "../assets/social/linkedin.svg";
-import Gh from "../assets/social/github.svg";
-import { useContext } from "preact/hooks";
 import { ThemeContext } from "../core/theme";
+import Section from "./ui/Section";
 
-export default function Social() {
+export function Social() {
   const { theme } = useContext(ThemeContext);
   // Every img tag with logo have this classes
   const logoClasses = `w-16 ${theme === "dark" ? "social-dark-theme" : ""}`;
+
   return (
-    // <div className={'w-full ' + (theme === 'dark' ? 'bg-blue-100' : '')}></div>
     <Section bg={theme === "light" ? "bg-gray-200" : ""} className="center -mt-8" id="social">
+      {/* Github */}
       <a
         className="mx-6 hover-scale-10"
         href="https://github.com/aleksandarstanisic"
@@ -23,6 +24,7 @@ export default function Social() {
         <img src={Gh} className={logoClasses} alt="Github logo" />
       </a>
 
+      {/* LinkedIn */}
       <a
         className="mx-6 hover-scale-10"
         href="https://linkedin.com/in/astanisic"
@@ -32,6 +34,7 @@ export default function Social() {
         <img src={In} className={logoClasses} alt="LinkedIn logo" />
       </a>
 
+      {/* Instagram */}
       <a
         className="mx-6 hover-scale-10"
         href="https://instagram.com/astanisic_"
@@ -41,6 +44,7 @@ export default function Social() {
         <img src={Ig} className={logoClasses} alt="Instagram logo" />
       </a>
 
+      {/* Facebook */}
       <a
         className="mx-6 hover-scale-10"
         href="https://www.facebook.com/apstanisic"
