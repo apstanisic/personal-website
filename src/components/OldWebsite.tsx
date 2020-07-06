@@ -1,9 +1,10 @@
 import { h } from "preact";
-import { t } from "../core/i18n";
+import { useT } from "../core/i18n";
 import Button from "./ui/Button";
 import Section from "./ui/Section";
 
 export function OldWebsite() {
+  const t = useT();
   function goToOldWebsite() {
     window.location.href = "https://stanisic-old.netlify.com";
   }

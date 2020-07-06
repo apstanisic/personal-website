@@ -7,7 +7,7 @@
  */
 import { h } from "preact";
 import { useContext, useState } from "preact/hooks";
-import { t } from "../core/i18n";
+import { useT } from "../core/i18n";
 import { ThemeContext } from "../core/theme";
 import { UiContext } from "../core/ui";
 import Alert from "./ui/Alert";
@@ -30,6 +30,7 @@ const encode = (data: Record<string, any>) =>
 export function Contact() {
   const { theme } = useContext(ThemeContext);
   const { changeAlert } = useContext(UiContext);
+  const t = useT();
 
   /** Css classes for input fields */
   const classes = `shadow-xl border-gray-200 appearance-none border rounded w-full
@@ -115,7 +116,7 @@ export function Contact() {
           </label>
           <label className="py-2 md:flex ">
             <div className="text-xl p-1 pr-5 md:w-1/4 lg:w-1/5  md:text-right">
-              <span>{t("contact.mail")}</span>
+              <span>{t("contact.email")}</span>
             </div>
             <input
               type="email"

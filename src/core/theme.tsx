@@ -1,37 +1,28 @@
-import { h } from "preact";
-import { storage } from "./storage";
+import { createContext, h } from "preact";
 import { useState } from "preact/hooks";
-import { createContext } from "preact";
-import { useEffect } from "react";
+import { storage } from "./storage";
 
 /** Available themes */
 type Theme = "dark" | "light";
 
 interface ThemeState {
   theme: Theme;
-  toggleTheme: () => Promise<void>;
+  toggleTheme: () => void;
 }
 
 export const ThemeContext = createContext<ThemeState>(undefined as any);
 
 /** Theme state */
 export function Theme(props: { children: any }) {
-  const [theme, setTheme] = useState<Theme>("light");
+  const dbTheme = storage.get("theme");
+  const [theme, setTheme] = useState<Theme>(dbTheme ?? "light");
 
   /** Toggle theme */
-  async function toggleTheme() {
+  function toggleTheme() {
     const newTheme = theme === "dark" ? "light" : "dark";
-    await storage.set("theme", newTheme);
+    storage.set("theme", newTheme);
     setTheme(newTheme);
   }
-
-  // Set theme from database or use light theme
-  useEffect(() => {
-    storage
-      .get<Theme>("theme")
-      .then((idbTheme) => setTheme(idbTheme ?? "light"))
-      .catch(console.error);
-  }, []);
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>{props.children}</ThemeContext.Provider>

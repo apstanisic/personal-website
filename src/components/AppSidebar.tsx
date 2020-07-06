@@ -6,7 +6,7 @@ import useMedia from "react-use/lib/useMedia";
 import logo from "../assets/logo.svg";
 import moon from "../assets/moon.svg";
 import sun from "../assets/sun.svg";
-import { LangContext, t } from "../core/i18n";
+import { LangContext, useT } from "../core/i18n";
 import { ThemeContext } from "../core/theme";
 import { UiContext } from "../core/ui";
 
@@ -31,6 +31,7 @@ interface SidebarLinkProps extends NavLink {
 }
 
 function SidebarLink(props: SidebarLinkProps) {
+  const t = useT();
   return (
     <li className="my-2 text-shadow">
       <button
@@ -50,6 +51,7 @@ function SidebarLink(props: SidebarLinkProps) {
 }
 
 export function AppSidebar() {
+  const t = useT();
   const { showSidebar, toggleSidebar } = useContext(UiContext);
   const isWide = useMedia("(min-width: 768px)");
   const { theme, toggleTheme } = useContext(ThemeContext);
