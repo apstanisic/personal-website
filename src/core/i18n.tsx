@@ -12,11 +12,16 @@ type Language = "sr" | "en";
 const languageObjects = { en, sr };
 
 /**
- * Renders text
+ * Translator that contains data and methods to render text
  */
-const T = new MDText(en);
-export function Tr(key: string): string {
-  return T.translate(key)?.toString() ?? "";
+const Translator = new MDText(en);
+
+/**
+ * Helper function to translate values
+ * @param key to translated data
+ */
+export function t(key: string): string {
+  return Translator.translate(key)?.toString() ?? "";
 }
 
 interface LangState {
@@ -33,20 +38,23 @@ export function Lang(props: { children: any }) {
   const [language, setLanguage] = useState<Language>("en");
   // Sets language from database if it's different from default
   useEffect(() => {
-    storage.get<Language>("lang").then((lang) => {
-      console.log(lang);
-
-      if (lang !== undefined && lang !== language) {
-        setLanguage(lang);
-        T.setTexts(languageObjects[lang]);
-      }
-    });
+    storage
+      .get<Language>("lang")
+      .then((dbLang) => {
+        if (dbLang !== undefined && dbLang !== language) {
+          setLanguage(dbLang);
+          Translator.setTexts(languageObjects[dbLang]);
+        }
+      })
+      .catch(console.error);
+    // Fetch from db only on startup
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   /** Toggle app language */
   async function toggleLanguage(): Promise<void> {
     const newLang = language === "en" ? "sr" : "en";
-    T.setTexts(languageObjects[newLang]);
+    Translator.setTexts(languageObjects[newLang]);
     await storage.set("lang", newLang);
     setLanguage(newLang);
   }

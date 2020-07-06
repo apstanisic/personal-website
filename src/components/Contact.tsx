@@ -7,7 +7,7 @@
  */
 import { h } from "preact";
 import { useContext, useState } from "preact/hooks";
-import { Tr } from "../core/i18n";
+import { t } from "../core/i18n";
 import { ThemeContext } from "../core/theme";
 import { UiContext } from "../core/ui";
 import Alert from "./ui/Alert";
@@ -42,33 +42,33 @@ export function Contact() {
     message: "",
   });
 
-  /** @Todo When optional chaining works in preact build, improve this function */
   async function handleSubmit(e: Event) {
     e.preventDefault();
 
-    fetch("/", {
+    const res = await fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: encode({ "form-name": "contact", ...form }),
-    })
-      // Success alert
-      .then(() =>
-        changeAlert({
-          show: true,
-          type: "success",
-          text: Tr("contact.sentSuccess"),
-        }),
-      )
-      // Error alert
-      .catch((error) => {
-        changeAlert({
-          show: true,
-          type: "error",
-          text: Tr("contact.sentError"),
-        });
-        console.error(error);
-      })
-      .finally(() => setForm({ email: "", name: "", message: "" }));
+    });
+    try {
+      if (res.status > 299 || res.status < 200) throw new Error();
+
+      changeAlert({
+        show: true,
+        type: "success",
+        text: t("contact.sentSuccess"),
+      });
+    } catch (error) {
+      changeAlert({
+        show: true,
+        type: "error",
+        text: t("contact.sentError"),
+      });
+
+      console.error(error);
+    } finally {
+      setForm({ email: "", name: "", message: "" });
+    }
   }
 
   function handleChange(e: Event) {
@@ -80,7 +80,7 @@ export function Contact() {
     <Section bg={theme === "light" ? "bg-gray-200" : ""} id="contact">
       <div className=" mx-auto">
         <div className="text-3xl text-center">
-          <span>{Tr("contact.title")}</span>
+          <span>{t("contact.title")}</span>
         </div>
         <form
           onSubmit={handleSubmit}
@@ -92,7 +92,7 @@ export function Contact() {
         >
           <p class="hidden">
             <label>
-              {Tr("contact.honeypot")}
+              {t("contact.honeypot")}
               <input name="bot-protection" />
             </label>
           </p>
@@ -100,7 +100,7 @@ export function Contact() {
           <input name="form-name" value="contact" hidden />
           <label className="py-2 md:flex justify-around">
             <div className="text-xl p-1 pr-5 md:w-1/4 lg:w-1/5 md:text-right">
-              <span>{Tr("contact.name")}</span>
+              <span>{t("contact.name")}</span>
             </div>
             <input
               type="text"
@@ -115,7 +115,7 @@ export function Contact() {
           </label>
           <label className="py-2 md:flex ">
             <div className="text-xl p-1 pr-5 md:w-1/4 lg:w-1/5  md:text-right">
-              <span>{Tr("contact.mail")}</span>
+              <span>{t("contact.mail")}</span>
             </div>
             <input
               type="email"
@@ -130,7 +130,7 @@ export function Contact() {
           </label>
           <label className="py-2 md:flex ">
             <div className="text-xl p-1 pr-5 md:w-1/4 lg:w-1/5  md:text-right">
-              <span>{Tr("contact.message")}</span>
+              <span>{t("contact.message")}</span>
             </div>
             <textarea
               name="message"
@@ -139,13 +139,13 @@ export function Contact() {
               className={classes}
               onChange={handleChange}
               rows={8}
-              placeholder={Tr("contact.placeholder")}
+              placeholder={t("contact.placeholder")}
               style={{ resize: "none" }}
             />
             <div className="lg:w-1/5" />
           </label>
           <Button className={`text-xl `} type="submit">
-            <span>{Tr("contact.send")}</span>
+            <span>{t("contact.send")}</span>
           </Button>
         </form>
         <Alert />

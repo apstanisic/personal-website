@@ -1,5 +1,5 @@
 import { createContext, h } from "preact";
-import { useState, StateUpdater, useEffect } from "preact/hooks";
+import { useState, StateUpdater, useEffect, useCallback } from "preact/hooks";
 
 interface AlertState {
   show: boolean;
@@ -28,7 +28,10 @@ export function Ui(props: { children: any }) {
   });
 
   const toggleSidebar = () => setShowSidebar(!showSidebar);
-  const changeAlert = (change: Partial<AlertState>) => setAlert({ ...alert, ...change });
+  const changeAlert = useCallback(
+    (change: Partial<AlertState>) => setAlert({ ...alert, ...change }),
+    [alert],
+  );
 
   useEffect(() => {
     if (alert.show) {
@@ -40,7 +43,7 @@ export function Ui(props: { children: any }) {
         timeout = null;
       }, 8000);
     }
-  }, [alert]);
+  }, [alert, changeAlert]);
 
   return (
     <UiContext.Provider value={{ toggleSidebar, setShowSidebar, showSidebar, alert, changeAlert }}>

@@ -2,11 +2,11 @@ import { Fragment, h } from "preact";
 import { useContext, useEffect, useState } from "preact/hooks";
 import Switch from "react-switch";
 // import { useMedia } from "../core/hooks/useMedia";
-import { useMedia } from "react-use";
+import useMedia from "react-use/lib/useMedia";
 import logo from "../assets/logo.svg";
 import moon from "../assets/moon.svg";
 import sun from "../assets/sun.svg";
-import { LangContext, Tr } from "../core/i18n";
+import { LangContext, t } from "../core/i18n";
 import { ThemeContext } from "../core/theme";
 import { UiContext } from "../core/ui";
 
@@ -43,7 +43,7 @@ function SidebarLink(props: SidebarLinkProps) {
           if (section) section.scrollIntoView({ behavior: "smooth" });
         }}
       >
-        {Tr(`sidebar.${props.name}`).toLowerCase()}
+        {t(`sidebar.${props.name}`).toLowerCase()}
       </button>
     </li>
   );
@@ -120,7 +120,7 @@ export function AppSidebar() {
           ))}
           <li className="my-2 text-shadow">
             <button className="nav-link" onClick={toggleLanguage}>
-              {Tr("sidebar.lang").toLowerCase()}
+              {t("sidebar.lang").toLowerCase()}
             </button>
           </li>
         </ul>

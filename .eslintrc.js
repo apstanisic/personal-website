@@ -19,10 +19,19 @@ module.exports = {
     ecmaFeatures: {
       jsx: true,
     },
-    project: "./tsconfig.eslint.json",
+    project: "./tsconfig.json",
   },
   rules: {
     "react/no-unknown-property": ["error", { ignore: ["class"] }],
+    // This completly forbids any, turned off
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    // Used for images
+    "@typescript-eslint/no-unsafe-assignment": "off",
+    // I'm not using prop types
+    "react/prop-types": "off",
+    // Allowes to return any
+    "@typescript-eslint/no-unsafe-return": "off",
   },
   settings: {
     react: {

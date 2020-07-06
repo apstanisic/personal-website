@@ -10,6 +10,7 @@ import { Projects } from "./Projects";
 import { Skills } from "./Skills";
 import { Social } from "./Social";
 
+// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
 if ((module as any).hot) {
   // eslint-disable-next-line
   require("preact/debug");

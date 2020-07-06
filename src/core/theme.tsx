@@ -27,9 +27,10 @@ export function Theme(props: { children: any }) {
 
   // Set theme from database or use light theme
   useEffect(() => {
-    storage.get<Theme>("theme").then((idbTheme) => {
-      setTheme(idbTheme ?? "light");
-    });
+    storage
+      .get<Theme>("theme")
+      .then((idbTheme) => setTheme(idbTheme ?? "light"))
+      .catch(console.error);
   }, []);
 
   return (
