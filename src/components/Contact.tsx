@@ -10,9 +10,9 @@ import { useContext, useState } from "preact/hooks";
 import { useT } from "../core/i18n";
 import { ThemeContext } from "../core/theme";
 import { UiContext } from "../core/ui";
-import Alert from "./ui/Alert";
-import Button from "./ui/Button";
-import Section from "./ui/Section";
+import Alert from "./common/Alert";
+import Button from "./common/Button";
+import Section from "./common/Section";
 
 /**
  * Netlify does not accept json. Pass pojo to this function
@@ -24,24 +24,18 @@ const encode = (data: Record<string, any>) =>
 
 /**
  * Contact section
- * @Todo Optional chaining not working with preact build. Try again in couple of
- * months if it's fixed. Last checked on March 2020.
  */
 export function Contact() {
   const { theme } = useContext(ThemeContext);
   const { changeAlert } = useContext(UiContext);
   const t = useT();
 
-  /** Css classes for input fields */
+  // css classes for input fields
   const classes = `shadow-xl border-gray-200 appearance-none border rounded w-full
                        py-3 px-4 bg-white text-gray-800 text-lg leading-tight `;
 
-  /** Form state */
-  const [form, setForm] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
+  // Form fields
+  const [form, setForm] = useState({ name: "", email: "", message: "" });
 
   async function handleSubmit(e: Event) {
     e.preventDefault();

@@ -1,7 +1,7 @@
 import { h } from "preact";
 import { useT } from "../core/i18n";
-import Button from "./ui/Button";
-import Section from "./ui/Section";
+import Button from "./common/Button";
+import Section from "./common/Section";
 
 export function OldWebsite() {
   const t = useT();

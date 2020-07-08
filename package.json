@@ -6,7 +6,7 @@
   "scripts": {
     "start": "preact watch",
     "build": "preact build",
-    "lint": "eslint src/**/*.{js,jsx,ts,tsx}",
+    "lint": "eslint src/**/*.{ts,tsx}",
     "format": "prettier --write \"src/**/**\""
   },
   "eslintIgnore": [

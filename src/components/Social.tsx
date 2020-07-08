@@ -5,7 +5,7 @@ import Gh from "../assets/social/github.svg";
 import Ig from "../assets/social/instagram.svg";
 import In from "../assets/social/linkedin.svg";
 import { ThemeContext } from "../core/theme";
-import Section from "./ui/Section";
+import Section from "./common/Section";
 
 export function Social() {
   const { theme } = useContext(ThemeContext);
