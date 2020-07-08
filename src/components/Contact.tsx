@@ -85,7 +85,7 @@ export function Contact() {
           name="contact"
           netlify-honeypot="bot-protection"
         >
-          <p class="hidden">
+          <p className="h-0 w-0 overflow-hidden">
             <label>
               {t("contact.honeypot")}
               <input name="bot-protection" />
