@@ -2,19 +2,11 @@ import { Fragment, h } from "preact";
 import { useContext, useEffect, useState } from "preact/hooks";
 import Switch from "react-switch";
 // import { useMedia } from "../core/hooks/useMedia";
-<<<<<<< HEAD
-import { useMedia } from "react-use";
-import logo from "../assets/logo.svg";
-import moon from "../assets/moon.svg";
-import sun from "../assets/sun.svg";
-import { LangContext, T } from "../core/i18n";
-=======
 import useMedia from "react-use/lib/useMedia";
 import logo from "../assets/logo.svg";
 import moon from "../assets/moon.svg";
 import sun from "../assets/sun.svg";
 import { LangContext, useT } from "../core/i18n";
->>>>>>> master
 import { ThemeContext } from "../core/theme";
 import { UiContext } from "../core/ui";
 
@@ -58,12 +50,8 @@ function SidebarLink(props: SidebarLinkProps) {
   );
 }
 
-<<<<<<< HEAD
-export default function AppSidebar() {
-=======
 export function AppSidebar() {
   const t = useT();
->>>>>>> master
   const { showSidebar, toggleSidebar } = useContext(UiContext);
   const isWide = useMedia("(min-width: 768px)");
   const { theme, toggleTheme } = useContext(ThemeContext);
