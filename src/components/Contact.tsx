@@ -85,12 +85,12 @@ export function Contact() {
           name="contact"
           netlify-honeypot="bot-protection"
         >
-          <p className="h-0 w-0 overflow-hidden">
+          <div className="h-0 w-0 overflow-hidden">
             <label>
               {t("contact.honeypot")}
               <input name="bot-protection" />
             </label>
-          </p>
+          </div>
           {/* For netlify forms */}
           <input name="form-name" value="contact" hidden />
           <label className="py-2 md:flex justify-around">
