@@ -1,7 +1,7 @@
 import { h } from "preact";
-import Section from "./ui/Section";
+import Section from "./common/Section";
 
-export default function Projects() {
+export function Projects() {
   return (
     <Section className="text-xl flex flex-wrap justify-around" id="projects">
       <div className="w-1/4 h-12 bg-red-400">Nadji auto</div>

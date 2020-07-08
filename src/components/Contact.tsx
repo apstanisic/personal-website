@@ -7,68 +7,63 @@
  */
 import { h } from "preact";
 import { useContext, useState } from "preact/hooks";
-import { T } from "../core/i18n";
+import { useT } from "../core/i18n";
 import { ThemeContext } from "../core/theme";
 import { UiContext } from "../core/ui";
-import Alert from "./ui/Alert";
-import Button from "./ui/Button";
-import Section from "./ui/Section";
+import Alert from "./common/Alert";
+import Button from "./common/Button";
+import Section from "./common/Section";
 
 /**
  * Netlify does not accept json. Pass pojo to this function
  */
 const encode = (data: Record<string, any>) =>
   Object.keys(data)
-    .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+    .map((key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
     .join("&");
 
 /**
  * Contact section
- * @Todo Optional chaining not working with preact build. Try again in couple of
- * months if it's fixed. Last checked on March 2020.
  */
-export default function Contact() {
+export function Contact() {
   const { theme } = useContext(ThemeContext);
   const { changeAlert } = useContext(UiContext);
+  const t = useT();
 
-  /** Css classes for input fields */
+  // css classes for input fields
   const classes = `shadow-xl border-gray-200 appearance-none border rounded w-full
                        py-3 px-4 bg-white text-gray-800 text-lg leading-tight `;
 
-  /** Form state */
-  const [form, setForm] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
+  // Form fields
+  const [form, setForm] = useState({ name: "", email: "", message: "" });
 
-  /** @Todo When optional chaining works in preact build, improve this function */
   async function handleSubmit(e: Event) {
     e.preventDefault();
 
-    fetch("/", {
+    const res = await fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: encode({ "form-name": "contact", ...form }),
-    })
-      // Success alert
-      .then(() =>
-        changeAlert({
-          show: true,
-          type: "success",
-          text: T.translate("contact.sentSuccess").toString(),
-        }),
-      )
-      // Error alert
-      .catch(error => {
-        changeAlert({
-          show: true,
-          type: "error",
-          text: T.translate("contact.sentError").toString(),
-        });
-        console.error(error);
-      })
-      .finally(() => setForm({ email: "", name: "", message: "" }));
+    });
+    try {
+      if (res.status > 299 || res.status < 200) throw new Error();
+
+      changeAlert({
+        show: true,
+        type: "success",
+        text: t("contact.sentSuccess"),
+      });
+    } catch (error) {
+      changeAlert({
+        show: true,
+        type: "error",
+        text: t("contact.sentError"),
+      });
+
+      console.error(error);
+    } finally {
+      setForm({ email: "", name: "", message: "" });
+    }
   }
 
   function handleChange(e: Event) {
@@ -80,7 +75,7 @@ export default function Contact() {
     <Section bg={theme === "light" ? "bg-gray-200" : ""} id="contact">
       <div className=" mx-auto">
         <div className="text-3xl text-center">
-          <T.span text="contact.title" />
+          <span>{t("contact.title")}</span>
         </div>
         <form
           onSubmit={handleSubmit}
@@ -88,12 +83,19 @@ export default function Contact() {
           method="POST"
           data-netlify="true"
           name="contact"
+          netlify-honeypot="bot-protection"
         >
+          <p class="hidden">
+            <label>
+              {t("contact.honeypot")}
+              <input name="bot-protection" />
+            </label>
+          </p>
           {/* For netlify forms */}
           <input name="form-name" value="contact" hidden />
           <label className="py-2 md:flex justify-around">
             <div className="text-xl p-1 pr-5 md:w-1/4 lg:w-1/5 md:text-right">
-              <T.span text="contact.name" />
+              <span>{t("contact.name")}</span>
             </div>
             <input
               type="text"
@@ -108,7 +110,7 @@ export default function Contact() {
           </label>
           <label className="py-2 md:flex ">
             <div className="text-xl p-1 pr-5 md:w-1/4 lg:w-1/5  md:text-right">
-              <T.span text="contact.email" />
+              <span>{t("contact.email")}</span>
             </div>
             <input
               type="email"
@@ -123,7 +125,7 @@ export default function Contact() {
           </label>
           <label className="py-2 md:flex ">
             <div className="text-xl p-1 pr-5 md:w-1/4 lg:w-1/5  md:text-right">
-              <T.span text="contact.message" />
+              <span>{t("contact.message")}</span>
             </div>
             <textarea
               name="message"
@@ -132,13 +134,13 @@ export default function Contact() {
               className={classes}
               onChange={handleChange}
               rows={8}
-              placeholder={T.translate("contact.placeholder")}
+              placeholder={t("contact.placeholder")}
               style={{ resize: "none" }}
             />
             <div className="lg:w-1/5" />
           </label>
           <Button className={`text-xl `} type="submit">
-            <T.span text="contact.send" />
+            <span>{t("contact.send")}</span>
           </Button>
         </form>
         <Alert />

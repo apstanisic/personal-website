@@ -2,11 +2,19 @@ import { Fragment, h } from "preact";
 import { useContext, useEffect, useState } from "preact/hooks";
 import Switch from "react-switch";
 // import { useMedia } from "../core/hooks/useMedia";
+<<<<<<< HEAD
 import { useMedia } from "react-use";
 import logo from "../assets/logo.svg";
 import moon from "../assets/moon.svg";
 import sun from "../assets/sun.svg";
 import { LangContext, T } from "../core/i18n";
+=======
+import useMedia from "react-use/lib/useMedia";
+import logo from "../assets/logo.svg";
+import moon from "../assets/moon.svg";
+import sun from "../assets/sun.svg";
+import { LangContext, useT } from "../core/i18n";
+>>>>>>> master
 import { ThemeContext } from "../core/theme";
 import { UiContext } from "../core/ui";
 
@@ -31,26 +39,31 @@ interface SidebarLinkProps extends NavLink {
 }
 
 function SidebarLink(props: SidebarLinkProps) {
+  const t = useT();
   return (
     <li className="my-2 text-shadow">
       <button
         className="nav-link"
         // href={'#' + link.url}
         onClick={() => {
-          if (props.onClick) props.onClick();
+          props.onClick?.();
           window.history.pushState({}, props.name, props.url);
           const section = document.getElementById(props.url);
           if (section) section.scrollIntoView({ behavior: "smooth" });
         }}
       >
-        {(T.translate(`sidebar.${props.name}`) as string).toLowerCase()}
-        {/* <T.span text={`sidebar.${link.name}`} /> */}
+        {t(`sidebar.${props.name}`).toLowerCase()}
       </button>
     </li>
   );
 }
 
+<<<<<<< HEAD
 export default function AppSidebar() {
+=======
+export function AppSidebar() {
+  const t = useT();
+>>>>>>> master
   const { showSidebar, toggleSidebar } = useContext(UiContext);
   const isWide = useMedia("(min-width: 768px)");
   const { theme, toggleTheme } = useContext(ThemeContext);
@@ -97,8 +110,6 @@ export default function AppSidebar() {
         />
         <ul>
           <li className="my-5 text-shadow">
-            {/*
-             // @ts-ignore */}
             <Switch
               aria-label="change theme"
               onChange={toggleTheme}
@@ -123,7 +134,7 @@ export default function AppSidebar() {
           ))}
           <li className="my-2 text-shadow">
             <button className="nav-link" onClick={toggleLanguage}>
-              {T.translate("sidebar.lang").toLowerCase()}
+              {t("sidebar.lang").toLowerCase()}
             </button>
           </li>
         </ul>

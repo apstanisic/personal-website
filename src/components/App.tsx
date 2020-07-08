@@ -1,15 +1,16 @@
 import { h } from "preact";
 import { useContext } from "preact/hooks";
 import { ThemeContext } from "../core/theme";
-import About from "./About";
-import AppSidebar from "./AppSidebar";
-import Contact from "./Contact";
-import Hero from "./Hero";
-import OldWebsite from "./OldWebsite";
-import Projects from "./Projects";
-import Skills from "./Skills";
-import Social from "./Social";
+import { About } from "./About";
+import { AppSidebar } from "./AppSidebar";
+import { Contact } from "./Contact";
+import { Hero } from "./Hero";
+import { OldWebsite } from "./OldWebsite";
+import { Projects } from "./Projects";
+import { Skills } from "./Skills";
+import { Social } from "./Social";
 
+// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
 if ((module as any).hot) {
   // eslint-disable-next-line
   require("preact/debug");

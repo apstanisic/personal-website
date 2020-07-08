@@ -29,6 +29,7 @@
     "placeholder": "Vaša poruka...",
     "send": "Pošalji poruku",
     "sentSuccess": "Poruka uspešno poslata.",
-    "sentError": "Problem sa slanjem poruke. Probajte ponovo kasnije."
+    "sentError": "Problem sa slanjem poruke. Probajte ponovo kasnije.",
+    "honeypot": "Ne popunjavaj ovo polje ako nisi kompjuter."
   }
 }

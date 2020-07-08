@@ -1,16 +1,17 @@
 import { h } from "preact";
 
-interface Props extends Partial<HTMLButtonElement> {
+interface Props {
   children?: any;
   color?: string;
   onClick?: () => any;
+  className?: string;
+  type?: string;
 
   // shade?: string;
 }
 
 export default function Button({ children, color, className, onClick, ...props }: Props) {
   return (
-    // @ts-ignore
     <button
       onClick={onClick}
       {...props}

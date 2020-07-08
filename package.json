@@ -5,60 +5,39 @@
   "license": "MIT",
   "scripts": {
     "start": "preact watch",
-    "serve": "preact build && sirv build --port 8080 --cors --single",
     "build": "preact build",
-    "lint": "eslint src/**/*.{js,jsx,ts,tsx}",
-    "test": "jest ./tests",
-    "precommit": "lint-staged",
+    "lint": "eslint src/**/*.{ts,tsx}",
     "format": "prettier --write \"src/**/**\""
-  },
-  "lint-staged": {
-    "*.{css,md,scss}": [
-      "prettier --write",
-      "git add"
-    ],
-    "*.{js,jsx,ts,tsx}": [
-      "eslint --fix",
-      "git add"
-    ]
   },
   "eslintIgnore": [
     "build/*"
   ],
   "dependencies": {
-    "i18n-react": "^0.7.0",
-    "idb-keyval": "^3.2.0",
-    "preact": "^10.3.4",
-    "preact-render-to-string": "^5.1.4",
+    "preact": "^10.4.5",
+    "preact-render-to-string": "^5.1.9",
     "react-switch": "^5.0.1",
-    "react-use": "^13.27.1",
-    "tailwindcss": "^1.2.0"
+    "react-use": "^15.3.2",
+    "tailwindcss": "^1.4.6"
   },
   "devDependencies": {
-    "@fullhuman/postcss-purgecss": "^2.1.0",
-    "@types/jest": "^25.1.4",
-    "@types/react": "^16.9.31",
-    "@types/webpack-env": "^1.15.1",
-    "@typescript-eslint/eslint-plugin": "^2.26.0",
-    "@typescript-eslint/parser": "^2.26.0",
-    "css-loader": "^3.4.2",
-    "eslint": "^6.8.0",
-    "eslint-config-prettier": "^6.10.1",
-    "eslint-plugin-prettier": "^3.1.2",
-    "eslint-plugin-react": "^7.19.0",
-    "husky": "^4.2.3",
+    "@fullhuman/postcss-purgecss": "^2.3.0",
+    "@types/jest": "^26.0.3",
+    "@types/react": "^16.9.41",
+    "@types/webpack-env": "^1.15.2",
+    "@typescript-eslint/eslint-plugin": "^3.5.0",
+    "@typescript-eslint/parser": "^3.5.0",
+    "css-loader": "^3.6.0",
+    "eslint": "^7.4.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-react": "^7.20.3",
+    "eslint-plugin-react-hooks": "^4.0.5",
     "identity-obj-proxy": "^3.0.0",
-    "jest": "^25.2.4",
-    "lint-staged": "^10.1.1",
     "per-env": "^1.0.2",
-    "preact-cli": "^3.0.0-rc.10",
-    "preact-cli-tailwind": "^1.0.1",
+    "preact-cli": "3.0.0-rc.16",
     "preact-render-spy": "^1.3.0",
-    "prettier": "^2.0.2",
-    "sirv-cli": "^0.4.5",
-    "ts-jest": "^25.3.0",
-    "ts-loader": "^6.2.2",
-    "typescript": "^3.8.3",
-    "typings-for-css-modules-loader": "^1.7.0"
+    "prettier": "^2.0.5",
+    "ts-loader": "^7.0.5",
+    "typescript": "^3.9.6"
   }
 }

@@ -1,9 +1,7 @@
 import { h } from "preact";
-// import "normalize.css";
 import App from "./components/App";
-import "./style.css";
-// import "./style/tailwind.min.css";
 import { AppContext } from "./core/app-context";
+import "./style.css";
 
 export default function Main() {
   return (

@@ -29,6 +29,7 @@
     "placeholder": "Your message...",
     "send": "Send message",
     "sentSuccess": "Message successfully sent.",
-    "sentError": "There is problem sending message. Try again later."
+    "sentError": "There is problem sending message. Try again later.",
+    "honeypot": " Don’t fill this out if you're human."
   }
 }

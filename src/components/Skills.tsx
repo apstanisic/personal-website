@@ -3,7 +3,7 @@ import codeImage from "../assets/code.png";
 import { useContext } from "preact/hooks";
 import { ThemeContext } from "../core/theme";
 
-export default function Skills() {
+export function Skills() {
   const { theme } = useContext(ThemeContext);
 
   return (
@@ -12,14 +12,7 @@ export default function Skills() {
       className="px-4 mx-auto center"
       style={{ ...(theme === "light" ? { backgroundColor: "#373740" } : {}) }}
     >
-      <img
-        src={codeImage}
-        alt="skills"
-        className="w-full mx-auto"
-        style={{
-          maxWidth: 500,
-        }}
-      />
+      <img src={codeImage} alt="skills" className="w-full mx-auto" style={{ maxWidth: 500 }} />
     </div>
   );
 }
