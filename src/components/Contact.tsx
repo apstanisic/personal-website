@@ -15,17 +15,10 @@ import Button from "./common/Button";
 import Section from "./common/Section";
 
 /**
- * Netlify does not accept json. Pass pojo to this function
- */
-const encode = (data: Record<string, any>) =>
-  Object.keys(data)
-    .map((key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-    .join("&");
-
-/**
  * Contact section
  */
 export function Contact() {
+  const formName = "Contact form";
   const { theme } = useContext(ThemeContext);
   const { changeAlert } = useContext(UiContext);
   const t = useT();
@@ -39,11 +32,14 @@ export function Contact() {
 
   async function handleSubmit(e: Event) {
     e.preventDefault();
+    const formData = new FormData();
+    formData.append("name", form.name);
+    formData.append("email", form.email);
+    formData.append("message", form.message);
 
-    const res = await fetch("/", {
+    const res = await fetch("https://formspree.io/mnqgozbj", {
       method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({ "form-name": "Contact form", ...form }),
+      body: formData,
     });
     try {
       if (res.status > 299 || res.status < 200) throw new Error();
@@ -80,10 +76,8 @@ export function Contact() {
         <form
           onSubmit={handleSubmit}
           className="flex flex-col px-3 pb-3 pt-2"
+          action="https://formspree.io/mnqgozbj"
           method="POST"
-          data-netlify="true"
-          name="Contact form"
-          data-netlify-honeypot="bot-protection"
         >
           <div className="h-0 w-0 overflow-hidden">
             <label>
@@ -92,7 +86,7 @@ export function Contact() {
             </label>
           </div>
           {/* For netlify forms */}
-          <input name="form-name" value="Contact form" hidden />
+          <input name="form-name" value={formName} hidden />
           <label className="py-2 md:flex justify-around">
             <div className="text-xl p-1 pr-5 md:w-1/4 lg:w-1/5 md:text-right">
               <span>{t("contact.name")}</span>
