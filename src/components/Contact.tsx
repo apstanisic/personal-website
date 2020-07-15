@@ -39,7 +39,7 @@ export function Contact() {
 
     const res = await fetch("https://formspree.io/mnqgozbj", {
       method: "POST",
-      mode: "cors",
+      mode: "no-cors",
       body: formData,
     });
     try {
