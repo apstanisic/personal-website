@@ -6,7 +6,7 @@ import Section from "./common/Section";
 export function OldWebsite() {
   const t = useT();
   function goToOldWebsite() {
-    window.location.href = "https://stanisic-old.netlify.com";
+    window.location.href = "https://v1.aleksandarstanisic.com";
   }
 
   return (
