@@ -82,8 +82,8 @@ export function Contact() {
           className="flex flex-col px-3 pb-3 pt-2"
           method="POST"
           data-netlify="true"
-          name="contact"
-          netlify-honeypot="bot-protection"
+          name="Contact form"
+          data-netlify-honeypot="bot-protection"
         >
           <div className="h-0 w-0 overflow-hidden">
             <label>
