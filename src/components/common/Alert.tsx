@@ -17,7 +17,7 @@ export default function Alert() {
       } text-center right-0  fixed top-0 mt-8 mr-8 justify-center flex
     `}
     >
-      <div className={`${alertColor} py-2 pl-3 pr-16 rounded-lg text-white`}>
+      <div className={`${alertColor} py-4 pl-5 pr-16 rounded-lg text-white`}>
         <span className="text-lg">{alert.text}</span>
         <button
           className="absolute top-0 bottom-0 right-0 flex items-center pr-2"

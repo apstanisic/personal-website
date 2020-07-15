@@ -31,20 +31,16 @@ export function Contact() {
 
   async function handleSubmit(e: Event) {
     e.preventDefault();
-    const formData = new FormData();
-    formData.append("name", form.name);
-    formData.append("email", form.email);
-    formData.append("message", form.message);
 
     try {
-      const res = await fetch("https://formspree.io/mnqgozbj", {
+      const res = await fetch("https://usebasin.com/f/bf048dc6d115.json", {
         method: "POST",
-        mode: "no-cors",
-        body: formData,
+        // mode: "no-cors",
+        body: JSON.stringify(form),
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
       });
 
-      // Formspree returns 0, netlify 200, just check if it's 300+
-      if (res.status > 299) throw new Error("Status is to big");
+      if (res.status < 200 || res.status > 299) throw new Error("Bad status code");
 
       changeAlert({
         show: true,
@@ -77,13 +73,13 @@ export function Contact() {
         <form
           onSubmit={handleSubmit}
           className="flex flex-col px-3 pb-3 pt-2"
-          action="https://formspree.io/mnqgozbj"
+          action="https://usebasin.com/f/bf048dc6d115.json"
           method="POST"
         >
           <div className="h-0 w-0 overflow-hidden">
             <label>
               {t("contact.honeypot")}
-              <input type="text" name="_gotcha" />
+              <input type="text" name="phone" />
             </label>
           </div>
           <label className="py-2 md:flex justify-around">
