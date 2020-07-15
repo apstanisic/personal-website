@@ -6,11 +6,9 @@ interface Props {
   onClick?: () => any;
   className?: string;
   type?: string;
-
-  // shade?: string;
 }
 
-export default function Button({ children, color, className, onClick, ...props }: Props) {
+export function Button({ children, color, className, onClick, ...props }: Props) {
   return (
     <button
       onClick={onClick}

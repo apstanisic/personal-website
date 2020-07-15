@@ -12,7 +12,7 @@ interface UiState {
   setShowSidebar: StateUpdater<boolean>;
   showSidebar: boolean;
   alert: AlertState;
-  changeAlert: (change: Partial<AlertState>) => any;
+  showAlert: (change: Partial<AlertState>) => any;
 }
 
 let timeout: any = null;
@@ -28,25 +28,28 @@ export function Ui(props: { children: any }) {
   });
 
   const toggleSidebar = () => setShowSidebar(!showSidebar);
-  const changeAlert = useCallback(
+  const showAlert = useCallback(
     (change: Partial<AlertState>) => setAlert({ ...alert, ...change }),
     [alert],
   );
 
+  /**
+   * Simple alert clearing after X seconds,
+   */
   useEffect(() => {
     if (alert.show) {
       if (timeout !== null) {
         clearTimeout(timeout);
       }
       timeout = setTimeout(() => {
-        changeAlert({ show: false });
+        showAlert({ show: false });
         timeout = null;
       }, 8000);
     }
-  }, [alert, changeAlert]);
+  }, [alert, showAlert]);
 
   return (
-    <UiContext.Provider value={{ toggleSidebar, setShowSidebar, showSidebar, alert, changeAlert }}>
+    <UiContext.Provider value={{ toggleSidebar, setShowSidebar, showSidebar, alert, showAlert }}>
       {props.children}
     </UiContext.Provider>
   );

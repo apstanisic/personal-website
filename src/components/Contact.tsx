@@ -3,16 +3,16 @@ import { useContext, useState } from "preact/hooks";
 import { useT } from "../core/i18n";
 import { ThemeContext } from "../core/theme";
 import { UiContext } from "../core/ui";
-import Alert from "./common/Alert";
-import Button from "./common/Button";
-import Section from "./common/Section";
+import { Alert } from "./common/Alert";
+import { Button } from "./common/Button";
+import { Section } from "./common/Section";
 
 /**
  * Contact section
  */
 export function Contact() {
   const { theme } = useContext(ThemeContext);
-  const { changeAlert } = useContext(UiContext);
+  const { showAlert } = useContext(UiContext);
   const t = useT();
 
   // css classes for input fields
@@ -37,13 +37,13 @@ export function Contact() {
 
       if (res.status < 200 || res.status > 299) throw new Error("Bad status code");
 
-      changeAlert({
+      showAlert({
         show: true,
         type: "success",
         text: t("contact.sentSuccess"),
       });
     } catch (error) {
-      changeAlert({
+      showAlert({
         show: true,
         type: "error",
         text: t("contact.sentError"),

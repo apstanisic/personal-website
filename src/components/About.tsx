@@ -3,7 +3,7 @@ import { useContext } from "preact/hooks";
 import image from "../assets/aleksandar.jpg";
 import { useT } from "../core/i18n";
 import { ThemeContext } from "../core/theme";
-import Section from "./common/Section";
+import { Section } from "./common/Section";
 
 export function About() {
   const { theme } = useContext(ThemeContext);

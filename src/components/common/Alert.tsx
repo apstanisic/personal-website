@@ -2,8 +2,8 @@ import { h } from "preact";
 import { useContext } from "preact/hooks";
 import { UiContext } from "../../core/ui";
 
-export default function Alert() {
-  const { alert, changeAlert } = useContext(UiContext);
+export function Alert() {
+  const { alert, showAlert } = useContext(UiContext);
 
   let alertColor = "bg-blue-500";
   if (alert.type === "success") alertColor = "bg-green-500";
@@ -21,7 +21,7 @@ export default function Alert() {
         <span className="text-lg">{alert.text}</span>
         <button
           className="absolute top-0 bottom-0 right-0 flex items-center pr-2"
-          onClick={() => changeAlert({ show: false })}
+          onClick={() => showAlert({ show: false })}
         >
           <svg
             className="fill-current h-6 w-6 text-white"
