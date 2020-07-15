@@ -43,7 +43,7 @@ export function Contact() {
     const res = await fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({ "form-name": "contact", ...form }),
+      body: encode({ "form-name": "Contact form", ...form }),
     });
     try {
       if (res.status > 299 || res.status < 200) throw new Error();
@@ -92,7 +92,7 @@ export function Contact() {
             </label>
           </div>
           {/* For netlify forms */}
-          <input name="form-name" value="contact" hidden />
+          <input name="form-name" value="Contact form" hidden />
           <label className="py-2 md:flex justify-around">
             <div className="text-xl p-1 pr-5 md:w-1/4 lg:w-1/5 md:text-right">
               <span>{t("contact.name")}</span>
