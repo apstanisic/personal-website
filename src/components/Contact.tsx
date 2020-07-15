@@ -18,7 +18,6 @@ import Section from "./common/Section";
  * Contact section
  */
 export function Contact() {
-  const formName = "Contact form";
   const { theme } = useContext(ThemeContext);
   const { changeAlert } = useContext(UiContext);
   const t = useT();
@@ -37,13 +36,15 @@ export function Contact() {
     formData.append("email", form.email);
     formData.append("message", form.message);
 
-    const res = await fetch("https://formspree.io/mnqgozbj", {
-      method: "POST",
-      mode: "no-cors",
-      body: formData,
-    });
     try {
-      if (res.status > 299 || res.status < 200) throw new Error();
+      const res = await fetch("https://formspree.io/mnqgozbj", {
+        method: "POST",
+        mode: "no-cors",
+        body: formData,
+      });
+
+      // Formspree returns 0, netlify 200, just check if it's 300+
+      if (res.status > 299) throw new Error("Status is to big");
 
       changeAlert({
         show: true,
@@ -58,9 +59,8 @@ export function Contact() {
       });
 
       console.error(error);
-    } finally {
-      setForm({ email: "", name: "", message: "" });
     }
+    setForm({ email: "", name: "", message: "" });
   }
 
   function handleChange(e: Event) {
@@ -83,11 +83,9 @@ export function Contact() {
           <div className="h-0 w-0 overflow-hidden">
             <label>
               {t("contact.honeypot")}
-              <input name="bot-protection" />
+              <input type="text" name="_gotcha" />
             </label>
           </div>
-          {/* For netlify forms */}
-          <input name="form-name" value={formName} hidden />
           <label className="py-2 md:flex justify-around">
             <div className="text-xl p-1 pr-5 md:w-1/4 lg:w-1/5 md:text-right">
               <span>{t("contact.name")}</span>
