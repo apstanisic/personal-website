@@ -1,54 +1,49 @@
-/**
- * Used for netlify forms.
- * Taken from
- * https://www.netlify.com/blog/2017/07/20/how-to-integrate-netlifys-form-handling-in-a-react-app/#form-handling-with-a-stateful-react-form
- * Most of form handling in this file is from that url.
- *
- */
 import { h } from "preact";
 import { useContext, useState } from "preact/hooks";
 import { useT } from "../core/i18n";
 import { ThemeContext } from "../core/theme";
 import { UiContext } from "../core/ui";
-import Alert from "./common/Alert";
-import Button from "./common/Button";
-import Section from "./common/Section";
+import { Alert } from "./common/Alert";
+import { Button } from "./common/Button";
+import { Section } from "./common/Section";
 
 /**
  * Contact section
  */
 export function Contact() {
   const { theme } = useContext(ThemeContext);
-  const { changeAlert } = useContext(UiContext);
+  const { showAlert } = useContext(UiContext);
   const t = useT();
 
   // css classes for input fields
-  const classes = `shadow-xl border-gray-200 appearance-none border rounded w-full
+  const inputClasses = `shadow-xl border-gray-200 appearance-none border rounded w-full
                        py-3 px-4 bg-white text-gray-800 text-lg leading-tight `;
 
   // Form fields
   const [form, setForm] = useState({ name: "", email: "", message: "" });
 
+  /**
+   * Handle submit
+   */
   async function handleSubmit(e: Event) {
     e.preventDefault();
 
     try {
       const res = await fetch("https://usebasin.com/f/bf048dc6d115.json", {
         method: "POST",
-        // mode: "no-cors",
         body: JSON.stringify(form),
         headers: { "Content-Type": "application/json", Accept: "application/json" },
       });
 
       if (res.status < 200 || res.status > 299) throw new Error("Bad status code");
 
-      changeAlert({
+      showAlert({
         show: true,
         type: "success",
         text: t("contact.sentSuccess"),
       });
     } catch (error) {
-      changeAlert({
+      showAlert({
         show: true,
         type: "error",
         text: t("contact.sentError"),
@@ -59,6 +54,9 @@ export function Contact() {
     setForm({ email: "", name: "", message: "" });
   }
 
+  /**
+   * Handle change
+   */
   function handleChange(e: Event) {
     const { name, value } = e.currentTarget as any;
     setForm({ ...form, ...{ [name]: value } });
@@ -82,52 +80,40 @@ export function Contact() {
               <input type="text" name="phone" />
             </label>
           </div>
-          <label className="py-2 md:flex justify-around">
-            <div className="text-xl p-1 pr-5 md:w-1/4 lg:w-1/5 md:text-right">
-              <span>{t("contact.name")}</span>
-            </div>
+          <FormItem labelKey="contact.name">
             <input
               type="text"
               name="name"
               required
               onChange={handleChange}
               value={form.name}
-              className={classes}
-              placeholder="Petar Petrovic"
+              className={inputClasses}
+              placeholder={t("contact.placeholderName")}
             />
-            <div className="lg:w-1/5" />
-          </label>
-          <label className="py-2 md:flex ">
-            <div className="text-xl p-1 pr-5 md:w-1/4 lg:w-1/5  md:text-right">
-              <span>{t("contact.email")}</span>
-            </div>
+          </FormItem>
+          <FormItem labelKey="contact.email">
             <input
               type="email"
               name="email"
               required
               onChange={handleChange}
               value={form.email}
-              className={classes}
-              placeholder="petar@example.com"
+              className={inputClasses}
+              placeholder={t("contact.placeholderEmail")}
             />
-            <div className="lg:w-1/5" />
-          </label>
-          <label className="py-2 md:flex ">
-            <div className="text-xl p-1 pr-5 md:w-1/4 lg:w-1/5  md:text-right">
-              <span>{t("contact.message")}</span>
-            </div>
+          </FormItem>
+          <FormItem labelKey="contact.message">
             <textarea
               name="message"
               required
               value={form.message}
-              className={classes}
+              className={inputClasses}
               onChange={handleChange}
               rows={8}
-              placeholder={t("contact.placeholder")}
+              placeholder={t("contact.placeholderMessage")}
               style={{ resize: "none" }}
             />
-            <div className="lg:w-1/5" />
-          </label>
+          </FormItem>
           <Button className={`text-xl `} type="submit">
             <span>{t("contact.send")}</span>
           </Button>
@@ -135,5 +121,22 @@ export function Contact() {
         <Alert />
       </div>
     </Section>
+  );
+}
+
+/**
+ * Helper function for form elements
+ * It's wrapper around form elements that handles label and styling
+ */
+function FormItem({ labelKey, children }: { labelKey: string; children: any }) {
+  const t = useT();
+  return (
+    <label className="py-2 md:flex ">
+      <div className="text-xl p-1 pr-5 md:w-1/4 lg:w-1/5  md:text-right">
+        <span>{t(labelKey)}</span>
+      </div>
+      {children}
+      <div className="lg:w-1/5" />
+    </label>
   );
 }

@@ -1,5 +1,5 @@
 import { h } from "preact";
-import Section from "./common/Section";
+import { Section } from "./common/Section";
 
 export function Projects() {
   return (
