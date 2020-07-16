@@ -1,17 +1,14 @@
 {
   "private": true,
   "name": "portfolio",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "license": "MIT",
   "scripts": {
     "start": "preact watch",
-    "build": "preact build",
+    "build": "yarn format && yarn lint && preact build",
     "lint": "eslint src/**/*.{ts,tsx}",
     "format": "prettier --write \"src/**/**\""
   },
-  "eslintIgnore": [
-    "build/*"
-  ],
   "dependencies": {
     "preact": "^10.4.6",
     "preact-render-to-string": "^5.1.10",

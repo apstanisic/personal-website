@@ -36,7 +36,7 @@ module.exports = {
   settings: {
     react: {
       pragma: "h",
-      version: "detect",
+      version: "latest",
     },
   },
   overrides: [
