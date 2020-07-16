@@ -88,7 +88,7 @@ export function Contact() {
               onChange={handleChange}
               value={form.name}
               className={inputClasses}
-              placeholder="Petar Petrovic"
+              placeholder={t("contact.placeholderName")}
             />
           </FormItem>
           <FormItem labelKey="contact.email">
@@ -99,7 +99,7 @@ export function Contact() {
               onChange={handleChange}
               value={form.email}
               className={inputClasses}
-              placeholder="petar@example.com"
+              placeholder={t("contact.placeholderEmail")}
             />
           </FormItem>
           <FormItem labelKey="contact.message">
@@ -110,7 +110,7 @@ export function Contact() {
               className={inputClasses}
               onChange={handleChange}
               rows={8}
-              placeholder={t("contact.placeholder")}
+              placeholder={t("contact.placeholderMessage")}
               style={{ resize: "none" }}
             />
           </FormItem>
