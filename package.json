@@ -14,7 +14,7 @@
     "preact-render-to-string": "^5.1.10",
     "react-switch": "^5.0.1",
     "react-use": "^15.3.2",
-    "tailwindcss": "^1.5.1"
+    "tailwindcss": "^1.5.2"
   },
   "devDependencies": {
     "@fullhuman/postcss-purgecss": "^2.3.0",
