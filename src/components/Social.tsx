@@ -1,5 +1,5 @@
 import { h } from "preact";
-import Fb from "../assets/social/facebook.svg";
+// import Fb from "../assets/social/facebook.svg";
 import Gh from "../assets/social/github.svg";
 import Ig from "../assets/social/instagram.svg";
 import In from "../assets/social/linkedin.svg";
@@ -44,14 +44,14 @@ export function Social() {
       </a>
 
       {/* Facebook */}
-      <a
+      {/* <a
         className="mx-6 hover-scale-10"
         href="https://www.facebook.com/apstanisic"
         rel="noopener noreferrer"
         target="_blank"
       >
         <img src={Fb} className={logoClasses} alt="Facebook logo" />
-      </a>
+      </a> */}
     </Section>
   );
 }
