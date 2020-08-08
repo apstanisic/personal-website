@@ -1,6 +1,4 @@
 import { h } from "preact";
-import { useContext } from "preact/hooks";
-import { ThemeContext } from "../core/theme";
 import { About } from "./About";
 import { AppSidebar } from "./AppSidebar";
 import { Contact } from "./Contact";
@@ -9,6 +7,7 @@ import { OldWebsite } from "./OldWebsite";
 import { Projects } from "./Projects";
 import { Skills } from "./Skills";
 import { Social } from "./Social";
+import { useTheme } from "../core/theme";
 
 // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
 if ((module as any).hot) {
@@ -17,8 +16,9 @@ if ((module as any).hot) {
 }
 
 export default function App() {
-  const { theme } = useContext(ThemeContext);
-  const appClasses = theme === "light" ? "text-gray-900 bg-white" : "text-gray-100 bg-gray-900";
+  const theme = useTheme();
+  const appClasses =
+    theme.value === "light" ? "text-gray-900 bg-white" : "text-gray-100 bg-gray-900";
 
   return (
     <div id="app" className={appClasses}>

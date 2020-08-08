@@ -1,11 +1,10 @@
 import { h } from "preact";
-import { useContext } from "preact/hooks";
 import HeroImage from "../assets/hero.jpg";
-import { ThemeContext } from "../core/theme";
+import { useTheme } from "../core/theme";
 import AppHeader from "./AppHeader";
 
 export function Hero() {
-  const { theme } = useContext(ThemeContext);
+  const theme = useTheme();
   return (
     <div id="home" className="w-full overflow-hidden relative ">
       <img
@@ -26,7 +25,7 @@ export function Hero() {
         className="absolute text-white inset-0 center text-5xl md:text-6xl p-12"
         style={{
           zIndex: 3,
-          backgroundColor: theme === "dark" ? "rgba(0,0,0,0.5)" : "rgba(0,0,0, 0.1)",
+          backgroundColor: theme.value === "dark" ? "rgba(0,0,0,0.5)" : "rgba(0,0,0, 0.1)",
         }}
       >
         <h1

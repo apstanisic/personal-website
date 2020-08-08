@@ -1,14 +1,14 @@
 import { Fragment, h } from "preact";
-import { useContext, useEffect, useState } from "preact/hooks";
+import { useEffect, useState } from "preact/hooks";
 import Switch from "react-switch";
 // import { useMedia } from "../core/hooks/useMedia";
 import useMedia from "react-use/lib/useMedia";
 import logo from "../assets/logo.svg";
 import moon from "../assets/moon.svg";
 import sun from "../assets/sun.svg";
-import { LangContext, useT } from "../core/i18n";
-import { ThemeContext } from "../core/theme";
-import { UiContext } from "../core/ui";
+import { useLang, useT } from "../core/lang";
+import { useSidebar } from "../core/sidebar";
+import { useTheme } from "../core/theme";
 
 interface NavLink {
   url: string;
@@ -52,24 +52,24 @@ function SidebarLink(props: SidebarLinkProps) {
 
 export function AppSidebar() {
   const t = useT();
-  const { showSidebar, toggleSidebar } = useContext(UiContext);
+  const sidebar = useSidebar();
   const isWide = useMedia("(min-width: 768px)");
-  const { theme, toggleTheme } = useContext(ThemeContext);
+  const theme = useTheme();
 
-  const { toggleLanguage } = useContext(LangContext);
   const [transition, setTransition] = useState("none");
   const [transform, setTransform] = useState("");
+  const lang = useLang();
 
   /* Show always when wide, when small depend on state */
   useEffect(() => {
     if (isWide) return setTransform("none");
 
-    if (showSidebar) {
+    if (sidebar.value) {
       setTransform("none");
     } else {
       setTransform("translateX(-100%)");
     }
-  }, [isWide, showSidebar]);
+  }, [isWide, sidebar]);
 
   /* Disable animation when rendering first time
     Because when it's full screen it shows how slides from side
@@ -89,7 +89,7 @@ export function AppSidebar() {
           items-center flex
 
           md:fixed w-56
-          ${theme === "dark" ? "bg-black" : "bg-gray-800"}`}
+          ${theme.value === "dark" ? "bg-black" : "bg-gray-800"}`}
       >
         <img
           src={logo}
@@ -100,8 +100,8 @@ export function AppSidebar() {
           <li className="my-5 text-shadow">
             <Switch
               aria-label="change theme"
-              onChange={toggleTheme}
-              checked={theme === "light"}
+              onChange={theme.toggle}
+              checked={theme.value === "light"}
               width={60}
               onColor={"#f6e05e"}
               offColor={"#2a4365"}
@@ -118,20 +118,20 @@ export function AppSidebar() {
             />
           </li>
           {links.map((link, i) => (
-            <SidebarLink {...link} key={i} onClick={toggleSidebar} />
+            <SidebarLink {...link} key={i} onClick={sidebar.toggle} />
           ))}
           <li className="my-2 text-shadow">
-            <button className="nav-link" onClick={toggleLanguage}>
+            <button className="nav-link" onClick={lang.toggle}>
               {t("sidebar.lang").toLowerCase()}
             </button>
           </li>
         </ul>
       </div>
-      {showSidebar && (
+      {sidebar.value && (
         <div
           className="fixed inset-0 md:hidden"
           style={{ zIndex: 6, backgroundColor: "rgba(0, 0, 0, 0.7)" }}
-          onClick={toggleSidebar}
+          onClick={sidebar.toggle}
         />
       )}
     </Fragment>

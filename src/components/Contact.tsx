@@ -1,8 +1,8 @@
 import { h } from "preact";
-import { useContext, useState } from "preact/hooks";
-import { useT } from "../core/i18n";
-import { ThemeContext } from "../core/theme";
-import { UiContext } from "../core/ui";
+import { useState } from "preact/hooks";
+import { useT } from "../core/lang";
+import { useTheme } from "../core/theme";
+import { useAlert } from "../core/alert";
 import { Alert } from "./common/Alert";
 import { Button } from "./common/Button";
 import { Section } from "./common/Section";
@@ -11,9 +11,9 @@ import { Section } from "./common/Section";
  * Contact section
  */
 export function Contact() {
-  const { theme } = useContext(ThemeContext);
-  const { showAlert } = useContext(UiContext);
+  const alert = useAlert();
   const t = useT();
+  const theme = useTheme();
 
   // css classes for input fields
   const inputClasses = `shadow-xl border-gray-200 appearance-none border rounded w-full
@@ -37,13 +37,13 @@ export function Contact() {
 
       if (res.status < 200 || res.status > 299) throw new Error("Bad status code");
 
-      showAlert({
+      alert.show({
         show: true,
         type: "success",
         text: t("contact.sentSuccess"),
       });
     } catch (error) {
-      showAlert({
+      alert.show({
         show: true,
         type: "error",
         text: t("contact.sentError"),
@@ -63,7 +63,7 @@ export function Contact() {
   }
 
   return (
-    <Section bg={theme === "light" ? "bg-gray-200" : ""} id="contact">
+    <Section bg={theme.value === "light" ? "bg-gray-200" : ""} id="contact">
       <div className=" mx-auto">
         <div className="text-3xl text-center">
           <span>{t("contact.title")}</span>

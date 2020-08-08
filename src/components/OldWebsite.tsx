@@ -1,5 +1,5 @@
 import { h } from "preact";
-import { useT } from "../core/i18n";
+import { useT } from "../core/lang";
 import { Button } from "./common/Button";
 import { Section } from "./common/Section";
 

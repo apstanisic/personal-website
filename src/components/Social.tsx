@@ -1,19 +1,18 @@
 import { h } from "preact";
-import { useContext } from "preact/hooks";
 import Fb from "../assets/social/facebook.svg";
 import Gh from "../assets/social/github.svg";
 import Ig from "../assets/social/instagram.svg";
 import In from "../assets/social/linkedin.svg";
-import { ThemeContext } from "../core/theme";
 import { Section } from "./common/Section";
+import { useTheme } from "../core/theme";
 
 export function Social() {
-  const { theme } = useContext(ThemeContext);
+  const theme = useTheme();
   // Every img tag with logo have this classes
-  const logoClasses = `w-16 ${theme === "dark" ? "social-dark-theme" : ""}`;
+  const logoClasses = `w-16 ${theme.value === "dark" ? "social-dark-theme" : ""}`;
 
   return (
-    <Section bg={theme === "light" ? "bg-gray-200" : ""} className="center -mt-8" id="social">
+    <Section bg={theme.value === "light" ? "bg-gray-200" : ""} className="center -mt-8" id="social">
       {/* Github */}
       <a
         className="mx-6 hover-scale-10"
