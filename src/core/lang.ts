@@ -23,7 +23,9 @@ interface LangState {
  * Hook for using lang state
  */
 export const [useLang] = create<LangState>((set, get) => ({
+  /** Selected language */
   value: dbLang,
+  /** Toggle between Serbian and English */
   toggle: () => {
     const newLang = get().value === "en" ? "sr" : "en";
     storage.set("lang", newLang);

@@ -7,12 +7,12 @@ import { Section } from "./common/Section";
 import { useTheme } from "../core/theme";
 
 export function Social() {
-  const theme = useTheme();
+  const theme = useTheme((t) => t.value);
   // Every img tag with logo have this classes
-  const logoClasses = `w-16 ${theme.value === "dark" ? "social-dark-theme" : ""}`;
+  const logoClasses = `w-16 ${theme === "dark" ? "social-dark-theme" : ""}`;
 
   return (
-    <Section bg={theme.value === "light" ? "bg-gray-200" : ""} className="center -mt-8" id="social">
+    <Section bg={theme === "light" ? "bg-gray-200" : ""} className="center -mt-8" id="social">
       {/* Github */}
       <a
         className="mx-6 hover-scale-10"

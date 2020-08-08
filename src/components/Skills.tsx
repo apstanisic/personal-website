@@ -3,13 +3,13 @@ import codeImage from "../assets/code.png";
 import { useTheme } from "../core/theme";
 
 export function Skills() {
-  const theme = useTheme();
+  const theme = useTheme((t) => t.value);
 
   return (
     <div
       id="skills"
       className="px-4 mx-auto center"
-      style={{ ...(theme.value === "light" ? { backgroundColor: "#373740" } : {}) }}
+      style={{ ...(theme === "light" ? { backgroundColor: "#373740" } : {}) }}
     >
       <img src={codeImage} alt="skills" className="w-full mx-auto" style={{ maxWidth: 500 }} />
     </div>

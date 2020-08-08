@@ -13,7 +13,7 @@ import { Section } from "./common/Section";
 export function Contact() {
   const alert = useAlert();
   const t = useT();
-  const theme = useTheme();
+  const theme = useTheme((t) => t.value);
 
   // css classes for input fields
   const inputClasses = `shadow-xl border-gray-200 appearance-none border rounded w-full
@@ -63,7 +63,7 @@ export function Contact() {
   }
 
   return (
-    <Section bg={theme.value === "light" ? "bg-gray-200" : ""} id="contact">
+    <Section bg={theme === "light" ? "bg-gray-200" : ""} id="contact">
       <div className=" mx-auto">
         <div className="text-3xl text-center">
           <span>{t("contact.title")}</span>

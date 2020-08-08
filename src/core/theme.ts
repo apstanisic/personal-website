@@ -22,15 +22,15 @@ interface ThemeState {
 /**
  * Theme hook
  */
-export const [useTheme] = create<ThemeState>((set) => {
-  return {
-    value: dbTheme,
-    toggle: () => {
-      set((state) => {
-        const newTheme = state.value === "dark" ? "light" : "dark";
-        storage.set("theme", newTheme);
-        return { value: newTheme };
-      });
-    },
-  };
-});
+export const [useTheme] = create<ThemeState>((set) => ({
+  /** Current theme */
+  value: dbTheme,
+  /** Toggle between light and dark theme */
+  toggle: () => {
+    set((state) => {
+      const newTheme = state.value === "dark" ? "light" : "dark";
+      storage.set("theme", newTheme);
+      return { value: newTheme };
+    });
+  },
+}));

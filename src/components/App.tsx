@@ -16,9 +16,8 @@ if ((module as any).hot) {
 }
 
 export default function App() {
-  const theme = useTheme();
-  const appClasses =
-    theme.value === "light" ? "text-gray-900 bg-white" : "text-gray-100 bg-gray-900";
+  const theme = useTheme((theme) => theme.value);
+  const appClasses = theme === "light" ? "text-gray-900 bg-white" : "text-gray-100 bg-gray-900";
 
   return (
     <div id="app" className={appClasses}>
