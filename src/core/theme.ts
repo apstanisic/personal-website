@@ -22,15 +22,13 @@ interface ThemeState {
 /**
  * Theme hook
  */
-export const [useTheme] = create<ThemeState>((set) => ({
+export const [useTheme] = create<ThemeState>((set, get) => ({
   /** Current theme */
   value: dbTheme,
   /** Toggle between light and dark theme */
   toggle: () => {
-    set((state) => {
-      const newTheme = state.value === "dark" ? "light" : "dark";
-      storage.set("theme", newTheme);
-      return { value: newTheme };
-    });
+    const newTheme = get().value === "dark" ? "light" : "dark";
+    storage.set("theme", newTheme);
+    set({ value: newTheme });
   },
 }));
