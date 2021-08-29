@@ -1,6 +1,6 @@
 {
-  "name": "as-portfolio",
-  "version": "2.0.0-alpha.1",
+  "name": "portfolio-website",
+  "version": "3.0.0",
   "scripts": {
     "dev": "svelte-kit dev",
     "build": "svelte-kit build",
