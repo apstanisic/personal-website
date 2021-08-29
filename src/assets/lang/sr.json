@@ -1,37 +1,7 @@
 {
-  "header": {},
-  "sidebar": {
-    "home": "Početna",
-    "projects": "Projekti",
-    "about": "O meni",
-    "contact": "Kontakt",
-    "social": "Socijalne mreže",
-    "skills": "Veštine",
-    "oldWebsite": "Stari sajt",
-    "lang": "English",
-    "theme": {
-      "dark": "Dark",
-      "light": "Light"
-    }
-  },
-  "about": {
-    "text": "Ja sam Aleksandar, web developer i ponekad mobile developer iz Beograda. Javi se ako hoćeš da radimo, imaš neku dobru ideju, ili hoćeš da popijemo piće."
-  },
-  "oldWebsite": {
-    "text": "Volim svoj stari sajt, ali bilo je vreme da se napravi novi sa modernijim tehnologijama i boljim dizajnom. Pogledaj stari sajt i reci mi koji ti se više sviđa.",
-    "button": "Poseti stari sajt"
-  },
-  "contact": {
-    "title": "Kontaktiraj me",
-    "name": "Ime",
-    "email": "Email",
-    "message": "Poruka",
-    "placeholderName": "Petar Petrovic",
-    "placeholderEmail": "petar@example.com",
-    "placeholderMessage": "Vaša poruka...",
-    "send": "Pošalji poruku",
-    "sentSuccess": "Poruka uspešno poslata.",
-    "sentError": "Problem sa slanjem poruke. Probajte ponovo kasnije.",
-    "honeypot": "Ne popunjavaj ovo polje ako nisi kompjuter."
+  "lang": "sr",
+  "header": {
+    "title": "Aleksandar Stanisic",
+    "subtitle": "Zdravo, ja sam programer iz Beograda, kontaktiraj me putem linkova ispod"
   }
 }
