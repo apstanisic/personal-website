@@ -1,37 +1,7 @@
 {
-  "header": {},
-  "sidebar": {
-    "home": "Home",
-    "projects": "Projects",
-    "about": "About",
-    "contact": "Contact",
-    "social": "Social",
-    "skills": "Skills",
-    "oldWebsite": "Old Website",
-    "lang": "Srpski",
-    "theme": {
-      "dark": "Dark",
-      "light": "Light"
-    }
-  },
-  "about": {
-    "text": "Hi, I'm Aleksandar, web and sometimes mobile app developer from Belgrade, and I like to create interesting things. Don't hesitate to contact me if you have some project or cool idea, or if you want to hang out."
-  },
-  "oldWebsite": {
-    "text": " I am very proud with my old website, but it was time to update him with some new style and with modern technologies. I still want to show my first website to others. Check it out and tell me which site do you think is better.",
-    "button": "Visit old website"
-  },
-  "contact": {
-    "title": "Have any questions? Send me a message",
-    "name": "Name",
-    "email": "Email",
-    "message": "Message",
-    "placeholderName": "John Smith",
-    "placeholderEmail": "john@example.com",
-    "placeholderMessage": "Your message...",
-    "send": "Send message",
-    "sentSuccess": "Message successfully sent.",
-    "sentError": "There is problem sending message. Try again later.",
-    "honeypot": " Don’t fill this out if you're human."
+  "lang": "en",
+  "header": {
+    "title": "Aleksandar Stanisic",
+    "subtitle": "Hi, I'm a web and app developer from Belgrade, Serbia"
   }
 }

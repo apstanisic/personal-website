@@ -1,6 +1,5 @@
+.DS_Store
 node_modules
 /build
-/*.log
-# Ignore Preact generated files. I don't need them
-/state.json
-/size-plugin.json
+/.svelte-kit
+/package
