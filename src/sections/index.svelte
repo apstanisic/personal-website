@@ -1,5 +1,4 @@
 <script lang="ts">
-  import '../styles.css'
   import type { Translation } from '../types'
   import Header from './header.svelte'
   import Links from './links.svelte'
