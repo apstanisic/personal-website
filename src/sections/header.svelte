@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { Translation } from 'src/types'
+  import type { Translation } from 'src/translations'
   import me from '../assets/images/aleksandar.jpg'
 
   export let text: Translation['header']
@@ -11,6 +11,10 @@
     <p class="text-xl">{text.subtitle}</p>
   </div>
   <div class="center mx-auto md:mx-0">
-    <img class="h-auto max-w-[300px] m-3 rounded-md" src={me} alt="Aleksandar Stanisic" />
+    <img
+      class="h-auto max-w-[300px] m-3 rounded-md"
+      src={me}
+      alt="Aleksandar Stanisic"
+    />
   </div>
 </div>

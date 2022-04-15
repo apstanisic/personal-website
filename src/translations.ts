@@ -1,4 +1,4 @@
-export interface Translation {
+export type Translation = {
   lang: string
   header: {
     title: string

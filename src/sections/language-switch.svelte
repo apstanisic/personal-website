@@ -1,11 +1,13 @@
 <script lang="ts">
-  import type { Translation } from 'src/types'
+  import type { Translation } from 'src/translations'
 
   export let t: Translation
 </script>
 
 <div class="ml-auto  flex justify-end">
-  <a class="my-2 mx-4 p-2 text-sm rounded-lg border-2" href={t.lang === 'en' ? '/sr' : '/'}
+  <a
+    class="my-2 mx-4 p-2 text-sm rounded-lg border-2"
+    href={t.lang === 'en' ? '/sr' : '/'}
     >{t.lang === 'en' ? 'Srpski' : 'English'}</a
   >
 </div>
