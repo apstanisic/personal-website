@@ -1,13 +1,8 @@
 module.exports = {
-  content: ['./src/**/*.{js,ts,jsx,tsx,svelte}'],
-  darkMode: 'media', // or 'media' or 'class'
-  theme: {
-    extend: {},
-  },
-  variants: {
-    extend: {},
-  },
-  plugins: [],
-  important: true,
-  mode: 'jit',
-}
+	content: ['./src/**/*.{js,ts,jsx,tsx,svelte,html}'],
+	darkMode: 'media',
+	theme: {
+		extend: {}
+	},
+	plugins: []
+};
