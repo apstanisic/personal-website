@@ -1,3 +1,3 @@
 # Portfolio Website
 
-Simple static website hosted on `https://aleksandarstanisic.com`, built with Svelte and Tailwind.
+Simple static website hosted on `https://aleksandarstanisic.com`, built with SvelteKit and Tailwind.
