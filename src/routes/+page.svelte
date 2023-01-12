@@ -1,6 +1,6 @@
 <script>
-	import MainPage from '$lib/sections/MainPage.svelte';
-	import { en } from '$lib/translations/en';
+	import MainPage from '$lib/sections/MainPage.svelte'
+	import { en } from '$lib/translations/en'
 </script>
 
 <svelte:head>
