@@ -5,8 +5,8 @@
 	export let t: Translation
 </script>
 
-<div class="flex flex-col md:flex-row justify-between ">
-	<div class="text-center p-4  flex-1 max-w-3xl w-full ">
+<div class="flex flex-col md:flex-row justify-between mb-10 mt-4 gap-y-4">
+	<div class="text-center p-4 flex-1 w-full">
 		<h1 class="text-3xl my-3">{t.header.title}</h1>
 		<p class="text-xl">{t.header.subtitle}</p>
 	</div>
